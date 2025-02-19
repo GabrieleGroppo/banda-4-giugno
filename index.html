@@ -2,13 +2,13 @@
 <html lang="en">
 
 <head>
-    <title>HOME</title>
+    <title>Banda 4 Giugno 1859</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: "Lato", sans-serif
@@ -30,36 +30,71 @@
                     class="fa fa-bars"></i></a>
             <a href="#" class="w3-bar-item w3-button w3-padding-large">Home</a>
             <a href="#Maestri" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Maestri</a>
-            <a href="#Storia" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Storia</a>
-            <a href="#Scuola" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Scuola</a>
+            <a href="story.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Storia</a>
+            <a href="school.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Scuola</a>
             <a href="#Archivio" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Ricordi</a>
+            <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Contatti</a>
         </div>
     </div>
 
     <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
-    <div id="mini_nav_bar" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+    <div id="mini_nav_bar" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top"
+        style="margin-top:46px">
         <a href="#Maestri" class="w3-bar-item w3-button w3-padding-large" onclick="mini_munu()">Maestri</a>
-        <a href="#Storia" class="w3-bar-item w3-button w3-padding-large" onclick="mini_munu()">Storia</a>
-        <a href="#Scuola" class="w3-bar-item w3-button w3-padding-large" onclick="mini_munu()">Scuola</a>
+        <a href="story.html" class="w3-bar-item w3-button w3-padding-large" onclick="mini_munu()">Storia</a>
+        <a href="school.html" class="w3-bar-item w3-button w3-padding-large" onclick="mini_munu()">Scuola</a>
         <a href="#Archivio" class="w3-bar-item w3-button w3-padding-large" onclick="mini_munu()">Ricordi</a>
+        <a href="#contact" class="w3-bar-item w3-button w3-padding-large" onclick="mini_munu()">Contatti</a>
     </div>
 
 
     <div class="hero">
         <h1>Banda 4 Giugno 1859</h1>
     </div>
-
-
     <!-- Page content -->
-    <div class="w3-content" style="max-width:2000px;">
+    <div class="w3-black w3-content" style="max-width:2000px;">
+        <!-- The Band Section -->
+        <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+            <h2 class="w3-wide">La Banda</h2>
+            <p class="w3-opacity"><i>We love music</i></p>
+            <p class="w3-justify">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur
+                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum consectetur
+                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <div class="w3-row">
+                <div class="w3-third">
+                    <h3>Il Presidente</h6>
+                        <img src="images/presidente_square.jpg" class="w3-round w3-margin-bottom" alt="Presidente"
+                            style="width:60%">
+                        <p>Massimo Cavalli</p>
+                </div>
+                <div class="w3-third">
+                    <h3>Il Maestro</h6>
+                        <img src="images/maestro_square.jpg" class="w3-round w3-margin-bottom" alt="Maestro"
+                            style="width:60%">
+                        <p>Michela Fassi</p>
+                </div>
+                <div class="w3-third">
+                    <h3>I Musicisti</h6>
+                        <img src="images/banda_square.jpg" class="w3-round w3-margin-bottom" alt="Musicisti"
+                            style="width:60%">
+                        <p>Banda 4 Giugno</p>
+                </div>
+            </div>
+        </div>
         <!-- Next events section -->
         <div class="w3-black" id="next-events">
-            <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+            <div class="w3-container w3-content w3-padding-32" style="max-width:800px">
                 <h2 class="w3-wide w3-center">Prossimi eventi</h2>
                 <p class="w3-opacity w3-center"><i>Programma dei prossimi concerti e servizi, non mancare !</i></p><br>
                 <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
                     <div class="w3-third w3-margin-bottom">
-                        <img src="background-image.jpg" alt="New York" style="width:100%" class="w3-hover-opacity">
+                        <img src="images/background-image.jpg" alt="New York" style="width:100%"
+                            class="w3-hover-opacity">
                         <div class="w3-container w3-white">
                             <p><b>Concerto 4 Giugno</b></p>
                             <p class="w3-opacity">Mer 4 Giugno 2025</p>
@@ -70,7 +105,7 @@
                         </div>
                     </div>
                     <div class="w3-third w3-margin-bottom">
-                        <img src="background-image.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
+                        <img src="images/background-image.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
                         <div class="w3-container w3-white">
                             <p><b>Paris</b></p>
                             <p class="w3-opacity">Sat 28 Nov 2016</p>
@@ -81,7 +116,8 @@
                         </div>
                     </div>
                     <div class="w3-third w3-margin-bottom">
-                        <img src="background-image.jpg" alt="San Francisco" style="width:100%" class="w3-hover-opacity">
+                        <img src="images/background-image.jpg" alt="San Francisco" style="width:100%"
+                            class="w3-hover-opacity">
                         <div class="w3-container w3-white">
                             <p><b>San Francisco</b></p>
                             <p class="w3-opacity">Sun 29 Nov 2016</p>
@@ -94,21 +130,44 @@
                 </div>
             </div>
         </div>
-
+        <!-- Last event section -->
+        <div class="w3-black" id="next-events">
+            <div class="w3-container w3-content w3-padding-32" style="max-width:800px">
+                <h2 class="w3-wide w3-center">Ultimo evento</h2>
+                <p class="w3-opacity w3-center"><i>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vel eaque
+                        facere dignissimos accusamus. Ratione pariatur deleniti et quod placeat voluptas aliquid illo
+                        labore. Itaque eos in minima vel dicta numquam.</i></p><br>
+                <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+                    <div class="w3-container w3-margin-bottom">
+                        <img src="images/banda2.jpg" alt="New York" style="width:100%" class="w3-hover-opacity">
+                        <div class="w3-container w3-white">
+                            <p><b>Concerto 4 Giugno</b></p>
+                            <p class="w3-opacity">Mer 4 Giugno 2024</p>
+                            <p>L'iconico appuntamento annuale della banda 4 Giugno</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- The Contact Section -->
-        <div class="w3-container w3-modal-content w3-padding-64" style="max-width:800px" id="contact">
+        <div class="w3-black w3-container w3-modal-content w3-padding-32" style="max-width:800px" id="contact">
             <h2 class="w3-wide w3-center">Contatti</h2>
             <p class="w3-opacity w3-center"><i>Vieni a trovarci !</i></p>
             <div class="w3-row w3-padding-32">
                 <div class="w3-col m6 w3-large w3-margin-bottom">
-                    <i class="fa fa-map-marker" style="width:30px"></i>Via Roma, 182, 20013 Magenta MI<br>
-                    <i class="fa fa-phone" style="width:30px"></i>+39 029790236<br>
-                    <i class="fa fa-envelope" style="width:30px"> </i>info@banda4giugno1859.it<br>
-                    <i class="fa fa-bars" style="width:30px"></i>Martedì 16:00 - 17:00 o 21:00 - 23:00<br>
+                    <ul>
+                        <li><i class="fa fa-map-marker" style="width:30px"></i><a
+                                href="https://www.google.com/maps?q=Via+Roma,+182,+20013+Magenta+MI" target="_blank">Via
+                                Roma, 182, 20013 Magenta MI</a>
+                        </li>
+                        <li><i class="fa fa-phone" style="width:30px"></i><a href="tel:+39029790236">+39 029790236</a>
+                        </li>
+                        <li><i class="fa fa-envelope" style="width:30px"></i><a href="mailto:info@banda4giugno1859.it">info@banda4giugno1859.it</a></li>
+                        <li><i class="fa fa-bars" style="width:30px"></i>Martedì 16:00 - 17:00 o 21:00 - 23:00</li>
+                    </ul>
                 </div>
             </div>
         </div>
-
         <!-- End Page Content -->
     </div>
     <!-- Footer -->
