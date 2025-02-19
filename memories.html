@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Banda 4 Giugno 1859</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: "Lato", sans-serif
+        }
+
+        .mySlides {
+            display: none
+        }
+
+        .event {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-black w3-card">
+            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right"
+                href="javascript:void(0)" onclick="mini_munu()" title="Toggle Navigation Menu"><i
+                    class="fa fa-bars"></i></a>
+            <a href="index.html" class="w3-bar-item w3-button w3-padding-large">Home</a>
+            <a href="#Maestri" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Maestri</a>
+            <a href="story.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Storia</a>
+            <a href="school.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Scuola</a>
+            <a href="memories.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Ricordi</a>
+            <a href="index.html#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Contatti</a>
+        </div>
+    </div>
+
+    <!-- Navbar on small screens -->
+    <div id="mini_nav_bar" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top"
+        style="margin-top:46px">
+        <a href="#Maestri" class="w3-bar-item w3-button w3-padding-large" onclick="mini_munu()">Maestri</a>
+        <a href="story.html" class="w3-bar-item w3-button w3-padding-large" onclick="mini_munu()">Storia</a>
+        <a href="school.html" class="w3-bar-item w3-button w3-padding-large" onclick="mini_munu()">Scuola</a>
+        <a href="memories.html" class="w3-bar-item w3-button w3-padding-large" onclick="mini_munu()">Ricordi</a>
+        <a href="index.html#contact" class="w3-bar-item w3-button w3-padding-large" onclick="mini_munu()">Contatti</a>
+    </div>
+
+    <!-- Page content -->
+    <div class="w3-black w3-content" style="max-width:2000px;">
+        <!-- Next events section -->
+        <div class="w3-black" id="next-events">
+            <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+                <h1 class="w3-wide w3-center">I Ricordi</h1>
+            </div>
+        </div>
+        <!-- Filter Section -->
+        <div class="w3-container w3-content w3-padding-32">
+            <h3 class="w3-center">Filtra per Anno</h3>
+            <div class="w3-center">
+                <select class="w3-select w3-border w3-padding-large w3-black" onchange="filterByYear(this.value)">
+                    <option value="2025">2025</option>
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                </select>
+            </div>
+            <h3 class="w3-center">Filtra per Categoria</h3>
+            <w3-center">
+                <select class="w3-select w3-border w3-padding-large w3-black" onchange="filterByCategory(this.value)">
+                    <option value="">Tutto</option>
+                    <option value="concerto">Concerti</option>
+                    <option value="servizio">Servizi</option>
+                    <option value="gita">Fuori porta</option>
+                </select>
+        </div>
+
+    </div>
+
+    <!-- Events Section -->
+    <div class="w3-black" id="next-events">
+        <div class="w3-container w3-content w3-padding-32" style="max-width:800px">
+            <h3 class="w3-wide w3-center" id="event-year">2025</h3>
+            <div class="w3-row-padding w3-padding-32" style="margin:0 -16px" id="events2024">
+
+                <div class="w3-third w3-margin-bottom event" data-year="2024", data-category="concerto">
+                    <img src="images/background-image.jpg" alt="New York" style="width:100%" class="w3-hover-opacity">
+                    <div class="w3-container w3-white">
+                        <p><b>Concerto 4 Giugno</b></p>
+                        <p class="w3-opacity">Mer 4 Giugno 2025</p>
+                        <p class="w3-opacity">21:00</p>
+                        <p>L'iconico appuntamento annuale della banda 4 Giugno</p>
+                    </div>
+                </div>
+                <div class="w3-third w3-margin-bottom event" data-year="2024", data-category="servizio">
+                    <img src="images/background-image.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
+                    <div class="w3-container w3-white">
+                        <p><b>Paris</b></p>
+                        <p class="w3-opacity">Sat 28 Nov 2016</p>
+                        <p class="w3-opacity">21:00</p>
+                        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                    </div>
+                </div>
+                <div class="w3-third w3-margin-bottom event" data-year="2024", data-category="gita">
+                    <img src="images/background-image.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
+                    <div class="w3-container w3-white">
+                        <p><b>Paris</b></p>
+                        <p class="w3-opacity">Sat 28 Nov 2016</p>
+                        <p class="w3-opacity">21:00</p>
+                        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                    </div>
+                </div>
+                <div class="w3-third w3-margin-bottom event" data-year="2024", data-category="servizio">
+                    <img src="images/background-image.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
+                    <div class="w3-container w3-white">
+                        <p><b>Paris</b></p>
+                        <p class="w3-opacity">Sat 28 Nov 2016</p>
+                        <p class="w3-opacity">21:00</p>
+                        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                    </div>
+                </div>
+                <div class="w3-third w3-margin-bottom event" data-year="2023", data-category="concerto">
+                    <img src="images/background-image.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
+                    <div class="w3-container w3-white">
+                        <p><b>Paris</b></p>
+                        <p class="w3-opacity">Sat 28 Nov 2016</p>
+                        <p class="w3-opacity">21:00</p>
+                        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                    </div>
+                </div>
+                <div class="w3-third w3-margin-bottom event" data-year="2023", data-category="servizio">
+                    <img src="images/background-image.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
+                    <div class="w3-container w3-white">
+                        <p><b>Paris</b></p>
+                        <p class="w3-opacity">Sat 28 Nov 2016</p>
+                        <p class="w3-opacity">21:00</p>
+                        <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+        <i class="fa fa-facebook-official w3-hover-opacity"><a href="https://www.facebook.com/groups/132283506879758/"></a></i>
+        <i class="fa fa-instagram w3-hover-opacity"><a href="https://www.instagram.com/banda4giugno1859?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="></a></i>
+        <p class="w3-medium">Banda 4 giugno 1859 - P.I. 01300490156</p>
+    </footer>
+
+    <script>
+        var year = 2025;
+        var category = '';
+        filterEvents();
+        // Function to show/hide events based on the selected year
+        function filterEvents() {
+            var events = document.getElementsByClassName('event');
+            for (var i = 0; i < events.length; i++) {
+                var event_year = events[i].getAttribute('data-year');
+                var event_category = events[i].getAttribute('data-category');
+                if (event_year == year && (category === '' || category === event_category)) {
+                    events[i].style.display = 'block';
+                } else {
+                    events[i].style.display = 'none';
+                }
+            }
+            //change the year in the title
+            if(category === '') {
+                document.getElementById('event-year').innerHTML = year;
+            } else if(category === 'concerto') {
+                document.getElementById('event-year').innerHTML = "Concerti del " + year;
+            } else if(category === 'servizio') {
+                document.getElementById('event-year').innerHTML = "Servizi del " + year;
+            } else if(category === 'gita') {
+                document.getElementById('event-year').innerHTML = "Gite del " + year;
+            }
+            
+        }
+
+        // Function to filter events by dropdown selection
+        function filterByYear(new_year) {
+            year = new_year;
+            filterEvents();
+        }
+
+        function filterByCategory(new_category) {
+            category = new_category;
+            filterEvents();
+        }
+        
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function mini_munu() {
+            var x = document.getElementById("mini_nav_bar");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
