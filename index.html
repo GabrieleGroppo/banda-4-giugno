@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>HOME</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: "Lato", sans-serif
+        }
+
+        .mySlides {
+            display: none
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-black w3-card">
+            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right"
+                href="javascript:void(0)" onclick="mini_munu()" title="Toggle Navigation Menu"><i
+                    class="fa fa-bars"></i></a>
+            <a href="#" class="w3-bar-item w3-button w3-padding-large">Home</a>
+            <a href="#Maestri" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Maestri</a>
+            <a href="#Storia" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Storia</a>
+            <a href="#Scuola" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Scuola</a>
+            <a href="#Archivio" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Ricordi</a>
+        </div>
+    </div>
+
+    <!-- Navbar on small screens (remove the onclick attribute if you want the navbar to always show on top of the content when clicking on the links) -->
+    <div id="mini_nav_bar" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top" style="margin-top:46px">
+        <a href="#Maestri" class="w3-bar-item w3-button w3-padding-large" onclick="mini_munu()">Maestri</a>
+        <a href="#Storia" class="w3-bar-item w3-button w3-padding-large" onclick="mini_munu()">Storia</a>
+        <a href="#Scuola" class="w3-bar-item w3-button w3-padding-large" onclick="mini_munu()">Scuola</a>
+        <a href="#Archivio" class="w3-bar-item w3-button w3-padding-large" onclick="mini_munu()">Ricordi</a>
+    </div>
+
+
+    <div class="hero">
+        <h1>Banda 4 Giugno 1859</h1>
+    </div>
+
+
+    <!-- Page content -->
+    <div class="w3-content" style="max-width:2000px;">
+        <!-- Next events section -->
+        <div class="w3-black" id="next-events">
+            <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+                <h2 class="w3-wide w3-center">Prossimi eventi</h2>
+                <p class="w3-opacity w3-center"><i>Programma dei prossimi concerti e servizi, non mancare !</i></p><br>
+                <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+                    <div class="w3-third w3-margin-bottom">
+                        <img src="background-image.jpg" alt="New York" style="width:100%" class="w3-hover-opacity">
+                        <div class="w3-container w3-white">
+                            <p><b>Concerto 4 Giugno</b></p>
+                            <p class="w3-opacity">Mer 4 Giugno 2025</p>
+                            <p class="w3-opacity">21:00</p>
+                            <p>L'iconico appuntamento annuale della banda 4 Giugno</p>
+                            <button class="w3-button w3-black w3-margin-bottom"
+                                onclick="document.getElementById('ticketModal').style.display='block'">Salva</button>
+                        </div>
+                    </div>
+                    <div class="w3-third w3-margin-bottom">
+                        <img src="background-image.jpg" alt="Paris" style="width:100%" class="w3-hover-opacity">
+                        <div class="w3-container w3-white">
+                            <p><b>Paris</b></p>
+                            <p class="w3-opacity">Sat 28 Nov 2016</p>
+                            <p class="w3-opacity">21:00</p>
+                            <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                            <button class="w3-button w3-black w3-margin-bottom"
+                                onclick="document.getElementById('ticketModal').style.display='block'">Salva</button>
+                        </div>
+                    </div>
+                    <div class="w3-third w3-margin-bottom">
+                        <img src="background-image.jpg" alt="San Francisco" style="width:100%" class="w3-hover-opacity">
+                        <div class="w3-container w3-white">
+                            <p><b>San Francisco</b></p>
+                            <p class="w3-opacity">Sun 29 Nov 2016</p>
+                            <p class="w3-opacity">21:00</p>
+                            <p>Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
+                            <button class="w3-button w3-black w3-margin-bottom"
+                                onclick="document.getElementById('ticketModal').style.display='block'">Salva</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Contact Section -->
+        <div class="w3-container w3-modal-content w3-padding-64" style="max-width:800px" id="contact">
+            <h2 class="w3-wide w3-center">Contatti</h2>
+            <p class="w3-opacity w3-center"><i>Vieni a trovarci !</i></p>
+            <div class="w3-row w3-padding-32">
+                <div class="w3-col m6 w3-large w3-margin-bottom">
+                    <i class="fa fa-map-marker" style="width:30px"></i>Via Roma, 182, 20013 Magenta MI<br>
+                    <i class="fa fa-phone" style="width:30px"></i>+39 029790236<br>
+                    <i class="fa fa-envelope" style="width:30px"> </i>info@banda4giugno1859.it<br>
+                    <i class="fa fa-bars" style="width:30px"></i>Martedì 16:00 - 17:00 o 21:00 - 23:00<br>
+                </div>
+            </div>
+        </div>
+
+        <!-- End Page Content -->
+    </div>
+    <!-- Footer -->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <p class="w3-medium">Banda 4 giugno 1859 - P.I. 01300490156</p>
+    </footer>
+    <script>
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function mini_munu() {
+            var x = document.getElementById("mini_nav_bar");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+    </script>
+</body>
+
+</html>
