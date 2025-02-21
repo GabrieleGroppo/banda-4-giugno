@@ -4,6 +4,7 @@
 <head>
     <title>Banda 4 Giugno 1859</title>
     <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
@@ -111,7 +112,7 @@
                     let eventHtml =
                     `<div class="w3-third w3-margin-bottom">
                         <img src="${BASE_URL}${event.Cover.url}" alt="New York" style="width:100%"
-                            class="w3-hover-opacity">
+                            class="w3-hover-opacity" onclick="location.href='event.html?id=${event.documentId}'">
                         <div class="w3-container w3-white">
                             <h4>${event.Title}</h4>
                             <p class="w3-opacity">${date}</p>
