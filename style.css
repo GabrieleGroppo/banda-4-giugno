@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
 
 .hero {
-    background-image: url('images/background-image.jpg');
     background-size: cover;
     background-position: center;
     height: 80vh;
@@ -17,6 +16,63 @@
     font-family: 'Playfair Display', serif;
     font-size: 4rem;
     letter-spacing: 2px;
+
+
 }
 
-/* Calendar */
+.social-links {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.social-links a {
+    color: black;
+    font-size: 24px;
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    color: #ffcc00;
+}
+
+
+.event {
+    min-height: 350px; /* Altezza minima per uniformità */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+    flex-grow: 1; /* Permette alla card di allungarsi se necessario */
+}
+
+.event img {
+    height: 150px; /* Altezza fissa per l'immagine */
+    object-fit: cover;
+    width: 100%;
+}
+
+.event .w3-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Fa sì che il contenitore cresca se la card è più piccola */
+}
+
+.event h4 {
+    margin: 10px 0;
+}
+
+.event p {
+    flex-grow: 1; /* Permette alla descrizione di occupare spazio */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Numero massimo di righe prima del troncamento */
+    -webkit-box-orient: vertical;
+}
+
+.event .w3-opacity {
+    flex-shrink: 0; /* Impedisce alla data di ridursi */
+}
+
