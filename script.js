@@ -5,23 +5,6 @@ const map = {
   "Cena": "Cene",
   "Tutto": "Tutto"
 };
-const data = {
-  "data": [
-    {
-      "id": 2,
-      "Name": "Michela Fassi",
-      "Picture": {
-        "url": "/uploads/maestro_michela_fassi_e1c5f4fe3e.jpg"
-      }
-    }
-  ]
-};
-
-// Estrarre l'URL dell'immagine
-const pictureUrl = `${BASE_URL}${data.data[0].Picture.url}`;
-
-console.log(pictureUrl);
-//setHome();
 
 async function getHomeFileds() {
   try {
@@ -52,12 +35,21 @@ async function setHomePage() {
     //modifico foto maestro
     document.getElementById('maestro').innerText = home.ConductorName;
     document.getElementById('maestro-img').src = `${BASE_URL}${home.ConductorPhoto.url}`;
+    //set onlick event
+    document.getElementById('maestro-img').onclick = function () {
+      location.href = 'banda.html#Il Maestro'};
     // modifico foto presidente
     document.getElementById('presidente').innerText = home.PresidentName;
     document.getElementById('presidente-img').src = `${BASE_URL}${home.PresidentPhoto.url}`;
-    
+        //set onlick event
+        document.getElementById('presidente-img').onclick = function () {
+          location.href = 'banda.html#Il Presidente'};
+
     document.getElementById('musicisti').innerText = home.Musicians;
     document.getElementById('musicisti-img').src = `${BASE_URL}${home.MusiciansPhoto.url}`;
+    //set onlick event
+    document.getElementById('musicisti-img').onclick = function () {
+      location.href = 'banda.html#I Musicisti'};
 
   } catch (error) {
     console.error("Errore:", error);
@@ -184,24 +176,8 @@ async function filterEvents(year, category) {
   document.getElementById('events-year').innerText = map[category] + " - " + year;
   document.getElementById('events-containter').innerHTML = "";
   events.forEach(event => {
-    //console.log("Evento:", event); // Log più chiaro
-
-    let date = getIntalianDateTime(event.Date, event.Time);
-
-    let eventHtml =
-      `
-    <div class="w3-third w3-margin-bottom event"><img
-                        src="${BASE_URL}${event.Cover.url}"
-                        alt="${event.Cover.alternativeText}" style="width:100%"
-                        class="w3-hover-opacity">
-                    <div class="w3-container w3-white">
-                        <h4>${event.Title}</h4>
-                        <p class="w3-opacity">${date}</p>
-                        <p>${event.ShortDescription}</p>
-                    </div>
-                </div>
-    `;
-    //console.log(eventHtml);
+    console.log(event);
+    let eventHtml = generateEventCard(event);
     document.getElementById('events-containter').innerHTML += eventHtml;
   });
 }
@@ -250,15 +226,10 @@ function getIntalianDateTime(old_date, old_time) {
     return dataFormattata;
   }
 }
-window.onload = function () {
-  loadCategories();
-  loadYears();
-  filterEvents(year, category);
-};
 
 function loadCategories() {
   let categories = ["Tutto", "Concerto", "Servizio", "Cena"];
-  
+
   let select = document.getElementById("memCategories");
   select.innerHTML = "";
   categories.forEach(category => {
@@ -279,4 +250,24 @@ function loadYears() {
     option.text = year;
     select.appendChild(option);
   }
+}
+
+function generateEventCard(event) {
+  let date = getIntalianDateTime(event.Date, event.Time);
+  
+  let eventHtml =
+    `
+    <div class="w3-third w3-margin-bottom event">
+      <img src="${BASE_URL}${event.Cover.formats.medium.url}" alt="${event.Cover.alternativeText}" style="width:100%" class="w3-hover-opacity" onclick="location.href='event.html?id=${event.documentId}'">
+      <div class="w3-container w3-white">
+        <h4>${event.Title}</h4>
+        <p class="w3-opacity">${date}</p>
+        <p>${event.ShortDescription}</p>
+      </div>
+    </div>
+    `;
+
+  console.log(eventHtml);
+  return eventHtml;
+  
 }

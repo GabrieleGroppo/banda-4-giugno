@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Banda 4 Giugno 1859</title>
+    <title>Evento</title>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -143,29 +143,22 @@
     <div class="w3-black w3-content" style="max-width:2000px;">
 
         <div class="w3-container w3-content w3-center w3-padding-32" style="max-width:800px">
-            <h2 class="w3-wide">Concerto 4 Giugno</h2>
+            <h2 id="event-title" class="w3-wide">Concerto 4 Giugno</h2>
             <!-- date -->
-            <p class="w3-opacity"><i>4 Giugno 2021 ore 21:00</i></p>
-            <p class="w3-opacity"><i>Teatro lirico Magenta</i></p>
-            <p class="w3-justify">Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
-                deserunt mollit anim id est laborum consectetur
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+            <p id="event-date" class="w3-opacity"></p>
+            <p id="event-location" class="w3-opacity"><i>Teatro lirico Magenta</i></p>
+            <p id="event-description" class="w3-justify"></p>
         </div>
         <!-- Gallery -->
         <script>
             var slideIndex = 1;
-            const totSlides = 6;
+            var totSlides;
             function changeEventPicture(number) {
                 let eventPicture = document.getElementById("event-picture");
                 let pic = document.getElementById(`pic-${number}`);
                 eventPicture.innerHTML = `
-                    <div class="numbertext">${number} / 6</div>
-                    <img src="${pic.src}" style="width:100%">
+                    <div class="numbertext">${number} / ${totSlides}</div>
+                    <img src="${pic.src.replace("small_","")}" style="width:100%">
                 `;
             }
 
@@ -194,32 +187,63 @@
                 changeEventPicture(n);
             }
 
-            function loadPictures() {
+            function loadPictures(photoes) {
                 let pictures = document.getElementById("pictures");
                 pictures.innerHTML = '';
                 pictures.innerHTML += `
                     <div class="row">`;
-                for (let i = 1; i <= totSlides; i++) {
+                let i = 0;
+                photoes.forEach(photo => {
+                    i++;
                     pictures.innerHTML += `
                         <div class="column">
-                            <img id="pic-${i}" class="demo cursor" src="images/banda${i}.jpg" style="width:100%" onclick="currentSlide(${i})">
+                            <img id="pic-${i}" class="demo cursor" src="${BASE_URL}${photo.formats.small.url}" style="width:100%" onclick="currentSlide(${i})">
                         </div>
                     `;
-                }
+                });
                 pictures.innerHTML += `</div>`;
+                return i;
             }
+
+            async function getEventDetails(evendId) {
+                let response = await fetch(`${BASE_URL}/api/events/${evendId}?populate=*`);
+                let data = await response.json();
+                return data;
+            }
+
+            async function setEventPage() {
+                let urlParams = new URLSearchParams(window.location.search);
+                let eventId = urlParams.get('id');
+                let event = await getEventDetails(eventId);
+                event = event.data;
+                console.log(event);
+                let date = getIntalianDateTime(event.Date, event.Time);
+                let eventContainer = document.getElementById('event-title');
+                eventContainer.innerHTML = event.Title;
+                let eventDescription = document.getElementById('event-description');
+                eventDescription.innerHTML = event.Description;
+                let eventDate = document.getElementById('event-date');
+                eventDate.innerHTML = date;
+                let eventLocation = document.getElementById('event-location');
+                eventLocation.innerHTML = event.Location;
+                event.Photos.forEach(element => {
+                    console.log(element.url);
+
+                });
+                totSlides = loadPictures(event.Photos);
+                changeEventPicture(1);
+            }
+
             window.onload = () => {
-                loadPictures();
+                setEventPage();
+                //loadPictures();
             };
 
         </script>
         <div class="w3-container w3-content w3-center w3-padding-32" style="max-width:800px">
             <h3 style="text-align:center">Foto evento</h3><br>
             <div class="container">
-                <div id="event-picture">
-                    <div class="numbertext">1 / 6</div>
-                    <img src="images/banda.jpg" style="width:100%">
-                </div>
+                <div id="event-picture"></div>
                 <br>
                 <a class="prev" onclick="prevSlide()">❮</a>
                 <a class="next" onclick="nextSlide()">❯</a>
