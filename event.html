@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Evento</title>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="script.js"></script>
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            position: relative;
+            max-width: 100%;
+            margin: auto;
+        }
+
+        .mySlides {
+            display: none;
+            width: 100%;
+        }
+
+        .gallery {
+            margin: 5px;
+            border: 1px solid #ccc;
+            float: left;
+            width: 180px;
+            transition: border 0.3s;
+        }
+
+        .gallery:hover {
+            border: 1px solid #777;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+        }
+
+        .desc {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .cursor {
+            cursor: pointer;
+        }
+
+        /* Navigation Arrows */
+        .prev,
+        .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: auto;
+            padding: 16px;
+            color: white;
+            font-weight: bold;
+            font-size: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 3px;
+            user-select: none;
+            transition: background-color 0.3s;
+        }
+
+        .prev {
+            left: 10px;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .next {
+            right: 10px;
+            border-radius: 0 3px 3px 0;
+        }
+
+        .prev:hover,
+        .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .numbertext {
+            position: absolute;
+            top: 0;
+            left: 10px;
+            color: #f2f2f2;
+            font-size: 14px;
+            padding: 8px 12px;
+        }
+
+        .caption-container {
+            text-align: center;
+            background-color: #222;
+            padding: 10px;
+            color: white;
+            font-size: 16px;
+        }
+
+        .row::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .column {
+            float: left;
+            width: 16.66%;
+            padding: 5px;
+        }
+
+        .demo {
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .active,
+        .demo:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div class="w3-top">
+        <div class="w3-bar w3-black w3-card">
+            <a href="javascript:history.back()" class="w3-bar-item w3-button w3-padding-large">Go Back</a>
+        </div>
+    </div>
+    <!-- Page content -->
+    <!-- add background transparency to better read the page content-->
+    <div class="w3-black w3-content" style="max-width:2000px;">
+
+        <div class="w3-container w3-content w3-center w3-padding-32" style="max-width:800px">
+            <h2 id="event-title" class="w3-wide">Concerto 4 Giugno</h2>
+            <!-- date -->
+            <p id="event-date" class="w3-opacity"></p>
+            <p id="event-location" class="w3-opacity"><i>Teatro lirico Magenta</i></p>
+            <p id="event-description" class="w3-justify"></p>
+        </div>
+        <!-- Gallery -->
+        <script>
+            var slideIndex = 1;
+            var totSlides;
+            function changeEventPicture(number) {
+                let eventPicture = document.getElementById("event-picture");
+                let pic = document.getElementById(`pic-${number}`);
+                eventPicture.innerHTML = `
+                    <div class="numbertext">${number} / ${totSlides}</div>
+                    <img src="${pic.src.replace("small_","")}" style="width:100%">
+                `;
+            }
+
+            function nextSlide() {
+                console.log(slideIndex);
+                if(slideIndex == totSlides){
+                    slideIndex = 1;
+                }else{
+                    slideIndex++;
+                }
+                changeEventPicture(slideIndex);
+            }
+
+            function prevSlide() {
+                console.log(slideIndex);
+                if(slideIndex == 1){
+                    slideIndex = totSlides;
+                }else{
+                    slideIndex--;
+                }
+                changeEventPicture(slideIndex);
+            }
+
+            function currentSlide(n) {
+                slideIndex = n;
+                changeEventPicture(n);
+            }
+
+            function loadPictures(photoes) {
+                let pictures = document.getElementById("pictures");
+                pictures.innerHTML = '';
+                pictures.innerHTML += `
+                    <div class="row">`;
+                let i = 0;
+                photoes.forEach(photo => {
+                    i++;
+                    pictures.innerHTML += `
+                        <div class="column">
+                            <img id="pic-${i}" class="demo cursor" src="${BASE_URL}${photo.formats.small.url}" style="width:100%" onclick="currentSlide(${i})">
+                        </div>
+                    `;
+                });
+                pictures.innerHTML += `</div>`;
+                return i;
+            }
+
+            async function getEventDetails(evendId) {
+                let response = await fetch(`${BASE_URL}/api/events/${evendId}?populate=*`);
+                let data = await response.json();
+                return data;
+            }
+
+            async function setEventPage() {
+                let urlParams = new URLSearchParams(window.location.search);
+                let eventId = urlParams.get('id');
+                let event = await getEventDetails(eventId);
+                event = event.data;
+                console.log(event);
+                let date = getIntalianDateTime(event.Date, event.Time);
+                let eventContainer = document.getElementById('event-title');
+                eventContainer.innerHTML = event.Title;
+                let eventDescription = document.getElementById('event-description');
+                eventDescription.innerHTML = event.Description;
+                let eventDate = document.getElementById('event-date');
+                eventDate.innerHTML = date;
+                let eventLocation = document.getElementById('event-location');
+                eventLocation.innerHTML = event.Location;
+                event.Photos.forEach(element => {
+                    console.log(element.url);
+
+                });
+                totSlides = loadPictures(event.Photos);
+                changeEventPicture(1);
+            }
+
+            window.onload = () => {
+                setEventPage();
+                //loadPictures();
+            };
+
+        </script>
+        <div class="w3-container w3-content w3-center w3-padding-32" style="max-width:800px">
+            <h3 style="text-align:center">Foto evento</h3><br>
+            <div class="container">
+                <div id="event-picture"></div>
+                <br>
+                <a class="prev" onclick="prevSlide()">❮</a>
+                <a class="next" onclick="nextSlide()">❯</a>
+            </div>
+            <!-- pictures to be selected -->
+             <div class="container" id="pictures">
+             </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <div id="footer-container"></div>
+
+</body>
+
+</html>
