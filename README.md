@@ -1,2 +1,2 @@
-# banda-4-giugno-frontend
-Official website of Banda 4 Giugno 1859.
+# Website of banda-4-giugno
+Official website (frontend) of Banda 4 Giugno 1859.
