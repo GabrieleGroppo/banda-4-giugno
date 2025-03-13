@@ -21,56 +21,6 @@ const map = {
   "Tutto": "Tutto"
 };
 
-async function getHomeFileds() {
-  try {
-    const response = await fetch(`${BASE_URL}/api/home?populate=*`);
-    if (!response.ok) throw new Error("Errore nel recupero dei dati");
-
-    const json = await response.json();
-    const data = json.data;
-    return data;
-  } catch (error) {
-    console.error("Errore:", error);
-    throw error;
-  }
-}
-
-async function setHomePage() {
-  try {
-    let home = await getHomeFileds();
-
-    // Modifica il titolo della pagina
-    document.title = home.Title;
-    console.log(home);
-    // Modifica l'immagine di copertina
-    const coverUrl = `${BASE_URL}${home.Cover.url}`;
-    document.getElementById('cover').style.backgroundImage = `url(${coverUrl})`;
-    //Modifico il titolo della copertina
-    document.getElementById('cover-title').innerText = home.Title;
-    //modifico foto maestro
-    document.getElementById('maestro').innerText = home.ConductorName;
-    document.getElementById('maestro-img').src = `${BASE_URL}${home.ConductorPhoto.url}`;
-    //set onlick event
-    document.getElementById('maestro-img').onclick = function () {
-      location.href = 'banda.html#Il Maestro'};
-    // modifico foto presidente
-    document.getElementById('presidente').innerText = home.PresidentName;
-    document.getElementById('presidente-img').src = `${BASE_URL}${home.PresidentPhoto.url}`;
-        //set onlick event
-        document.getElementById('presidente-img').onclick = function () {
-          location.href = 'banda.html#Il Presidente'};
-
-    document.getElementById('musicisti').innerText = home.Musicians;
-    document.getElementById('musicisti-img').src = `${BASE_URL}${home.MusiciansPhoto.url}`;
-    //set onlick event
-    document.getElementById('musicisti-img').onclick = function () {
-      location.href = 'banda.html#I Musicisti'};
-
-  } catch (error) {
-    console.error("Errore:", error);
-  }
-}
-
 //getLatestPastEvent();
 async function getLatestPastEvent() {
   try {
