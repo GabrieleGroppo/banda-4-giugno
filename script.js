@@ -1,4 +1,19 @@
-const BASE_URL = "http://localhost:1337"; // Cambia con il tuo dominio Strapi
+// Autore: Gabriele Groppo
+const BASE_URL = "http://192.168.178.127:1337"; //Strapi
+const API_BASE_URL = BASE_URL+"/api"; //Strapi
+// Carica i componenti comuni
+fetch("components/footer.html")
+  .then(response => response.text())
+  .then(data => document.getElementById("footer-container").innerHTML = data);
+
+fetch("components/navbar.html")
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById("navbar-container").innerHTML = data;
+    loadCategories();
+    loadYears();
+  });
+
 const map = {
   "Concerto": "Concerti",
   "Servizio": "Servizi",
@@ -181,10 +196,6 @@ async function filterEvents(year, category) {
     document.getElementById('events-containter').innerHTML += eventHtml;
   });
 }
-
-fetch("footer.html")
-  .then(response => response.text())
-  .then(data => document.getElementById("footer-container").innerHTML = data);
 
 //filterEvents();
 // Function to show/hide events based on the selected year

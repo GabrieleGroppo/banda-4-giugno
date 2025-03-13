@@ -12,45 +12,10 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="script.js"></script>
-    <style>
-        body {
-            font-family: "Lato", sans-serif
-        }
-
-        .mySlides {
-            display: none
-        }
-
-        .event {
-            display: block;
-        }
-    </style>
 </head>
 <body>
     <!-- Navbar -->
-    <div class="w3-top">
-        <div class="w3-bar w3-black w3-card">
-            <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right"
-                href="javascript:void(0)" onclick="mini_munu()" title="Toggle Navigation Menu"><i
-                    class="fa fa-bars"></i></a>
-            <a href="index.html" class="w3-bar-item w3-button w3-padding-large">Home</a>
-            <a href="banda.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Banda</a>
-            <a href="story.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Storia</a>
-            <a href="school.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Scuola</a>
-            <a href="memories.html" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Ricordi</a>
-            <a href="index.html#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">Contatti</a>
-        </div>
-    </div>
-
-    <!-- Navbar on small screens -->
-    <div id="mini_nav_bar" class="w3-bar-block w3-black w3-hide w3-hide-large w3-hide-medium w3-top"
-        style="margin-top:46px">
-        <a href="banda.html" class="w3-bar-item w3-button w3-padding-large" onclick="mini_munu()">Maestri</a>
-        <a href="story.html" class="w3-bar-item w3-button w3-padding-large" onclick="mini_munu()">Storia</a>
-        <a href="school.html" class="w3-bar-item w3-button w3-padding-large" onclick="mini_munu()">Scuola</a>
-        <a href="memories.html" class="w3-bar-item w3-button w3-padding-large" onclick="mini_munu()">Ricordi</a>
-        <a href="index.html#contact" class="w3-bar-item w3-button w3-padding-large" onclick="mini_munu()">Contatti</a>
-    </div>
+    <div id="navbar-container"></div>
 
     <!-- Page content -->
     <div class="w3-black w3-content" style="max-width:2000px;">
