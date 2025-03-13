@@ -27,11 +27,11 @@ async function setHomePage() {
     // Modifica il titolo della pagina
     document.title = home.Title;
     console.log(home);
-    // Modifica l'immagine di copertina
+    /*// Modifica l'immagine di copertina
     const coverUrl = `${BASE_URL}${home.Cover.url}`;
     document.getElementById('cover').style.backgroundImage = `url(${coverUrl})`;
     //Modifico il titolo della copertina
-    document.getElementById('cover-title').innerText = home.Title;
+    document.getElementById('cover-title').innerText = home.Title;*/
     //modifico foto maestro
     document.getElementById('maestro').innerText = home.ConductorName;
     document.getElementById('maestro-img').src = `${BASE_URL}${home.ConductorPhoto.url}`;
