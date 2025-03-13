@@ -16,8 +16,10 @@
     font-family: 'Playfair Display', serif;
     font-size: 4rem;
     letter-spacing: 2px;
+}
 
-
+body {
+    font-family: "Lato", sans-serif
 }
 
 .social-links {
