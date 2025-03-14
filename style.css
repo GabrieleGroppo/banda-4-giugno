@@ -22,6 +22,19 @@ body {
   font-family: 'Times New Roman'
 }
 
+/* Effetto hover oro */
+.gold-hover {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: 0.3s;
+}
+
+.gold-hover:hover {
+  color: #f8b400;
+  text-decoration: underline;
+}
+
 .social-links {
   display: flex;
   gap: 15px;
@@ -176,10 +189,14 @@ footer div {
 .custom-bg {
   background-color: #141218 !important;
 }
-.w3-bar.custom-bg, .w3-top.custom-bg {
+
+.w3-bar.custom-bg,
+.w3-top.custom-bg {
   background-color: #141218 !important;
 }
-.w3-bar.custom-bg .w3-bar-item, .w3-top.custom-bg .w3-bar-item {
+
+.w3-bar.custom-bg .w3-bar-item,
+.w3-top.custom-bg .w3-bar-item {
   background-color: #141218 !important;
 }
 
@@ -188,5 +205,5 @@ footer.w3-container.w3-padding-64,
 footer.w3-container.w3-center,
 footer.w3-container.w3-xlarge,
 footer.w3-container * {
-    background-color: white !important;
+  background-color: white !important;
 }
