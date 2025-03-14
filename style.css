@@ -183,17 +183,10 @@ footer div {
   background-color: #141218 !important;
 }
 
-.footer-custom {
-  background-color: lightgrey !important;
-}
-.footer-custom * {
-  background-color: lightgrey !important;
-}
-
 footer.w3-container,
 footer.w3-container.w3-padding-64,
 footer.w3-container.w3-center,
 footer.w3-container.w3-xlarge,
 footer.w3-container * {
-    background-color: lightgrey !important;
+    background-color: white !important;
 }
