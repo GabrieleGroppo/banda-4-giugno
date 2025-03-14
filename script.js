@@ -1,18 +1,6 @@
 // Autore: Gabriele Groppo
 const BASE_URL = "http://192.168.178.127:1337"; //Strapi
 const API_BASE_URL = BASE_URL+"/api"; //Strapi
-// Carica i componenti comuni
-fetch("components/footer.html")
-  .then(response => response.text())
-  .then(data => document.getElementById("footer-container").innerHTML = data);
-
-fetch("components/navbar.html")
-  .then(response => response.text())
-  .then(data => {
-    document.getElementById("navbar-container").innerHTML = data;
-    loadCategories();
-    loadYears();
-  });
 
 const map = {
   "Concerto": "Concerti",
@@ -232,3 +220,30 @@ function generateEventCard(event) {
   return eventHtml;
   
 }
+
+// Costanti e configurazione
+
+// Funzioni di utilità
+function getIntalianDateTime(date, time) {
+    // Implementare la formattazione della data e dell'ora in italiano
+    return `${date} - ${time}`;
+}
+
+// Funzioni per il caricamento di componenti
+function loadComponent(elementId, url) {
+    fetch(url)
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById(elementId).innerHTML = data;
+        })
+        .catch(error => console.error('Errore nel caricamento del componente:', error));
+}
+
+// Add this function to your JavaScript file
+function toggleMenu() {
+  const menu = document.getElementById('nav-menu');
+  menu.classList.toggle('active');
+}
+
+loadComponent('navbar-container', 'components/navbar.html');
+loadComponent('footer-container', 'components/footer.html');

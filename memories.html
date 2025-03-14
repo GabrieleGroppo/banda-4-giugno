@@ -6,30 +6,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="script.js"></script>
 </head>
+
 <body>
-    <!-- Navbar -->
-    <div id="navbar-container"></div>
+    <nav id="navbar-container" class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">Ricordi</a>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <!-- Navigation links will be loaded by JavaScript -->
+            </ul>
+        </div>
+    </nav>
 
     <!-- Page content -->
-    <div class="w3-content" style="max-width:2000px;">
-        <!-- Next events section -->
-        <div class="" id="next-events">
-            <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-                <h1 class="w3-wide w3-center">I Ricordi</h1>
-            </div>
-        </div>
+    <div class="content">
+        <!-- Header section -->
+        <section id="memories-header" class="text-center">
+            <h1>I Ricordi</h1>
+        </section>
         <!-- Filter Section -->
         <div class="w3-container w3-content w3-padding-32">
             <h3 class="w3-center">Filtra per Anno</h3>
             <div class="w3-center">
-                <select class="w3-select w3-border w3-padding-large" id="memYears"
-                    onchange="filterByYear(this.value)">
+                <select class="w3-select w3-border w3-padding-large" id="memYears" onchange="filterByYear(this.value)">
                 </select>
             </div>
             <h3 class="w3-center">Filtra per Categoria</h3>
@@ -55,8 +61,28 @@
             loadYears();
             filterEvents(year, category);
         };
+
+        window.onload = function () {
+            loadCategories();
+            loadYears();
+            filterEvents(year, category);
+
+            // Add menu toggle functionality
+            document.getElementById('menuToggle').addEventListener('click', function () {
+                document.getElementById('navLinks').classList.toggle('active');
+            });
+        };
     </script>
+    </div>
+
     <!-- Footer -->
-    <div id="footer-container"></div>
+    <footer id="footer-container" class="footer">
+        <!-- Footer content will be loaded by JavaScript -->
+    </footer>
+
+    <script>
+
+    </script>
 </body>
+
 </html>

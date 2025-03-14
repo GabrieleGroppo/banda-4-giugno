@@ -5,142 +5,148 @@
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
 </head>
 <body>
+    <nav id="navbar-container"></nav>
 
-    <div id="navbar-container"></div>
+    <header class="hero" style="background-image: url(images/background-image.jpg)">
+        <h1 id="cover-title">Banda 4 Giugno 1859</h1>
+    </header>
 
-
-    <div id="cover" class="hero"
-        style="background-image: url(images/background-image.jpg)">
-        <h1 style="color: white;" id="cover-title">Banda 4 Giugno 1859</h1>
-    </div>
-    <!-- Page content -->
-    <div class="w3-content primary" style="max-width:2000px;">
-        <!-- The Band Section -->
-        <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
-            <h2 class="w3-wide title">La Banda</h2>
-            <p class="w3-opacity"><i>GA SONA LA BANDA NOEUVA</i></p>
-            <p class="w3-justify">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur
+    <main class="content">
+        <!-- La Banda Section -->
+        <section class="band-section">
+            <h2>La Banda</h2>
+            <p class="motto"><i>GA SONA LA BANDA NOEUVA</i></p>
+            <p class="text-justify">
+                We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur
                 adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
                 veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
                 ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
                 fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
                 deserunt mollit anim id est laborum consectetur
                 adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            <div class="w3-row">
-                <div class="w3-third">
-                    <h3 class="title">Il Presidente</h3>
-                        <img src="images/presidente_square.jpg" id="presidente-img" class="w3-round w3-margin-bottom" alt="Presidente" style="width:60%">
-                        <p class="name" id="presidente">Massimo Cavalli</p>
+                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            </p>
+            
+            <div class="member-grid">
+                <div class="member">
+                    <h3>Il Presidente</h3>
+                    <img src="images/presidente_square.jpg" id="presidente-img" class="member-image" alt="Presidente">
+                    <p class="member-name" id="presidente">Massimo Cavalli</p>
                 </div>
-                <div class="w3-third">
-                    <h3 class="title">Il Maestro</h3>
-                        <img src="images/maestro_square.jpg" id="maestro-img" class="w3-round w3-margin-bottom" alt="Maestro" style="width:60%">
-                        <p class="name" id="maestro">Michela Fassi</p>
+                <div class="member">
+                    <h3>Il Maestro</h3>
+                    <img src="images/maestro_square.jpg" id="maestro-img" class="member-image" alt="Maestro">
+                    <p class="member-name" id="maestro">Michela Fassi</p>
                 </div>
-                <div class="w3-third">
-                    <h3 style="color: #A0B9E9;">La Banda</h3>
-                        <img src="images/banda_square.jpg" id="musicisti-img" class="w3-round w3-margin-bottom" alt="Musicisti"
-                            style="width:60%">
-                        <p class="name" id="musicisti">I musicisti</p>
+                <div class="member">
+                    <h3>La Banda</h3>
+                    <img src="images/banda_square.jpg" id="musicisti-img" class="member-image" alt="Musicisti">
+                    <p class="member-name" id="musicisti">I musicisti</p>
                 </div>
             </div>
-        </div>
-        <!-- Next events section -->
-        <div class="">
-            <div class="w3-container w3-content w3-padding-32" style="max-width:800px;">
-                <h2 class="w3-wide w3-center">Prossimi eventi</h2>
-                <p class="w3-opacity w3-center"><i>Programma dei prossimi concerti e servizi, non mancare !</i></p><br>
-                <div class="w3-row-padding w3-padding-32" style="margin:0 -16px" id="next-events"></div>
-            </div>
-        </div>
-        <script>
-            window.onload =() =>{
-                
-                setHomePage();
-                setLastEventSection();
-                setUpcomingEventsSection();
-            };
-            async function setUpcomingEventsSection() {
-                let upcomingEvents = await getUpcomingEvents();
-                let eventsContainer = document.getElementById('next-events');
-                eventsContainer.innerHTML = '';
-                console.log(upcomingEvents);
-                upcomingEvents.forEach(event => {
-                    let date = getIntalianDateTime(event.Date, event.Time);
-                    let eventHtml =
-                    `<div class="w3-third w3-margin-bottom">
-                        <img src="${BASE_URL}${event.Cover.formats.medium.url}" alt="${event.Cover.alternativeText}" style="width:100%"
-                            class="w3-hover-opacity" onclick="location.href='event.html?id=${event.documentId}'">
-                        <div class="w3-container w3-white">
-                            <h4>${event.Title}</h4>
-                            <p class="w3-opacity">${date}</p>
-                            <p>${event.ShortDescription}</p>
-                            <button class="w3-button w3-black w3-margin-bottom"
-                                onclick="">Salva</button>
-                        </div>
-                    </div>`;
-                    eventsContainer.innerHTML += eventHtml;
-                });
-            }
+        </section>
 
-            async function setLastEventSection() {
-                let lastEvent = await getLatestPastEvent();
-                let lastEventContainer = document.getElementById('last-event-container');
-                let date = getIntalianDateTime(lastEvent.Date, lastEvent.Time);
-                let lastEventHtml =
-                    `
-                    <div class="w3-container w3-margin-bottom">
-                        <img src="${BASE_URL}${lastEvent.Cover.url}" onclick="location.href='event.html?id=${lastEvent.documentId}'" alt="${lastEvent.Cover.alternativeText}" style="width:100%" class="w3-hover-opacity">
-                        <div class="w3-container w3-white">
-                            <h4>${lastEvent.Title}</h4>
-                            <p class="w3-opacity">${date}</p>
-                            <p>${lastEvent.ShortDescription}</p>
+        <!-- Prossimi eventi section -->
+        <section class="events-section">
+            <h2>Prossimi eventi</h2>
+            <p class="motto"><i>Programma dei prossimi concerti e servizi, non mancare!</i></p>
+            <div class="event-grid" id="next-events"></div>
+        </section>
+
+        <!-- Ultimo evento section -->
+        <section class="events-section">
+            <h2>Ultimo evento</h2>
+            <div class="event-grid" id="last-event-container"></div>
+        </section>
+
+        <!-- Contatti Section -->
+        <section class="contact-section" id="contact">
+            <h2>Contatti</h2>
+            <p class="motto"><i>Vieni a trovarci!</i></p>
+            <div class="contact-info">
+                <ul>
+                    <li>
+                        <i class="fa fa-map-marker"></i>
+                        <a href="https://www.google.com/maps?q=Via+Roma,+182,+20013+Magenta+MI" target="_blank">
+                            Via Roma, 182, 20013 Magenta MI
+                        </a>
+                    </li>
+                    <li>
+                        <i class="fa fa-phone"></i>
+                        <a href="tel:+39029790236">+39 029790236</a>
+                    </li>
+                    <li>
+                        <i class="fa fa-envelope"></i>
+                        <a href="mailto:info@banda4giugno1859.it">info@banda4giugno1859.it</a>
+                    </li>
+                    <li>
+                        <i class="fa fa-bars"></i>
+                        Martedì 16:00 - 17:00 o 21:00 - 23:00
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script>
+        window.onload = () => {
+            setHomePage();
+            setLastEventSection();
+            setUpcomingEventsSection();
+        };
+        
+        async function setUpcomingEventsSection() {
+            let upcomingEvents = await getUpcomingEvents();
+            let eventsContainer = document.getElementById('next-events');
+            eventsContainer.innerHTML = '';
+            console.log(upcomingEvents);
+            upcomingEvents.forEach(event => {
+                let date = getIntalianDateTime(event.Date, event.Time);
+                let eventHtml = `
+                    <div class="event-card">
+                        <img src="${BASE_URL}${event.Cover.formats.medium.url}" 
+                             alt="${event.Cover.alternativeText}" 
+                             class="event-image" 
+                             onclick="location.href='event.html?id=${event.documentId}'">
+                        <div class="event-details">
+                            <h4>${event.Title}</h4>
+                            <p class="event-date">${date}</p>
+                            <p>${event.ShortDescription}</p>
+                            <button class="event-button" onclick="">Salva</button>
                         </div>
                     </div>
-                    `;
-                lastEventContainer.innerHTML = lastEventHtml;
-            }
-        </script>
-        <!-- Last event section -->
-        <div class="" id="next-events">
-            <div class="w3-container w3-content w3-padding-32" style="max-width:800px">
-                <h2 class="w3-wide w3-center">Ultimo evento</h2>
-                <div class="w3-row-padding w3-padding-32" style="margin:0 -16px" id="last-event-container">
-                </div>
-            </div>
-        </div>
-        <!-- The Contact Section -->
-        <div class="w3-container w3-modal-content w3-padding-32" style="max-width:800px; background-color: #141218;" id="contact">
-            <h2 class="w3-wide w3-center">Contatti</h2>
-            <p class="w3-opacity w3-center"><i>Vieni a trovarci !</i></p>
-            <div class="w3-row w3-padding-32">
-                <div class="w3-col m6 w3-large w3-margin-bottom">
-                    <ul>
-                        <li><i class="fa fa-map-marker" style="width:30px"></i><a
-                                href="https://www.google.com/maps?q=Via+Roma,+182,+20013+Magenta+MI" target="_blank">Via
-                                Roma, 182, 20013 Magenta MI</a>
-                        </li>
-                        <li><i class="fa fa-phone" style="width:30px"></i><a href="tel:+39029790236">+39 029790236</a>
-                        </li>
-                        <li><i class="fa fa-envelope" style="width:30px"></i><a
-                                href="mailto:info@banda4giugno1859.it">info@banda4giugno1859.it</a></li>
-                        <li><i class="fa fa-bars" style="width:30px"></i>Martedì 16:00 - 17:00 o 21:00 - 23:00</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- End Page Content -->
-    </div>
-    <!-- Footer -->
-    <div id="footer-container"></div>
-</body>
+                `;
+                eventsContainer.innerHTML += eventHtml;
+            });
+        }
 
+        async function setLastEventSection() {
+            let lastEvent = await getLatestPastEvent();
+            let lastEventContainer = document.getElementById('last-event-container');
+            let date = getIntalianDateTime(lastEvent.Date, lastEvent.Time);
+            let lastEventHtml = `
+                <div class="event-card">
+                    <img src="${BASE_URL}${lastEvent.Cover.url}" 
+                         alt="${lastEvent.Cover.alternativeText}" 
+                         class="event-image" 
+                         onclick="location.href='event.html?id=${lastEvent.documentId}'">
+                    <div class="event-details">
+                        <h4>${lastEvent.Title}</h4>
+                        <p class="event-date">${date}</p>
+                        <p>${lastEvent.ShortDescription}</p>
+                    </div>
+                </div>
+            `;
+            lastEventContainer.innerHTML = lastEventHtml;
+        }
+    </script>
+</body>
 </html>
