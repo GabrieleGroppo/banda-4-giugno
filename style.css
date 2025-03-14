@@ -186,6 +186,15 @@ footer div {
   color: white !important;
 }
 
+a:hover::selection {
+  color: gold;
+}
+
+.w3-bar-item.w3-button:hover, 
+.w3-bar-item.w3-button:focus {
+    color: gold !important;
+}
+
 .custom-bg {
   background-color: #141218 !important;
 }
