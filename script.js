@@ -1,6 +1,6 @@
 // Autore: Gabriele Groppo
 const BASE_URL = "http://192.168.178.127:1337"; //Strapi
-const API_BASE_URL = BASE_URL+"/api"; //Strapi
+const API_BASE_URL = BASE_URL + "/api"; //Strapi
 // Carica i componenti comuni
 fetch("components/footer.html")
   .then(response => response.text())
@@ -10,8 +10,6 @@ fetch("components/navbar.html")
   .then(response => response.text())
   .then(data => {
     document.getElementById("navbar-container").innerHTML = data;
-    loadCategories();
-    loadYears();
   });
 
 const map = {
@@ -44,7 +42,7 @@ async function getLatestPastEvent() {
 //getUpcomingEvents();
 async function getUpcomingEvents() {
   try {
-    const today = '2025-01-01';
+    const today = new Date(Date.now()).toISOString().split('T')[0];
 
     const response = await fetch(`${BASE_URL}/api/events?filters[Date][$gte]=${today}&sort=Date:ASC&populate=*`);
     if (!response.ok) throw new Error("Errore nel recupero dei dati");
@@ -215,20 +213,20 @@ function loadYears() {
 
 function generateEventCard(event) {
   let date = getIntalianDateTime(event.Date, event.Time);
-  
+
   let eventHtml =
     `
-    <div class="w3-third w3-margin-bottom event">
+    <div class="w3-third w3-margin-bottom event" color="black">
       <img src="${BASE_URL}${event.Cover.formats.medium.url}" alt="${event.Cover.alternativeText}" style="width:100%" class="w3-hover-opacity" onclick="location.href='event.html?id=${event.documentId}'">
       <div class="w3-container w3-white">
-        <h4>${event.Title}</h4>
-        <p class="w3-opacity">${date}</p>
-        <p>${event.ShortDescription}</p>
+        <h4 class="w3-white">${event.Title}</h4>
+        <p class="w3-opacity w3-white">${date}</p>
+        <p class="w3-white">${event.ShortDescription}</p>
       </div>
     </div>
     `;
 
   console.log(eventHtml);
   return eventHtml;
-  
+
 }

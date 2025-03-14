@@ -195,6 +195,10 @@ a:hover::selection {
     color: gold !important;
 }
 
+button:hover {
+  color: gold;
+}
+
 .custom-bg {
   background-color: #141218 !important;
 }
