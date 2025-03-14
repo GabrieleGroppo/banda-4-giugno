@@ -39,17 +39,14 @@ async function getLatestPastEvent() {
   }
 }
 
-//getUpcomingEvents();
 async function getUpcomingEvents() {
   try {
     const today = new Date(Date.now()).toISOString().split('T')[0];
 
     const response = await fetch(`${BASE_URL}/api/events?filters[Date][$gte]=${today}&sort=Date:ASC&populate=*`);
     if (!response.ok) throw new Error("Errore nel recupero dei dati");
-
     const json = await response.json();
     const data = json.data;  // Otteniamo l'oggetto data
-    console.log(data);
     return data;
   } catch (error) {
     console.error("Errore:", error);
