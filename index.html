@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script type="text/javascript" src="https://cdn.addevent.com/libs/atc/1.6.1/atc.min.js" async defer></script>
     <script src="script.js"></script>
 </head>
 
@@ -112,46 +113,4 @@
         setLastEventSection();
         setUpcomingEventsSection();
     };
-    async function setUpcomingEventsSection() {
-        let upcomingEvents = await getUpcomingEvents();
-        console.log(upcomingEvents);
-        let eventsContainer = document.getElementById('next-events');
-        eventsContainer.innerHTML = '';
-        console.log(upcomingEvents);
-        upcomingEvents.forEach(event => {
-            let date = getIntalianDateTime(event.Date, event.Time);
-            let eventHtml =
-                `<div class="w3-third w3-margin-bottom">
-                <img src="${BASE_URL}${event.Cover.formats.medium.url}" alt="${event.Cover.alternativeText}" style="width:100%"
-                    class="w3-hover-opacity" onclick="location.href='event.html?id=${event.documentId}'">
-                <div class="w3-container w3-white">
-                    <h4>${event.Title}</h4>
-                    <p class="w3-opacity w3-white">${date}</p>
-                    <p class="w3-opacity w3-white">${event.Location}</p>
-                    <button class="w3-button w3-margin-bottom" style="background-color: #A0B9E9; color="black"
-                        onclick="">Salva</button>
-                </div>
-            </div>`;
-            eventsContainer.innerHTML += eventHtml;
-        });
-    }
-
-    async function setLastEventSection() {
-        let lastEvent = await getLatestPastEvent();
-        let lastEventContainer = document.getElementById('last-event-container');
-        let date = getIntalianDateTime(lastEvent.Date, lastEvent.Time);
-        let lastEventHtml =
-            `
-            <div class="w3-container w3-margin-bottom">
-                <img src="${BASE_URL}${lastEvent.Cover.url}" onclick="location.href='event.html?id=${lastEvent.documentId}'" alt="${lastEvent.Cover.alternativeText}" style="width:100%" class="w3-hover-opacity">
-                <div class="w3-container w3-white">
-                    <h4 class="w3-white">${lastEvent.Title}</h4>
-                    <p class="w3-opacity w3-white">${date}</p>
-                    <p class="w3-opacity w3-white">${lastEvent.Location}</p>
-                    <p class="w3-white">${lastEvent.ShortDescription}</p>
-                </div>
-            </div>
-            `;
-        lastEventContainer.innerHTML = lastEventHtml;
-    }
 </script>
