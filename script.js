@@ -1,5 +1,5 @@
 // Autore: Gabriele Groppo
-const BASE_URL = "http://192.168.178.127:1337"; //Strapi
+const BASE_URL = "http://192.168.178.129:1337"; //Strapi
 const API_BASE_URL = BASE_URL + "/api"; //Strapi
 // Carica i componenti comuni
 fetch("components/footer.html")
@@ -44,6 +44,7 @@ async function getUpcomingEvents() {
     const today = new Date(Date.now()).toISOString().split('T')[0];
 
     const response = await fetch(`${BASE_URL}/api/events?filters[Date][$gte]=${today}&sort=Date:ASC&populate=*`);
+    console.log("Risposta: "+response);
     if (!response.ok) throw new Error("Errore nel recupero dei dati");
     const json = await response.json();
     const data = json.data;  // Otteniamo l'oggetto data
