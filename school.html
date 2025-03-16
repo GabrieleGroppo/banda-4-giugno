@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Scuola</title>
+    <title>Banda 4 Giugno 1859 - Scuola</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
@@ -16,15 +16,16 @@
 <body>
     <!-- Navbar -->
     <div id="navbar-container"></div>
-    <!-- title -->
-    <!-- Next events section -->
-    <div id="next-events">
+
+    <!-- Title Section -->
+    <div id="school-title">
         <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
             <h1 class="w3-wide w3-center">La Scuola</h1>
         </div>
     </div>
-    <!-- Last event section -->
-    <div id="next-events">
+
+    <!-- School Info Section -->
+    <div id="school-info">
         <div class="w3-container w3-content" style="max-width:800px; color: white;">
             <h2 class="w3-wide w3-center">Entra nella Scuola della Banda e scopri il mondo della musica! 🎶</h2>
             <p class="w3-center">Perché scegliere la nostra scuola?</p>
@@ -35,35 +36,24 @@
                 <li>🎶 <b>Parteciperai a eventi e concerti</b>, vivendo esperienze uniche.</li>
                 <li>😃 <b>Ti divertirai un sacco!</b> La musica è passione, amicizia e tante emozioni.</li>
             </ul>
-            <h2 class="w3-wide w3-center">Chi può iscriversi ?</h2>
+            <h2 class="w3-wide w3-center">Chi può iscriversi?</h2>
             <p class="w3-center">Ragazzi e ragazze <b>di tutte le età!</b> Non serve avere esperienza, basta la voglia
                 di imparare e divertirsi.</p>
             <h2 class="w3-wide w3-center">Prova Gratis!</h2>
             <p class="w3-center">Vieni a trovarci e partecipa a <b>una lezione di prova gratuita</b>: scoprirai quanto
                 può essere bello far parte della nostra grande famiglia musicale!</p>
-            <div class="w3-row w3-padding-32">
-                <!-- Colonna Orari -->
-                <div class="w3-col m6 w3-large w3-margin-bottom">
-                    <h2 class="w3-wide w3-center">Orari</h2>
-                    <p class="w3-center">Tutti i Martedì pomeriggio dalle 16 alle 19.</p>
-                </div>
 
-                <!-- Colonna Contatti -->
-                <div id="contact-school" class="w3-col m6 w3-large w3-margin-bottom">
-                    <h2 class="w3-wide w3-center">Contatti</h2>
-                    <p class="w3-center"><a href="index.html#contact">Contattaci</a></p>
-                </div>
-            </div>
-            <!-- The Band Section -->
-            <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
+            <!-- Insegnanti Section -->
+            <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="teachers-section">
                 <h2 class="w3-wide">Gli Insegnanti</h2>
                 <p class="w3-opacity"><i>We love music</i></p>
-                <div class="w3-row w3-padding-32">
+                <div class="">
                     <div class="w3-third">
                         <h3>Percussioni</h3>
                         <img src="images/presidente_square.jpg" class="w3-round w3-margin-bottom" alt="Presidente"
                             style="width:60%">
                         <p class="name">Massimo Cavalli</p>
+                        <!--<p class="phone">📞 ---</p>-->
                     </div>
                     <div class="w3-third">
                         <h3>Legni</h3>
@@ -79,34 +69,51 @@
                     </div>
                 </div>
             </div>
+
+            <div class="" id="school-schedule">
+                <h2 class="w3-wide w3-center">Orari</h2>
+                <p class="w3-center">Tutti i Martedì pomeriggio dalle 16 alle 19.</p>
+
+            </div>
+
+            <div class="" id="school-schedule">
+                <h2 class="w3-wide w3-center">Contatti</h2>
+                <p class="w3-center"><a href="index.html#contact">Contattaci</a></p>
+
+            </div>
+
+            <!-- Slideshow Section -->
+            <div class="w3-padding-32" id="school-slideshow">
+                <div class="slide-container w3-display-container w3-center">
+                    <img src="images/banda.jpg" class="slide" style="width:100%">
+                </div>
+                <div class="slide-container w3-display-container w3-center">
+                    <img src="images/banda1.jpg" class="slide" style="width:100%">
+                </div>
+                <div class="slide-container w3-display-container w3-center">
+                    <img src="images/banda.jpg" class="slide" style="width:100%">
+                </div>
+            </div>
         </div>
     </div>
-    <div class="mySlides w3-display-container w3-center">
-        <img src="images/banda.jpg" style="width:100%">
-    </div>
-    <div class="mySlides w3-display-container w3-center">
-        <img src="images/banda1.jpg" style="width:100%">
-    </div>
-    <div class="mySlides w3-display-container w3-center">
-        <img src="images/banda.jpg" style="width:100%">
-    </div>
+
     <!-- Footer -->
     <div id="footer-container"></div>
+
     <script>
         // Automatic Slideshow - change image every 4 seconds
-        var myIndex = 0;
-        carousel();
-        // Used to toggle the menu on small screens when clicking on the menu button
-        function carousel() {
-            var i;
-            var x = document.getElementsByClassName("mySlides");
-            for (i = 0; i < x.length; i++) {
-                x[i].style.display = "none";
+        var currentIndex = 0;
+        startSlideshow();
+
+        function startSlideshow() {
+            var slides = document.getElementsByClassName("slide");
+            for (var i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
             }
-            myIndex++;
-            if (myIndex > x.length) { myIndex = 1 }
-            x[myIndex - 1].style.display = "block";
-            setTimeout(carousel, 4000);
+            currentIndex++;
+            if (currentIndex > slides.length) { currentIndex = 1; }
+            slides[currentIndex - 1].style.display = "block";
+            setTimeout(startSlideshow, 4000);
         }
     </script>
 </body>

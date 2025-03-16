@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <title>Banda 4 Giugno 1859</title>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="/images/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="script.js"></script>
 </head>
+
 <body>
 
     <div id="navbar-container"></div>
 
 
-    <div id="cover" class="hero"
-        style="background-image: url(images/background-image.jpg)">
+    <div id="cover" class="hero" style="background-image: url(images/background-image.jpg)">
         <h1 style="color: white;" id="cover-title">Banda 4 Giugno 1859</h1>
     </div>
     <!-- Page content -->
@@ -26,7 +26,7 @@
         <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
             <h2 class="w3-wide title">La Banda</h2>
             <p class="w3-opacity"><i>GA SONA LA BANDA NOEUVA</i></p>
-            <p class="w3-justify">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur
+            <p class="w3-justify">Lorem ipsum dolor sit amet, consectetur
                 adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
                 veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
                 ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
@@ -37,19 +37,21 @@
             <div class="w3-row">
                 <div class="w3-third">
                     <h3 class="title">Il Presidente</h3>
-                        <img src="images/presidente_square.jpg" id="presidente-img" class="w3-round w3-margin-bottom" alt="Presidente" style="width:60%">
-                        <p class="name" id="presidente">Massimo Cavalli</p>
+                    <img src="images/presidente_square.jpg" id="presidente-img" class="w3-round w3-margin-bottom"
+                        alt="Presidente" style="width:60%">
+                    <p class="name" id="presidente">Massimo Cavalli</p>
                 </div>
                 <div class="w3-third">
                     <h3 class="title">Il Maestro</h3>
-                        <img src="images/maestro_square.jpg" id="maestro-img" class="w3-round w3-margin-bottom" alt="Maestro" style="width:60%">
-                        <p class="name" id="maestro">Michela Fassi</p>
+                    <img src="images/maestro_square.jpg" id="maestro-img" class="w3-round w3-margin-bottom"
+                        alt="Maestro" style="width:60%">
+                    <p class="name" id="maestro">Michela Fassi</p>
                 </div>
                 <div class="w3-third">
                     <h3 style="color: #A0B9E9;">La Banda</h3>
-                        <img src="images/banda_square.jpg" id="musicisti-img" class="w3-round w3-margin-bottom" alt="Musicisti"
-                            style="width:60%">
-                        <p class="name" id="musicisti">I musicisti</p>
+                    <img src="images/banda_square.jpg" id="musicisti-img" class="w3-round w3-margin-bottom"
+                        alt="Musicisti" style="width:60%">
+                    <p class="name" id="musicisti">I musicisti</p>
                 </div>
             </div>
         </div>
@@ -61,54 +63,6 @@
                 <div class="w3-row-padding w3-padding-32" style="margin:0 -16px" id="next-events"></div>
             </div>
         </div>
-        <script>
-            window.onload =() =>{
-                
-                setHomePage();
-                setLastEventSection();
-                setUpcomingEventsSection();
-            };
-            async function setUpcomingEventsSection() {
-                let upcomingEvents = await getUpcomingEvents();
-                let eventsContainer = document.getElementById('next-events');
-                eventsContainer.innerHTML = '';
-                console.log(upcomingEvents);
-                upcomingEvents.forEach(event => {
-                    let date = getIntalianDateTime(event.Date, event.Time);
-                    let eventHtml =
-                    `<div class="w3-third w3-margin-bottom">
-                        <img src="${BASE_URL}${event.Cover.formats.medium.url}" alt="${event.Cover.alternativeText}" style="width:100%"
-                            class="w3-hover-opacity" onclick="location.href='event.html?id=${event.documentId}'">
-                        <div class="w3-container w3-white">
-                            <h4>${event.Title}</h4>
-                            <p class="w3-opacity">${date}</p>
-                            <p>${event.ShortDescription}</p>
-                            <button class="w3-button w3-black w3-margin-bottom"
-                                onclick="">Salva</button>
-                        </div>
-                    </div>`;
-                    eventsContainer.innerHTML += eventHtml;
-                });
-            }
-
-            async function setLastEventSection() {
-                let lastEvent = await getLatestPastEvent();
-                let lastEventContainer = document.getElementById('last-event-container');
-                let date = getIntalianDateTime(lastEvent.Date, lastEvent.Time);
-                let lastEventHtml =
-                    `
-                    <div class="w3-container w3-margin-bottom">
-                        <img src="${BASE_URL}${lastEvent.Cover.url}" onclick="location.href='event.html?id=${lastEvent.documentId}'" alt="${lastEvent.Cover.alternativeText}" style="width:100%" class="w3-hover-opacity">
-                        <div class="w3-container w3-white">
-                            <h4>${lastEvent.Title}</h4>
-                            <p class="w3-opacity">${date}</p>
-                            <p>${lastEvent.ShortDescription}</p>
-                        </div>
-                    </div>
-                    `;
-                lastEventContainer.innerHTML = lastEventHtml;
-            }
-        </script>
         <!-- Last event section -->
         <div class="" id="next-events">
             <div class="w3-container w3-content w3-padding-32" style="max-width:800px">
@@ -118,21 +72,29 @@
             </div>
         </div>
         <!-- The Contact Section -->
-        <div class="w3-container w3-modal-content w3-padding-32" style="max-width:800px; background-color: #141218;" id="contact">
-            <h2 class="w3-wide w3-center">Contatti</h2>
-            <p class="w3-opacity w3-center"><i>Vieni a trovarci !</i></p>
-            <div class="w3-row w3-padding-32">
-                <div class="w3-col m6 w3-large w3-margin-bottom">
-                    <ul>
-                        <li><i class="fa fa-map-marker" style="width:30px"></i><a
-                                href="https://www.google.com/maps?q=Via+Roma,+182,+20013+Magenta+MI" target="_blank">Via
-                                Roma, 182, 20013 Magenta MI</a>
+        <!-- Contact Section -->
+        <div class="w3-container w3-modal-content w3-padding-32"
+            style="max-width: 800px; background-color: #141218; text-align: center; margin: auto;" id="contact">
+            <h2 class="w3-wide">Contatti</h2>
+            <p class="w3-opacity"><i>Vieni a trovarci!</i></p>
+            <div class="w3-row">
+                <div class="w3-col m12 w3-large">
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 15px;">
+                            📍 <a href="https://www.google.com/maps?q=Via+Roma,+182,+20013+Magenta+MI" target="_blank"
+                                class="gold-hover">
+                                Via Roma, 182, 20013 Magenta MI
+                            </a>
                         </li>
-                        <li><i class="fa fa-phone" style="width:30px"></i><a href="tel:+39029790236">+39 029790236</a>
+                        <li style="margin-bottom: 15px;">
+                            📞 <a href="tel:+39029790236" class="gold-hover">+39 029790236</a>
                         </li>
-                        <li><i class="fa fa-envelope" style="width:30px"></i><a
-                                href="mailto:info@banda4giugno1859.it">info@banda4giugno1859.it</a></li>
-                        <li><i class="fa fa-bars" style="width:30px"></i>Martedì 16:00 - 17:00 o 21:00 - 23:00</li>
+                        <li style="margin-bottom: 15px;">
+                            📧 <a href="mailto:info@banda4giugno1859.it" class="gold-hover">info@banda4giugno1859.it</a>
+                        </li>
+                        <li style="font-size: 18px;">
+                            🕒 Martedì 16:00 - 17:00 o 21:00 - 23:00
+                        </li>
                     </ul>
                 </div>
             </div>
@@ -144,3 +106,10 @@
 </body>
 
 </html>
+
+<script>
+    window.onload = () => {
+        setLastEventSection();
+        setUpcomingEventsSection();
+    };
+</script>
