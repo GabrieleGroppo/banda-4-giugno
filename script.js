@@ -1,5 +1,5 @@
 // Autore: Gabriele Groppo
-const BASE_URL = "http://192.168.178.129:1337"; //Strapi
+const BASE_URL = "https://strapi.gabrielegroppo.it"; //Strapi
 const API_BASE_URL = BASE_URL + "/api"; //Strapi
 // Carica i componenti comuni
 fetch("components/footer.html")
