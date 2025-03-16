@@ -224,7 +224,6 @@ async function setUpcomingEventsSection() {
 async function setLastEventSection() {
   let lastEvent = await getLatestPastEvent();
   let lastEventContainer = document.getElementById('last-event-container');
-  let date = getIntalianDateTime(lastEvent.Date, lastEvent.Time);
   let lastEventHtml = generateEventCard(lastEvent, true, true);
   lastEventContainer.innerHTML = lastEventHtml;
 }
@@ -268,7 +267,6 @@ function generateEventCard(event, expired, big) {
     </div>
     ${end}`;
 
-  console.log(eventHtml);
   return eventHtml;
 }
 
