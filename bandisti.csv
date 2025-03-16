@@ -1,8 +1,15 @@
-Nome,Strumento
-Mario Rossi,Clarinetto
-Giulia Bianchi,Sax Contralto
-Luca Verdi,Tromba
-Anna Neri,Flauto
-Paolo Gallo,Percussioni
-Francesca Moretti,Oboe
-Giovanni Rizzo,Trombone
+Nome,Strumento,Ruolo
+Luca Garavaglia,Clarinetto,1
+Gabriele Colombo,Clarinetto,2
+Marco Bianchi,Clarinetto,3
+Anna Verdi,Clarinetto,4
+Francesco Neri,Tromba,1
+Giovanni Rossi,Tromba,2
+Elisa Moretti,Tromba,3
+Paolo Rinaldi,Flauto,1
+Chiara Galli,Flauto,2
+Michele Conti,Trombone,1
+Andrea Ferri,Trombone,2
+Sara Lombardi,Sax Contralto,1
+Martina De Luca,Sax Contralto,2
+Gaia Esposito,Sax Contralto,3

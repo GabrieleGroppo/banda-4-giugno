@@ -29,7 +29,7 @@
             <select id="strumentoFiltro" class="w3-select w3-margin-bottom" onchange="filtraBandisti()">
                 <option value="">Tutti gli strumenti</option>
             </select>
-            <ul id="bandisti-list" class="w3-ul w3-card-4" style="color: white;"></ul>
+            <div id="bandisti-container" class="w3-card-4 w3-padding"></div>
         </div>
     </div>
 
@@ -39,18 +39,19 @@
         async function caricaBandisti() {
             const response = await fetch('bandisti.csv');
             const data = await response.text();
-            const righe = data.split('\n');
+            const righe = data.split('\n').map(riga => riga.trim()).filter(riga => riga);
+            
             let strumenti = new Set();
             bandisti = [];
             
             righe.forEach((riga, index) => {
-                if (index > 0 && riga.trim() !== "") {
-                    let [nome, strumento] = riga.split(',');
-                    bandisti.push({ nome, strumento });
+                if (index > 0) { // Ignora intestazione
+                    let [nome, strumento, ruolo] = riga.split(',');
+                    bandisti.push({ nome, strumento: strumento.trim(), ruolo: ruolo.trim() });
                     strumenti.add(strumento.trim());
                 }
             });
-            
+
             let filtro = document.getElementById("strumentoFiltro");
             strumenti.forEach(strumento => {
                 let option = document.createElement("option");
@@ -58,18 +59,28 @@
                 option.textContent = strumento;
                 filtro.appendChild(option);
             });
-            
+
             mostraBandisti(bandisti);
         }
 
         function mostraBandisti(lista) {
-            let listaElement = document.getElementById("bandisti-list");
-            listaElement.innerHTML = "";
-            lista.forEach(({ nome, strumento }) => {
-                let elemento = document.createElement("li");
-                elemento.className = "w3-padding-16";
-                elemento.innerHTML = `<b>${nome}</b> - ${strumento}`;
-                listaElement.appendChild(elemento);
+            let container = document.getElementById("bandisti-container");
+            container.innerHTML = "";
+            let strumentiGruppi = {};
+
+            lista.forEach(({ nome, strumento, ruolo }) => {
+                if (!strumentiGruppi[strumento]) {
+                    strumentiGruppi[strumento] = [];
+                }
+                strumentiGruppi[strumento].push(`${nome} - ${ruolo}`);
+            });
+
+            Object.keys(strumentiGruppi).forEach(strumento => {
+                let section = document.createElement("div");
+                section.className = "w3-margin-bottom";
+                section.innerHTML = `<h4 style="color: gold">${strumento}</h4><ul class='w3-ul'>` + 
+                    strumentiGruppi[strumento].map(item => `<li class='w3-padding-8' style='color: white'">${item}</li>`).join('') + "</ul>";
+                container.appendChild(section);
             });
         }
 
