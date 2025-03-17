@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="script.js"></script>
 </head>
+
 <body>
     <!-- Go back Shortcut -->
     <div class="w3-top">
@@ -36,16 +37,16 @@
                 let eventPicture = document.getElementById("event-picture");
                 let pic = document.getElementById(`pic-${number}`);
                 eventPicture.innerHTML = `
-                    <div class="numbertext">${number} / ${totSlides}</div>
-                    <img src="${pic.src.replace("small_","")}" style="width:100%">
-                `;
+        <div class="numbertext">${number} / ${totSlides}</div>
+        <img src="${pic.src.replace("small_", "")}" alt="Immagine evento">
+    `;
             }
 
             function nextSlide() {
                 console.log(slideIndex);
-                if(slideIndex == totSlides){
+                if (slideIndex == totSlides) {
                     slideIndex = 1;
-                }else{
+                } else {
                     slideIndex++;
                 }
                 changeEventPicture(slideIndex);
@@ -53,9 +54,9 @@
 
             function prevSlide() {
                 console.log(slideIndex);
-                if(slideIndex == 1){
+                if (slideIndex == 1) {
                     slideIndex = totSlides;
-                }else{
+                } else {
                     slideIndex--;
                 }
                 changeEventPicture(slideIndex);
@@ -129,7 +130,7 @@
             <!-- pictures to be selected -->
             <div class="container" id="pictures"></div>
         </div>
-        
+
     </div>
     <!-- Footer -->
     <div id="footer-container"></div>
