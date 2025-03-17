@@ -163,26 +163,47 @@
 
         /* Animazioni */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .animate-fadeIn {
             animation: fadeIn 1s ease forwards;
         }
 
-        .delay-1 { animation-delay: 0.2s; }
-        .delay-2 { animation-delay: 0.4s; }
-        .delay-3 { animation-delay: 0.6s; }
-        .delay-4 { animation-delay: 0.8s; }
-        .delay-5 { animation-delay: 1s; }
+        .delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.4s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.6s;
+        }
+
+        .delay-4 {
+            animation-delay: 0.8s;
+        }
+
+        .delay-5 {
+            animation-delay: 1s;
+        }
 
         /* Stili per dispositivi mobili */
         @media (max-width: 768px) {
             #school-title h1 {
                 font-size: 3rem;
             }
-            
+
             .teacher-card {
                 padding: 15px;
             }
@@ -204,9 +225,11 @@
     <!-- School Info Section -->
     <div id="school-info">
         <div class="w3-container w3-content w3-center" style="max-width:800px; color: white;">
-            <h2 class="section-title animate-fadeIn delay-1">Entra nella Scuola della Banda e scopri il mondo della musica! 🎶</h2>
-            <p class="w3-center animate-fadeIn delay-2">La nostra scuola offre percorsi formativi per musicisti di ogni età e livello. Impara a suonare, divertiti e diventa parte della nostra famiglia musicale!</p>
-            
+            <h2 class="section-title animate-fadeIn delay-1">Entra nella Scuola della Banda e scopri il mondo della
+                musica! 🎶</h2>
+            <p class="w3-center animate-fadeIn delay-2">La nostra scuola offre percorsi formativi per musicisti di ogni
+                età e livello. Impara a suonare, divertiti e diventa parte della nostra famiglia musicale!</p>
+
             <h3 class="w3-center" style="color: #A0B9E9; margin-top: 30px;">Perché scegliere la nostra scuola?</h3>
             <ul class="w3-ul w3-large animate-fadeIn delay-3">
                 <li>✅ <b>Impari a suonare</b> uno strumento, anche da zero!</li>
@@ -215,11 +238,11 @@
                 <li>🎶 <b>Parteciperai a eventi e concerti</b>, vivendo esperienze uniche.</li>
                 <li>😃 <b>Ti divertirai un sacco!</b> La musica è passione, amicizia e tante emozioni.</li>
             </ul>
-            
+
             <h2 class="section-title animate-fadeIn delay-4">Chi può iscriversi?</h2>
             <p class="w3-center">Ragazzi e ragazze <b>di tutte le età!</b> Non serve avere esperienza, basta la voglia
                 di imparare e divertirsi.</p>
-            
+
             <div class="w3-row-padding w3-center w3-padding-32">
                 <div class="w3-third">
                     <div style="background-color: #1a1a1a; padding: 20px; border-radius: 10px; height: 100%;">
@@ -243,12 +266,12 @@
                     </div>
                 </div>
             </div>
-            
+
             <h2 class="section-title animate-fadeIn delay-5">Prova Gratis!</h2>
             <p class="w3-center">Vieni a trovarci e partecipa a <b>una lezione di prova gratuita</b>: scoprirai quanto
                 può essere bello far parte della nostra grande famiglia musicale!</p>
             <a href="index.html#contact" class="cta-button">Prenota una lezione di prova</a>
-            
+
             <div class="w3-padding-32" id="school-schedule">
                 <h2 class="section-title">Orari</h2>
                 <div style="background-color: #1a1a1a; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
@@ -260,14 +283,16 @@
             <!-- Teachers Section -->
             <div id="teachers">
                 <h2 class="section-title">I Nostri Insegnanti</h2>
-                <p class="w3-center" style="margin-bottom: 30px;">Il nostro team di insegnanti qualificati ti guiderà nel tuo percorso musicale</p>
-                
+                <p class="w3-center" style="margin-bottom: 30px;">Il nostro team di insegnanti qualificati ti guiderà
+                    nel tuo percorso musicale</p>
+
                 <div class="w3-row-padding">
                     <div class="w3-half">
                         <div class="teacher-card">
                             <div class="teacher-name">Marco Rossi</div>
                             <div class="teacher-instrument">Tromba e Ottoni</div>
-                            <div class="teacher-contact"><i class="fas fa-envelope"></i>marco.rossi@banda4giugno.it</div>
+                            <div class="teacher-contact"><i class="fas fa-envelope"></i>marco.rossi@banda4giugno.it
+                            </div>
                             <div class="teacher-contact"><i class="fas fa-phone"></i>333 1234567</div>
                         </div>
                     </div>
@@ -275,18 +300,20 @@
                         <div class="teacher-card">
                             <div class="teacher-name">Laura Bianchi</div>
                             <div class="teacher-instrument">Clarinetto e Sassofono</div>
-                            <div class="teacher-contact"><i class="fas fa-envelope"></i>laura.bianchi@banda4giugno.it</div>
+                            <div class="teacher-contact"><i class="fas fa-envelope"></i>laura.bianchi@banda4giugno.it
+                            </div>
                             <div class="teacher-contact"><i class="fas fa-phone"></i>333 7654321</div>
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="w3-row-padding">
                     <div class="w3-half">
                         <div class="teacher-card">
                             <div class="teacher-name">Giuseppe Verdi</div>
                             <div class="teacher-instrument">Percussioni</div>
-                            <div class="teacher-contact"><i class="fas fa-envelope"></i>giuseppe.verdi@banda4giugno.it</div>
+                            <div class="teacher-contact"><i class="fas fa-envelope"></i>giuseppe.verdi@banda4giugno.it
+                            </div>
                             <div class="teacher-contact"><i class="fas fa-phone"></i>333 9876543</div>
                         </div>
                     </div>
@@ -299,13 +326,14 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="w3-row-padding">
                     <div class="w3-half">
                         <div class="teacher-card">
                             <div class="teacher-name">Paolo Gialli</div>
                             <div class="teacher-instrument">Trombone</div>
-                            <div class="teacher-contact"><i class="fas fa-envelope"></i>paolo.gialli@banda4giugno.it</div>
+                            <div class="teacher-contact"><i class="fas fa-envelope"></i>paolo.gialli@banda4giugno.it
+                            </div>
                             <div class="teacher-contact"><i class="fas fa-phone"></i>333 2468101</div>
                         </div>
                     </div>
@@ -313,7 +341,8 @@
                         <div class="teacher-card">
                             <div class="teacher-name">Maria Viola</div>
                             <div class="teacher-instrument">Teoria Musicale</div>
-                            <div class="teacher-contact"><i class="fas fa-envelope"></i>maria.viola@banda4giugno.it</div>
+                            <div class="teacher-contact"><i class="fas fa-envelope"></i>maria.viola@banda4giugno.it
+                            </div>
                             <div class="teacher-contact"><i class="fas fa-phone"></i>333 8642097</div>
                         </div>
                     </div>
@@ -324,45 +353,89 @@
                 <h2 class="section-title">Contatti</h2>
                 <div style="background-color: #1a1a1a; padding: 20px; border-radius: 10px; margin-bottom: 30px;">
                     <i class="fas fa-envelope" style="font-size: 30px; color: gold; margin-bottom: 15px;"></i>
-                    <p class="w3-center gold-hover" style="font-size: 1.2rem;"><a href="index.html#contact">Scrivici per maggiori informazioni</a></p>
+                    <p class="w3-center gold-hover" style="font-size: 1.2rem;"><a href="index.html#contact">Scrivici per
+                            maggiori informazioni</a></p>
                 </div>
             </div>
 
             <!-- Slideshow Section -->
+            <!-- Slideshow Section -->
             <div class="w3-padding-32" id="school-slideshow">
                 <h2 class="section-title">Galleria</h2>
                 <div class="slide-container w3-display-container w3-center">
-                    <img src="images/banda.jpg" class="slide" style="width:100%">
-                </div>
-                <div class="slide-container w3-display-container w3-center">
-                    <img src="images/banda1.jpg" class="slide" style="width:100%">
-                </div>
-                <div class="slide-container w3-display-container w3-center">
-                    <img src="images/banda.jpg" class="slide" style="width:100%">
+                    <img src="images/banda.jpg" class="slide" alt="Banda">
+                    <img src="images/banda1.jpg" class="slide" alt="Banda 1">
+                    <img src="images/banda.jpg" class="slide" alt="Banda">
                 </div>
             </div>
-        </div>
-    </div>
 
-    <!-- Footer -->
-    <div id="footer-container"></div>
+            <style>
+                .slide-container {
+                    margin-top: 40px;
+                    border-radius: 10px;
+                    overflow: hidden;
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+                    position: relative;
+                    height: 400px;
+                    /* Altezza fissa per tutte le slides */
+                    width: 100%;
+                }
 
-    <script>
-        // Automatic Slideshow - change image every 4 seconds
-        var currentIndex = 0;
-        startSlideshow();
+                .slide {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 10px;
+                    opacity: 0;
+                    transition: opacity 1s ease-in-out;
+                    object-fit: cover;
+                    /* Assicura che le immagini mantengano il rapporto d'aspetto */
+                    display: none;
+                }
 
-        function startSlideshow() {
-            var slides = document.getElementsByClassName("slide");
-            for (var i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-            }
-            currentIndex++;
-            if (currentIndex > slides.length) { currentIndex = 1; }
-            slides[currentIndex - 1].style.display = "block";
-            setTimeout(startSlideshow, 4000);
-        }
-    </script>
+                .slide.active {
+                    opacity: 1;
+                    display: block;
+                }
+            </style>
+
+            <script>
+                // Slideshow automatico - cambia immagine ogni 4 secondi
+                document.addEventListener('DOMContentLoaded', function () {
+                    var slideIndex = 0;
+                    var slides = document.getElementsByClassName("slide");
+
+                    // Imposta la prima slide come attiva
+                    if (slides.length > 0) {
+                        slides[0].classList.add('active');
+                    }
+
+                    function showSlides() {
+                        // Nascondi tutte le slide
+                        for (var i = 0; i < slides.length; i++) {
+                            slides[i].classList.remove('active');
+                        }
+
+                        // Incrementa l'indice
+                        slideIndex++;
+
+                        // Torna all'inizio se hai raggiunto la fine
+                        if (slideIndex > slides.length) {
+                            slideIndex = 1;
+                        }
+
+                        // Mostra la slide corrente
+                        slides[slideIndex - 1].classList.add('active');
+
+                        // Cambia immagine ogni 4 secondi
+                        setTimeout(showSlides, 4000);
+                    }
+
+                    showSlides();
+                });
+            </script>
 </body>
 
 </html>
