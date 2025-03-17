@@ -93,6 +93,26 @@ button:hover {
 .social-links a:hover {
   color: #ffcc00;
 }
+/*Event card 2x*/
+.event:hover .event-image {
+  transform: scale(1.05);
+}
+
+.event .gold-hover:hover {
+  background-color: gold !important;
+  color: #141218 !important;
+}
+
+.event-description {
+  margin: 0;
+  line-height: 1.5;
+  color: #333 !important;
+}
+
+.location {
+  font-style: italic;
+  color: #555 !important;
+}
 
 /* Event cards */
 .event {

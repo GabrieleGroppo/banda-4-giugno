@@ -232,44 +232,46 @@ function generateEventCard(event, expired, big) {
   let date = getIntalianDateTime(event.Date, event.Time);
   let googleDate = formatDateForGoogleCalendar(event.Date, event.Time);
   let googleEndDate = getEndDateTime(event.Date, event.Time);
-  let dynamic;
-  let size = `<div class="w3-third w3-margin-bottom">`;
-  let end = `</div>`;
+  let cardContent;
+  let wrapperClass = big ? "w3-col s12" : "w3-third w3-margin-bottom";
   
-  if (expired == true) {
-    dynamic = `<p class="w3-white">${event.ShortDescription}</p>`;
-  } else {
-    dynamic = `<a id="google-calendar-link-${event.documentId}" 
-               href="${googleCalendarUrl(event.Title, event.Location, event.ShortDescription, googleDate, googleEndDate, event.documentId)}" 
-               class="w3-button w3-margin-bottom" 
-               style="background-color: #A0B9E9; color: black; text-decoration: none; display: inline-block;"
-               target="_blank">Salva</a>`;
-  }
+  // Create action button or description based on event status
+  let actionContent = expired 
+    ? `<p class="w3-white event-description">${event.ShortDescription}</p>` 
+    : `<a id="google-calendar-link-${event.documentId}" 
+         href="${googleCalendarUrl(event.Title, event.Location, event.ShortDescription, googleDate, googleEndDate, event.documentId)}" 
+         class="w3-button w3-round w3-margin-bottom gold-hover" 
+         style="background-color: #A0B9E9; color: black; text-decoration: none; display: inline-block; transition: all 0.3s ease;"
+         target="_blank">Salva</a>`;
 
-  if (big) {
-    size = ``;
-  }
-
-  let eventHtml =
-    `${size}
-    <div class="event-card">
-      <img src="${BASE_URL}${event.Cover.formats.medium.url}" 
-           alt="${event.Cover.alternativeText}" 
-           style="width:100%; cursor: pointer;" 
-           class="w3-hover-opacity"
-           onclick="window.location.href='event.html?id=${event.documentId}'">
-      <div class="w3-container w3-white">
-        <h4 class="w3-white">${event.Title}</h4>
-        <p class="w3-opacity w3-white">${date}</p>
-        <p class="w3-opacity w3-white">${event.Location}</p>
-        ${dynamic}
+  // Build the card HTML with enhanced styling
+  cardContent = `
+    <div class="${wrapperClass}">
+      <div class="event w3-card w3-hover-shadow" style="border-radius: 8px; overflow: hidden; transition: all 0.3s ease;">
+        <div class="event-image-container" style="position: relative; overflow: hidden;">
+          <img src="${BASE_URL}${event.Cover.formats.medium.url}" 
+               alt="${event.Cover.alternativeText}" 
+               style="width: 100%; height: 200px; object-fit: cover; transition: transform 0.5s ease;" 
+               class="w3-hover-opacity event-image"
+               onclick="window.location.href='event.html?id=${event.documentId}'">
+          <div class="event-date-badge" style="position: absolute; top: 10px; right: 10px; background-color: rgba(20, 18, 24, 0.8); color: #A0B9E9; padding: 8px; border-radius: 4px; font-size: 14px;">
+            ${date}
+          </div>
+        </div>
+        <div class="w3-container w3-white" style="padding: 16px;">
+          <h4 class="w3-white title" style="margin-top: 0; font-weight: bold; margin-bottom: 10px;">${event.Title}</h4>
+          <p class="w3-opacity w3-white location" style="display: flex; align-items: center; margin-bottom: 15px;">
+            <span style="margin-right: 5px;">📍</span> ${event.Location}
+          </p>
+          <div class="event-action" style="margin-top: auto; background-color: white;">
+            ${actionContent}
+          </div>
+        </div>
       </div>
-    </div>
-    ${end}`;
+    </div>`;
 
-  return eventHtml;
+  return cardContent;
 }
-
 function googleCalendarUrl(title, location, details, start, end, id) {
   return `https://www.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${start}/${end}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}&sf=true&output=xml`;
 }
