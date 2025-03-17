@@ -10,113 +10,361 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="script.js"></script>
+    <style>
+        /* Timeline styling */
+        .timeline {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        .timeline::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: #A0B9E9;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+            border-radius: 5px;
+        }
+        
+        .timeline-container {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            right: -13px;
+            background-color: white;
+            border: 4px solid gold;
+            top: 15px;
+            border-radius: 50%;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            right: 30px;
+            border: medium solid white;
+            border-width: 10px 0 10px 10px;
+            border-color: transparent transparent transparent white;
+        }
+        
+        .right::before {
+            content: " ";
+            height: 0;
+            position: absolute;
+            top: 22px;
+            width: 0;
+            z-index: 1;
+            left: 30px;
+            border: medium solid white;
+            border-width: 10px 10px 10px 0;
+            border-color: transparent white transparent transparent;
+        }
+        
+        .right::after {
+            left: -12px;
+        }
+        
+        .timeline-content {
+            padding: 20px 30px;
+            background-color: rgba(0, 0, 0, 0.6);
+            position: relative;
+            border-radius: 6px;
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+        }
+        
+        .timeline-year {
+            font-size: 24px;
+            font-weight: bold;
+            color: gold;
+            margin-bottom: 10px;
+        }
+        
+        .timeline-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #A0B9E9;
+        }
+        
+        .timeline-text {
+            line-height: 1.6;
+        }
+        
+        .timeline-image {
+            width: 100%;
+            margin: 15px 0;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .timeline-image:hover {
+            transform: scale(1.03);
+        }
+        
+        .storia-intro {
+            background-color: rgba(0, 0, 0, 0.6);
+            color: white;
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .page-title {
+            font-size: 48px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .page-title::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: #FF9F55;
+        }
+        
+        /* Responsive design */
+        @media screen and (max-width: 600px) {
+            .timeline::after {
+                left: 31px;
+            }
+            
+            .timeline-container {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-container::before {
+                left: 60px;
+                border: medium solid white;
+                border-width: 10px 10px 10px 0;
+                border-color: transparent white transparent transparent;
+            }
+            
+            .left::after, .right::after {
+                left: 18px;
+            }
+            
+            .right {
+                left: 0%;
+            }
+        }
+        
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Back to top button */
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #FF9F55;
+            color: white;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            border-radius: 50%;
+            line-height: 50px;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 99;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease;
+            opacity: 0.7;
+        }
+        
+        .back-to-top:hover {
+            background-color: #e8894b;
+            opacity: 1;
+        }
+    </style>
 </head>
-<body>
+
+<body style="background-color: #141218">
     <!-- Navbar -->
     <div id="navbar-container"></div>
-    <!-- title -->
-    <!-- Next events section -->
-    <div class="" id="next-events">
-        <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-            <h1 class="w3-wide w3-center">La Storia</h1>
+    
+    <!-- Title and Introduction -->
+    <div class="w3-container w3-content w3-padding-64" style="max-width:950px">
+        <h1 class="w3-wide w3-center" id="title-story-page">La Storia</h1>
+        
+        <div class="storia-intro w3-center">
+            <p>La Banda "4 Giugno 1859" è nata nel 1892 a Magenta, prendendo il nome dalla famosa battaglia avvenuta durante la Seconda Guerra d'Indipendenza. Da oltre 130 anni, questa istituzione musicale rappresenta una parte fondamentale della tradizione culturale della città, superando guerre, cambiamenti sociali e sfide di ogni epoca.</p>
         </div>
     </div>
-    <!-- Last event section -->
-    <div class="" id="next-events">
-        <div class="w3-container w3-content" style="max-width:800px; color: white;">
-            <h3 class="w3-wide w3-center">Le Origini - 1892</h3>
-            <p class="w3-center">Dopo alcuni anni dalla formazione di una banda musicale cittadina, nata per
-                rappresentare ufficialmente la Municipalità, si verificò una rottura all'interno del consiglio. Nel
-                1892, alcuni consiglieri e un gruppo di cinque musicanti si separarono e, grazie all'intervento del
-                parroco Don Tragella, diedero vita a una nuova banda. Il parroco propose di chiamarla "4 Giugno 1859" in
-                ricordo della battaglia di Magenta, e così fu.</p>
-
-            <p class="w3-center">La prima sede della banda fu nei locali di un'osteria in via Garibaldi 10, e sotto la
-                guida del maestro
-                Marco Pagani iniziarono le prime prove e le prime lezioni per i nuovi allievi.</p>
-            <h3 class="w3-wide w3-center">La Prima Divisa - 1893</h3>
-            <p class="w3-center">Inizialmente, i musicanti suonavano indossando l'abito della festa, ma presto si sentì
-                la necessità di una divisa ufficiale. Il consiglio affidò il compito al sarto Carlo Dameno, che realizzò
-                le divise in segreto. Il 4 giugno 1893, durante le celebrazioni della battaglia, la banda indossò per la
-                prima volta la sua uniforme. Questo fu anche il primo grande investimento della banda, che si impegnò a
-                pagare il costo in cinque anni con rate da 50 lire.</p>
-            <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
-                <div class="w3-container w3-margin-bottom">
-                    <img src="images/divisa900.jpg" alt="New York" style="width:100%">
-                    <div class="w3-container w3-white">
-                        <p style="color: black;">La prima divisa della banda</p>
-                    </div>
-                </div>
+    
+    <!-- Timeline section -->
+    <div class="timeline">
+        <!-- 1892 - Le Origini -->
+        <div class="timeline-container left">
+            <div class="timeline-content">
+                <div class="timeline-year">1892</div>
+                <div class="timeline-title">Le Origini</div>
+                <p class="timeline-text">Dopo una rottura all'interno del consiglio della banda municipale, cinque musicanti si separarono e, con l'aiuto del parroco Don Tragella, fondarono una nuova banda. Fu il parroco a proporre il nome "4 Giugno 1859" in memoria della battaglia di Magenta. La prima sede fu nei locali di un'osteria in via Garibaldi 10, dove il maestro Marco Pagani iniziò le prime prove e lezioni.</p>
             </div>
-            <h3 class="w3-wide w3-center">L'Invito a Torino - 1898</h3>
-            <p class="w3-center">Nel 1898, la banda "4 Giugno 1859" venne invitata a Torino per i festeggiamenti del
-                cinquantenario dello Statuto Albertino. Questo evento segnò un importante riconoscimento per la banda,
-                che continuava a crescere sia musicalmente che numericamente.</p>
-            <h3 class="w3-wide w3-center">Il 50° Anniversario della Battaglia di Magenta - 1909</h3>
-            <p class="w3-center">Nel 1909, in occasione del cinquantenario della battaglia di Magenta, la banda eseguì
-                per la prima volta un inno composto dal maestro Pagani su parole scritte da Don Tragella. La direzione
-                era già passata al maestro Guadagnini, che avrebbe guidato la banda per quasi settant'anni.</p>
-            <h3 class="w3-wide w3-center">La Prima Guerra Mondiale - 1914</h3>
-            <p class="w3-center">Con lo scoppio della Prima Guerra Mondiale, molte attività sociali e culturali si
-                fermarono, e la banda sopravvisse in una sorta di letargo. Alla fine del conflitto, con la ripresa della
-                vita normale, anche la banda riprese le sue attività.</p>
-            <h3 class="w3-wide w3-center">Il Ventennio Fascista - 1922</h3>
-            <p class="w3-center">Durante il regime fascista, la banda rischiò di essere assorbita dalla politica
-                dittatoriale. Venne fondata una nuova banda, la "Cesare Battisti", con l'obiettivo di mettere in
-                difficoltà le bande esistenti. Tuttavia, con un accordo tra i consiglieri delle bande storiche e un
-                contributo offerto alla nuova banda, si riuscì a evitare conflitti maggiori. Nel 1924, entrambe le bande
-                accolsero il Re a Magenta, e successivamente ricevettero anche il Duce.</p>
-            <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
-                <div class="w3-container w3-margin-bottom">
-                    <img src="images/1922.jpg" alt="New York" style="width:100%">
-                    <div class="w3-container w3-white">
-                        <p style="color: black;">1922</p>
-                    </div>
-                </div>
+        </div>
+        
+        <!-- 1893 - La Prima Divisa -->
+        <div class="timeline-container right">
+            <div class="timeline-content">
+                <div class="timeline-year">1893</div>
+                <div class="timeline-title">La Prima Divisa</div>
+                <p class="timeline-text">Il consiglio affidò al sarto Carlo Dameno la realizzazione delle prime divise ufficiali, create in gran segreto. Il 4 giugno 1893, durante le celebrazioni della battaglia, la banda indossò per la prima volta la sua uniforme. Fu un investimento importante, che la banda si impegnò a pagare in cinque anni con rate da 50 lire.</p>
+                <img src="images/divisa900.jpg" alt="La prima divisa della banda" class="timeline-image">
             </div>
-            <h3 class="w3-wide w3-center">La Seconda Guerra Mondiale - 1939</h3>
-            <p class="w3-center">Durante la Seconda Guerra Mondiale, l'attività della banda si ridusse drasticamente. A
-                causa delle difficoltà del periodo, la banda si trasformò in un piccolo gruppo che suonava un repertorio
-                popolare, mantenendo viva la passione per la musica nonostante le avversità.</p>
-            <h3 class="w3-wide w3-center">La Ricostruzione del Dopoguerra - 1960</h3>
-            <p class="w3-center">Negli anni '50, la banda attraversò un periodo di stagnazione: l'organico era vecchio,
-                il repertorio obsoleto e l'interesse generale ridotto. Con gli anni '60 e il benessere economico,
-                iniziarono però a delinearsi nuove prospettive per il futuro.
-            </p>
-            <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
-                <div class="w3-container w3-margin-bottom">
-                    <img src="images/1960.jpg" alt="New York" style="width:100%">
-                    <div class="w3-container w3-white">
-                        <p style="color: black;">1960</p>
-                    </div>
-                </div>
+        </div>
+        
+        <!-- 1898 - L'Invito a Torino -->
+        <div class="timeline-container left">
+            <div class="timeline-content">
+                <div class="timeline-year">1898</div>
+                <div class="timeline-title">L'Invito a Torino</div>
+                <p class="timeline-text">La banda venne invitata a Torino per i festeggiamenti del cinquantenario dello Statuto Albertino. Questo evento segnò un importante riconoscimento per il gruppo musicale, che continuava a crescere sia artisticamente che numericamente.</p>
             </div>
-            <h3 class="w3-wide w3-center">L'Ingresso delle Prime Donne - 1970</h3>
-            <p class="w3-center">Negli anni '70, la banda vide una grande trasformazione con l'ingresso delle prime
-                donne tra i musicanti. Fino ad allora, la banda era stata composta esclusivamente da uomini. Questo
-                cambiamento segnò una svolta significativa, che portò a un incremento degli allievi e a una maggiore
-                partecipazione giovanile.</p>
-            <h3 class="w3-wide w3-center">Un Nuovo Spirito di Appartenenza - 1980</h3>
-            <p class="w3-center">Negli anni '80, i giovani entrati in banda iniziarono a diventare parte attiva della
-                gestione e dell'organizzazione delle attività. Questa nuova energia culminò nelle celebrazioni per il
-                centenario della banda nel 1992, segnando l'inizio di una nuova fase di crescita e partecipazione.</p>
-            <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
-                <div class="w3-container w3-margin-bottom">
-                    <img src="images/1990.jpg" alt="New York" style="width:100%">
-                    <div class="w3-container w3-white">
-                        <p style="color: black;">1990</p>
-                    </div>
-                </div>
+        </div>
+        
+        <!-- 1909 - Il 50° Anniversario della Battaglia -->
+        <div class="timeline-container right">
+            <div class="timeline-content">
+                <div class="timeline-year">1909</div>
+                <div class="timeline-title">50° Anniversario della Battaglia</div>
+                <p class="timeline-text">In occasione del cinquantenario della battaglia di Magenta, la banda eseguì per la prima volta un inno composto dal maestro Pagani su parole scritte da Don Tragella. La direzione era già passata al maestro Guadagnini, che avrebbe guidato la banda per quasi settant'anni.</p>
             </div>
-            <h3 class="w3-wide w3-center">Eventi recenti</h3>
-            <p class="w3-center">Negli ultimi anni, la banda ha partecipato a numerosi eventi musicali di rilievo, tra
-                cui la Festa della Musica in Francia e il concorso internazionale di Székesfehérvár. Grazie all'impegno
-                costante e alla passione dei musicanti, la banda "4 Giugno 1859" continua a essere un punto di
-                riferimento culturale e musicale per la comunità.</p>
+        </div>
+        
+        <!-- 1914 - La Prima Guerra Mondiale -->
+        <div class="timeline-container left">
+            <div class="timeline-content">
+                <div class="timeline-year">1914-1918</div>
+                <div class="timeline-title">La Prima Guerra Mondiale</div>
+                <p class="timeline-text">Con lo scoppio della Prima Guerra Mondiale, molte attività sociali e culturali si fermarono, e la banda sopravvisse in una sorta di letargo. Alla fine del conflitto, con la ripresa della vita normale, anche la banda riprese le sue attività.</p>
+            </div>
+        </div>
+        
+        <!-- 1922 - Il Ventennio Fascista -->
+        <div class="timeline-container right">
+            <div class="timeline-content">
+                <div class="timeline-year">1922-1939</div>
+                <div class="timeline-title">Il Ventennio Fascista</div>
+                <p class="timeline-text">Durante il regime fascista, la banda rischiò di essere assorbita dalla politica dittatoriale. Venne fondata una nuova banda, la "Cesare Battisti", con l'obiettivo di mettere in difficoltà le bande esistenti. Con un accordo e un contributo alla nuova banda, si riuscì a evitare conflitti maggiori. Nel 1924, entrambe le bande accolsero il Re a Magenta, e successivamente ricevettero anche il Duce.</p>
+                <img src="images/1922.jpg" alt="La banda nel 1922" class="timeline-image">
+            </div>
+        </div>
+        
+        <!-- 1939 - La Seconda Guerra Mondiale -->
+        <div class="timeline-container left">
+            <div class="timeline-content">
+                <div class="timeline-year">1939-1945</div>
+                <div class="timeline-title">La Seconda Guerra Mondiale</div>
+                <p class="timeline-text">Durante la Seconda Guerra Mondiale, l'attività della banda si ridusse drasticamente. A causa delle difficoltà del periodo, la banda si trasformò in un piccolo gruppo che suonava un repertorio popolare, mantenendo viva la passione per la musica nonostante le avversità.</p>
+            </div>
+        </div>
+        
+        <!-- 1950-1960 - La Ricostruzione del Dopoguerra -->
+        <div class="timeline-container right">
+            <div class="timeline-content">
+                <div class="timeline-year">1950-1960</div>
+                <div class="timeline-title">La Ricostruzione del Dopoguerra</div>
+                <p class="timeline-text">Negli anni '50, la banda attraversò un periodo di stagnazione: l'organico era vecchio, il repertorio obsoleto e l'interesse generale ridotto. Con gli anni '60 e il benessere economico, iniziarono però a delinearsi nuove prospettive per il futuro.</p>
+                <img src="images/1960.jpg" alt="La banda nel 1960" class="timeline-image">
+            </div>
+        </div>
+        
+        <!-- 1970 - L'Ingresso delle Prime Donne -->
+        <div class="timeline-container left">
+            <div class="timeline-content">
+                <div class="timeline-year">1970</div>
+                <div class="timeline-title">L'Ingresso delle Prime Donne</div>
+                <p class="timeline-text">Negli anni '70, la banda vide una grande trasformazione con l'ingresso delle prime donne tra i musicanti. Fino ad allora, la banda era stata composta esclusivamente da uomini. Questo cambiamento segnò una svolta significativa, che portò a un incremento degli allievi e a una maggiore partecipazione giovanile.</p>
+            </div>
+        </div>
+        
+        <!-- 1980-1992 - Un Nuovo Spirito di Appartenenza -->
+        <div class="timeline-container right">
+            <div class="timeline-content">
+                <div class="timeline-year">1980-1992</div>
+                <div class="timeline-title">Un Nuovo Spirito di Appartenenza</div>
+                <p class="timeline-text">Negli anni '80, i giovani entrati in banda iniziarono a diventare parte attiva della gestione e dell'organizzazione delle attività. Questa nuova energia culminò nelle celebrazioni per il centenario della banda nel 1992, segnando l'inizio di una nuova fase di crescita e partecipazione.</p>
+                <img src="images/1990.jpg" alt="La banda nel 1990" class="timeline-image">
+            </div>
+        </div>
+        
+        <!-- Eventi recenti -->
+        <div class="timeline-container left">
+            <div class="timeline-content">
+                <div class="timeline-year">2000-Oggi</div>
+                <div class="timeline-title">Eventi recenti</div>
+                <p class="timeline-text">Negli ultimi anni, la banda ha partecipato a numerosi eventi musicali di rilievo, tra cui la Festa della Musica in Francia e il concorso internazionale di Székesfehérvár. Grazie all'impegno costante e alla passione dei musicanti, la banda "4 Giugno 1859" continua a essere un punto di riferimento culturale e musicale per la comunità.</p>
+                <img src="images/banda.jpg" alt="La banda ad Acquiterme 2024" class="timeline-image">
+            </div>
         </div>
     </div>
+    
+    <!-- Back to top button -->
+    <a class="back-to-top" href="#title-story-page"><i class="fa fa-arrow-up"></i></a>
+    
     <!-- Footer -->
     <div id="footer-container"></div>
+    
+    <script>
+        // Script for smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Back to top button visibility
+        window.onscroll = function() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.querySelector('.back-to-top').style.display = "block";
+            } else {
+                document.querySelector('.back-to-top').style.display = "none";
+            }
+        };
+    </script>
 </body>
 
 </html>
