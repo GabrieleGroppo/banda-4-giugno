@@ -10,6 +10,35 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="script.js"></script>
+    <style>
+        .people-container {
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .people-container:hover {
+            transform: translateY(-5px);
+        }
+
+        .people-content {
+            padding: 15px;
+        }
+
+        .people-image-wrapper {
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .people-motto {
+            font-style: italic;
+            margin-top: 5px;
+            color: #A0B9E9;
+        }
+
+        .people-details {
+            margin-top: 15px;
+        }
+    </style>
 </head>
 
 <body>
@@ -18,7 +47,7 @@
 
 
     <div id="cover" class="hero" style="background-image: url(images/background-image.jpg)">
-        <h1 style="color: white;" id="cover-title">Banda 4 Giugno 1859</h1>
+        <h1 style="color: white;" id="cover-title">Banda IV Giugno 1859</h1>
     </div>
     <!-- Page content -->
     <div class="w3-content primary" style="max-width:2000px;">
@@ -35,24 +64,45 @@
                 adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
                 veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </div>
-        <div class="w3-content w3-padding-32 w3-center">
-            <div class="w3-third">
-                <h3 class="title">Il Presidente</h3>
-                <img src="images/presidente_square.jpg" id="presidente-img" class="w3-round w3-margin-bottom"
-                    alt="Presidente" style="width:60%">
-                <p class="name" id="presidente">Massimo Cavalli</p>
+        <div class="w3-content w3-center">
+            <div class="w3-third people-container">
+                <div class="people-content">
+                    <h3 class="title">Il Presidente</h3>
+                    <div class="people-image-wrapper">
+                        <img src="images/presidente_square.jpg" id="presidente-img" class="w3-round w3-hover-opacity"
+                            alt="Presidente" style="width:60%; transition: all 0.3s ease;">
+                    </div>
+                    <p class="name" id="presidente">Massimo Cavalli</p>
+                    <div class="people-details">
+                        <p class="people-motto">"Passione e Tradizione"</p>
+                    </div>
+                </div>
             </div>
-            <div class="w3-third">
-                <h3 class="title">Il Maestro</h3>
-                <img src="images/maestro_square.jpg" id="maestro-img" class="w3-round w3-margin-bottom"
-                    alt="Maestro" style="width:60%">
-                <p class="name" id="maestro">Michela Fassi</p>
+            <div class="w3-third people-container">
+                <div class="people-content">
+                    <h3 class="title">Il Maestro</h3>
+                    <div class="people-image-wrapper">
+                        <img src="images/maestro_square.jpg" id="presidente-img" class="w3-round w3-hover-opacity"
+                            alt="Maestro" style="width:60%; transition: all 0.3s ease;">
+                    </div>
+                    <p class="name" id="maestro">Michela Fassi</p>
+                    <div class="people-details">
+                        <p class="people-motto">"Passione e Tradizione"</p>
+                    </div>
+                </div>
             </div>
-            <div class="w3-third">
-                <h3 style="color: #A0B9E9;">La Banda</h3>
-                <img src="images/banda_square.jpg" id="musicisti-img" class="w3-round w3-margin-bottom"
-                    alt="Musicisti" style="width:60%">
-                <p class="name" id="musicisti">I musicisti</p>
+            <div class="w3-third people-container">
+                <div class="people-content">
+                    <h3 class="title">La Banda</h3>
+                    <div class="people-image-wrapper">
+                        <img src="images/banda_square.jpg" id="presidente-img" class="w3-round w3-hover-opacity"
+                            alt="Banda" style="width:60%; transition: all 0.3s ease;">
+                    </div>
+                    <p class="name" id="banda-home-page">Banda IV Giugno</p>
+                    <div class="people-details">
+                        <p class="people-motto">"Passione e Tradizione"</p>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- Next events section -->
