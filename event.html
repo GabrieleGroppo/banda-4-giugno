@@ -10,6 +10,23 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="script.js"></script>
+    <style>
+        /*Locandina button hover gold & color primary #A0B9E9*/
+        .locandina-button {
+            background-color: #A0B9E9;
+            color: black;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+
+        .locandina-button:hover {
+            background-color: gold;
+        }
+    </style>
 </head>
 
 <body>
@@ -28,9 +45,22 @@
             <p id="event-date" class="w3-opacity"></p>
             <p id="event-location" class="w3-opacity"><i>Teatro lirico Magenta</i></p>
             <p id="event-description" class="w3-justify"></p>
+            <a id="locandina-btn" class="locandina-button" style="cursor: pointer;">
+                Locandina
+            </a>
         </div>
         <!-- Gallery -->
         <script>
+            loadLocandina();
+            async function loadLocandina() {
+                let evendId = new URLSearchParams(window.location.search).get('id');
+                console.log(evendId);
+                let event = await getEventDetails(eventId);
+                let urlLocandina = API_BASE_URL+"/"+event.data.Poster.url;
+                console.log(urlLocandina);
+                document.getElementById('locandina-btn').setAttribute('href', urlLocandina);
+                document.getElementById('locandina-btn').setAttribute('download', event.Poster.url);
+            };
             var slideIndex = 1;
             var totSlides;
             function changeEventPicture(number) {
