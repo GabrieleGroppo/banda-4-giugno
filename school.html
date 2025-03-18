@@ -87,11 +87,20 @@
             border-bottom: 1px solid #333;
             padding: 15px 10px;
             transition: all 0.3s ease;
+            cursor: pointer; /* Cursore pointer per indicare che è cliccabile */
         }
 
         #school-info ul.w3-ul li:hover {
             background-color: #222;
             transform: translateX(5px);
+        }
+        
+        /* Stile per elemento attivo */
+        #school-info ul.w3-ul li.active {
+            background-color: #A0B9E9;
+            color: #141218;
+            transform: translateX(5px);
+            border-left: 4px solid gold;
         }
 
         .section-title {
@@ -249,19 +258,21 @@
                 età e livello. Impara a suonare, divertiti e diventa parte della nostra famiglia musicale!</p>
 
             <h3 class="w3-center" style="color: #A0B9E9; margin-top: 30px;">Perché scegliere la nostra scuola?</h3>
-            <ul class="w3-ul w3-large animate-fadeIn delay-3">
-                <li>✅ <b>Impari a suonare</b> uno strumento, anche da zero!</li>
-                <li>🎵 <b>Docenti esperti</b> ti guideranno passo dopo passo.</li>
-                <li>🎺 <b>Suoni in gruppo</b> e fai subito musica con gli altri!</li>
-                <li>🎶 <b>Parteciperai a eventi e concerti</b>, vivendo esperienze uniche.</li>
-                <li>😃 <b>Ti divertirai un sacco!</b> La musica è passione, amicizia e tante emozioni.</li>
+            <ul class="w3-ul w3-large animate-fadeIn delay-3" id="feature-list">
+                <li data-image="images/imparare.jpg">✅ <b>Impari a suonare</b> uno strumento, anche da zero!</li>
+                <li data-image="images/docenti.jpg">🎵 <b>Docenti esperti</b> ti guideranno passo dopo passo.</li>
+                <li data-image="images/gruppo.jpg">🎺 <b>Suoni in gruppo</b> e fai subito musica con gli altri!</li>
+                <li data-image="images/concerti.jpg">🎶 <b>Parteciperai a eventi e concerti</b>, vivendo esperienze uniche.</li>
+                <li data-image="images/divertimento.jpg">😃 <b>Ti divertirai un sacco!</b> La musica è passione, amicizia e tante emozioni.</li>
             </ul>
             <!-- Slideshow Section -->
             <div class="w3-padding-32" id="school-slideshow">
                 <div class="slide-container w3-display-container w3-center">
-                    <img src="images/banda.jpg" class="slide" alt="Banda">
-                    <img src="images/banda1.jpg" class="slide" alt="Banda 1">
-                    <img src="images/banda.jpg" class="slide" alt="Banda">
+                    <img src="images/imparare.jpg" class="slide" alt="Impara a suonare">
+                    <img src="images/docenti.jpg" class="slide" alt="Docenti esperti">
+                    <img src="images/gruppo.jpg" class="slide" alt="Suona in gruppo">
+                    <img src="images/concerti.jpg" class="slide" alt="Eventi e concerti">
+                    <img src="images/divertimento.jpg" class="slide" alt="Divertimento">
                 </div>
             </div>
             <h2 class="section-title animate-fadeIn delay-4">Chi può iscriversi?</h2>
@@ -310,38 +321,93 @@
     <!-- Footer -->
     <div id="footer-container"></div>
     <script>
-        // Slideshow automatico - cambia immagine ogni 4 secondi
+        // Funzione che si avvia quando il documento è completamente caricato
         document.addEventListener('DOMContentLoaded', function () {
-            var slideIndex = 0;
             var slides = document.getElementsByClassName("slide");
-
-            // Imposta la prima slide come attiva
+            var featureItems = document.querySelectorAll('#feature-list li');
+            var slideIndex = 0;
+            var activeIndex = null;  // Variabile per tenere traccia dell'elemento attivo
+            var interval;  // Variabile per il setInterval
+            var isAutoPlaying = true;  // Flag per lo slideshow automatico
+            
+            // Mostra la prima slide all'inizio
             if (slides.length > 0) {
                 slides[0].classList.add('active');
             }
-
-            function showSlides() {
-                // Nascondi tutte le slide
+            
+            // Nascondi tutte le slide
+            function hideAllSlides() {
                 for (var i = 0; i < slides.length; i++) {
                     slides[i].classList.remove('active');
                 }
-
-                // Incrementa l'indice
-                slideIndex++;
-
-                // Torna all'inizio se hai raggiunto la fine
-                if (slideIndex > slides.length) {
-                    slideIndex = 1;
-                }
-
-                // Mostra la slide corrente
-                slides[slideIndex - 1].classList.add('active');
-
-                // Cambia immagine ogni 4 secondi
-                setTimeout(showSlides, 4000);
             }
-
-            showSlides();
+            
+            // Rimuovi classe active da tutti gli elementi della lista
+            function removeActiveFromAllItems() {
+                featureItems.forEach(function(item) {
+                    item.classList.remove('active');
+                });
+            }
+            
+            // Mostra una slide specifica
+            function showSlide(index) {
+                hideAllSlides();
+                slides[index].classList.add('active');
+            }
+            
+            // Funzione per avviare lo slideshow automatico
+            function startAutoSlideshow() {
+                isAutoPlaying = true;
+                
+                // Se nessun elemento è selezionato, mostra tutte le slide in sequenza
+                if (activeIndex === null) {
+                    interval = setInterval(function() {
+                        hideAllSlides();
+                        slideIndex++;
+                        if (slideIndex >= slides.length) {
+                            slideIndex = 0;
+                        }
+                        slides[slideIndex].classList.add('active');
+                    }, 4000);
+                } else {
+                    // Se un elemento è selezionato, mostra solo quella slide
+                    showSlide(activeIndex);
+                    // Non è necessario un intervallo perché vogliamo mostrare solo l'elemento selezionato
+                    clearInterval(interval);
+                    isAutoPlaying = false;
+                }
+            }
+            
+            // Aggiungi event listener per ogni elemento della lista
+            featureItems.forEach(function(item, index) {
+                item.addEventListener('click', function() {
+                    // Rimuovi classe active da tutti gli elementi
+                    removeActiveFromAllItems();
+                    
+                    // Se clicco sullo stesso elemento già attivo, lo deseleziono
+                    if (activeIndex === index) {
+                        activeIndex = null;
+                        // Riavvia lo slideshow automatico con tutte le slide
+                        clearInterval(interval);
+                        startAutoSlideshow();
+                    } else {
+                        // Altrimenti imposto questo elemento come attivo
+                        this.classList.add('active');
+                        activeIndex = index;
+                        
+                        // Mostra la slide corrispondente
+                        showSlide(index);
+                        
+                        // Ferma il vecchio slideshow
+                        clearInterval(interval);
+                        // Non riavviamo lo slideshow automatico, manteniamo ferma questa slide
+                        isAutoPlaying = false;
+                    }
+                });
+            });
+            
+            // Avvia il slideshow iniziale
+            startAutoSlideshow();
         });
     </script>
 </body>
