@@ -12,6 +12,36 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
     <style>
+        .slide-container {
+            margin-top: 40px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            position: relative;
+            height: 400px;
+            /* Altezza fissa per tutte le slides */
+            width: 100%;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+            object-fit: cover;
+            /* Assicura che le immagini mantengano il rapporto d'aspetto */
+            display: none;
+        }
+
+        .slide.active {
+            opacity: 1;
+            display: block;
+        }
+
         /* Stili aggiuntivi specifici per la pagina scuola */
         #school-title {
             background-image: url('images/banda.jpg');
@@ -203,7 +233,6 @@
 <body>
     <!-- Navbar -->
     <div id="navbar-container"></div>
-
     <!-- Title Section -->
     <div id="school-title">
         <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
@@ -358,76 +387,43 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!-- Footer -->
+    <div id="footer-container"></div>
+    <script>
+        // Slideshow automatico - cambia immagine ogni 4 secondi
+        document.addEventListener('DOMContentLoaded', function () {
+            var slideIndex = 0;
+            var slides = document.getElementsByClassName("slide");
 
-            <style>
-                .slide-container {
-                    margin-top: 40px;
-                    border-radius: 10px;
-                    overflow: hidden;
-                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-                    position: relative;
-                    height: 400px;
-                    /* Altezza fissa per tutte le slides */
-                    width: 100%;
+            // Imposta la prima slide come attiva
+            if (slides.length > 0) {
+                slides[0].classList.add('active');
+            }
+
+            function showSlides() {
+                // Nascondi tutte le slide
+                for (var i = 0; i < slides.length; i++) {
+                    slides[i].classList.remove('active');
                 }
 
-                .slide {
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    border-radius: 10px;
-                    opacity: 0;
-                    transition: opacity 1s ease-in-out;
-                    object-fit: cover;
-                    /* Assicura che le immagini mantengano il rapporto d'aspetto */
-                    display: none;
+                // Incrementa l'indice
+                slideIndex++;
+
+                // Torna all'inizio se hai raggiunto la fine
+                if (slideIndex > slides.length) {
+                    slideIndex = 1;
                 }
 
-                .slide.active {
-                    opacity: 1;
-                    display: block;
-                }
-            </style>
+                // Mostra la slide corrente
+                slides[slideIndex - 1].classList.add('active');
 
-            <script>
-                // Slideshow automatico - cambia immagine ogni 4 secondi
-                document.addEventListener('DOMContentLoaded', function () {
-                    var slideIndex = 0;
-                    var slides = document.getElementsByClassName("slide");
+                // Cambia immagine ogni 4 secondi
+                setTimeout(showSlides, 4000);
+            }
 
-                    // Imposta la prima slide come attiva
-                    if (slides.length > 0) {
-                        slides[0].classList.add('active');
-                    }
-
-                    function showSlides() {
-                        // Nascondi tutte le slide
-                        for (var i = 0; i < slides.length; i++) {
-                            slides[i].classList.remove('active');
-                        }
-
-                        // Incrementa l'indice
-                        slideIndex++;
-
-                        // Torna all'inizio se hai raggiunto la fine
-                        if (slideIndex > slides.length) {
-                            slideIndex = 1;
-                        }
-
-                        // Mostra la slide corrente
-                        slides[slideIndex - 1].classList.add('active');
-
-                        // Cambia immagine ogni 4 secondi
-                        setTimeout(showSlides, 4000);
-                    }
-
-                    showSlides();
-                });
-            </script>
-            <!-- Footer -->
-            <div id="footer-container"></div>
+            showSlides();
+        });
+    </script>
 </body>
-
 </html>
