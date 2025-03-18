@@ -65,44 +65,51 @@
                 veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </div>
         <!-- Sezione Presidente e Maestro migliorata -->
-<div class="w3-container w3-content w3-padding-32" style="max-width:800px" id="people">
-    <h2 class="w3-wide w3-center title">La Nostra Guida</h2>
-    <p class="w3-opacity w3-center"><i>Le persone che rendono possibile la nostra musica</i></p>
-    
-    <div class="w3-row-padding w3-padding-32 w3-center">
-        <!-- Il Presidente -->
-        <div class="w3-half people-container">
-            <div class="people-content w3-card w3-round-large" style="background-color: #1a1822; padding: 20px;">
-                <h3 class="title">Il Presidente</h3>
-                <div style="background-color: #1a1822;" class="people-image-wrapper">
-                    <img src="images/presidente_square.jpg" id="presidente-img" class="w3-round-large w3-hover-opacity"
-                        alt="Presidente" style="width:70%; box-shadow: 0 4px 8px rgba(0,0,0,0.5);">
+        <div class="w3-container w3-content w3-padding-32" style="max-width:800px" id="people">
+            <h2 class="w3-wide w3-center title">La Nostra Guida</h2>
+            <p class="w3-opacity w3-center"><i>Le persone che rendono possibile la nostra musica</i></p>
+
+            <div class="w3-row-padding w3-padding-32 w3-center">
+                <!-- Il Presidente -->
+                <div class="w3-half people-container">
+                    <div class="people-content w3-card w3-round-large"
+                        style="background-color: #1a1822; padding: 20px;">
+                        <h3 class="title">Il Presidente</h3>
+                        <div style="background-color: #1a1822;" class="people-image-wrapper">
+                            <img src="images/presidente_square.jpg" id="presidente-img"
+                                class="w3-round-large w3-hover-opacity" alt="Presidente"
+                                style="width:70%; box-shadow: 0 4px 8px rgba(0,0,0,0.5);">
+                        </div>
+                        <p class="name" id="presidente">Massimo Cavalli</p>
+                        <div class="people-details">
+                            <p class="people-motto">"La musica è il linguaggio universale che unisce la nostra comunità"
+                            </p>
+                            <p class="w3-text-light-grey" style="margin-top:15px;">Dal 2018 guida la nostra associazione
+                                con passione e dedizione, promuovendo la cultura musicale nella città di Magenta.</p>
+                        </div>
+                    </div>
                 </div>
-                <p class="name" id="presidente">Massimo Cavalli</p>
-                <div class="people-details">
-                    <p class="people-motto">"La musica è il linguaggio universale che unisce la nostra comunità"</p>
-                    <p class="w3-text-light-grey" style="margin-top:15px;">Dal 2018 guida la nostra associazione con passione e dedizione, promuovendo la cultura musicale nella città di Magenta.</p>
+
+                <!-- Il Maestro -->
+                <div class="w3-half people-container">
+                    <div class="people-content w3-card w3-round-large"
+                        style="background-color: #1a1822; padding: 20px;">
+                        <h3 class="title">Il Maestro</h3>
+                        <div style="background-color: #1a1822;" class="people-image-wrapper">
+                            <img src="images/maestro_square.jpg" id="maestro-img"
+                                class="w3-round-large w3-hover-opacity" alt="Maestro"
+                                style="width:70%; box-shadow: 0 4px 8px rgba(0,0,0,0.5);">
+                        </div>
+                        <p class="name" id="maestro">Michela Fassi</p>
+                        <div class="people-details">
+                            <p class="people-motto">"Ogni nota è importante, proprio come ogni persona nella banda"</p>
+                            <p class="w3-text-light-grey" style="margin-top:15px;">Direttrice dal 2015, ha portato
+                                innovazione nel repertorio mantenendo viva la tradizione bandistica italiana.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        
-        <!-- Il Maestro -->
-        <div class="w3-half people-container">
-            <div class="people-content w3-card w3-round-large" style="background-color: #1a1822; padding: 20px;">
-                <h3 class="title">Il Maestro</h3>
-                <div style="background-color: #1a1822;" class="people-image-wrapper">
-                    <img src="images/maestro_square.jpg" id="maestro-img" class="w3-round-large w3-hover-opacity"
-                        alt="Maestro" style="width:70%; box-shadow: 0 4px 8px rgba(0,0,0,0.5);">
-                </div>
-                <p class="name" id="maestro">Michela Fassi</p>
-                <div class="people-details">
-                    <p class="people-motto">"Ogni nota è importante, proprio come ogni persona nella banda"</p>
-                    <p class="w3-text-light-grey" style="margin-top:15px;">Direttrice dal 2015, ha portato innovazione nel repertorio mantenendo viva la tradizione bandistica italiana.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
         <!-- Next events section -->
         <div class="">
             <div class="w3-container w3-content w3-padding-32" style="max-width:800px;">
@@ -135,7 +142,8 @@
                             </a>
                         </li>
                         <li style="margin-bottom: 15px;">
-                            📧 <a href="mailto:banda4giugno1859@gmail.com" class="gold-hover">info@banda4giugno1859.it</a>
+                            📧 <a href="mailto:banda4giugno1859@gmail.com"
+                                class="gold-hover">banda4giugno1859@gmail.com</a>
                         </li>
                         <li style="font-size: 18px;">
                             🕒 Martedì 16:00 - 17:00 o 21:00 - 23:00
@@ -153,8 +161,21 @@
 </html>
 
 <script>
-    window.onload = () => {
+    // Aggiungi alla fine del tuo script.js esistente
+    window.onload = function () {
+        // Le funzioni che hai già
         setLastEventSection();
         setUpcomingEventsSection();
+
+        // Aggiungi questa parte per gestire lo scroll
+        if (window.location.hash) {
+            const targetElement = document.querySelector(window.location.hash);
+            if (targetElement) {
+                // Attendi un breve istante per sicurezza
+                setTimeout(function () {
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                }, 200);
+            }
+        }
     };
 </script>
