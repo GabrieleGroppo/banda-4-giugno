@@ -5,7 +5,7 @@
     <title>Banda 4 Giugno 1859 - Scuola</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
+    <link rel="icon" type="image/x-icon" href="/images/logo.png">
     <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -17,104 +17,169 @@
     <!-- Navbar -->
     <div id="navbar-container"></div>
 
-    <!-- Title Section -->
-    <div id="school-title">
-        <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
-            <h1 class="w3-wide w3-center">La Scuola</h1>
-        </div>
-    </div>
 
     <!-- School Info Section -->
-    <div id="school-info">
-        <div class="w3-container w3-content" style="max-width:800px; color: white;">
-            <h2 class="w3-wide w3-center">Entra nella Scuola della Banda e scopri il mondo della musica! 🎶</h2>
-            <p class="w3-center">Perché scegliere la nostra scuola?</p>
-            <ul class="w3-ul w3-large">
-                <li>✅ <b>Impari a suonare</b> uno strumento, anche da zero!</li>
-                <li>🎵 <b>Docenti esperti</b> ti guideranno passo dopo passo.</li>
-                <li>🎺 <b>Suoni in gruppo</b> e fai subito musica con gli altri!</li>
-                <li>🎶 <b>Parteciperai a eventi e concerti</b>, vivendo esperienze uniche.</li>
-                <li>😃 <b>Ti divertirai un sacco!</b> La musica è passione, amicizia e tante emozioni.</li>
+    <div id="school-info" class="w3-padding-64">
+        <h1 class="w3-wide w3-center animate-fadeIn">La Scuola di Musica</h1>
+        <div class="w3-container w3-content w3-center" style="max-width:800px; color: white;">
+            <h2 class="section-title animate-fadeIn delay-1">Entra nella Scuola della Banda e scopri il mondo della
+                musica! 🎶</h2>
+            <p class="w3-center animate-fadeIn delay-2">La nostra scuola offre percorsi formativi per musicisti di ogni
+                età e livello. Impara a suonare, divertiti e diventa parte della nostra famiglia musicale!</p>
+
+            <h3 class="w3-center animate-fadeIn delay-3" style="color: #A0B9E9; margin-top: 30px;">Perché scegliere la nostra scuola?</h3>
+            <ul class="w3-ul w3-large animate-fadeIn delay-3" id="feature-list">
+                <li data-image="images/imparare.jpg">✅ <b>Impari a suonare</b> uno strumento, anche da zero!</li>
+                <li data-image="images/docenti.jpg">🎵 <b>Docenti esperti</b> ti guideranno passo dopo passo.</li>
+                <li data-image="images/gruppo.jpg">🎺 <b>Suoni in gruppo</b> e fai subito musica con gli altri!</li>
+                <li data-image="images/concerti.jpg">🎶 <b>Parteciperai a eventi e concerti</b>, vivendo esperienze uniche.</li>
+                <li data-image="images/divertimento.jpg">😃 <b>Ti divertirai un sacco!</b> La musica è passione, amicizia e tante emozioni.</li>
             </ul>
-            <h2 class="w3-wide w3-center">Chi può iscriversi?</h2>
-            <p class="w3-center">Ragazzi e ragazze <b>di tutte le età!</b> Non serve avere esperienza, basta la voglia
-                di imparare e divertirsi.</p>
-            <h2 class="w3-wide w3-center">Prova Gratis!</h2>
-            <p class="w3-center">Vieni a trovarci e partecipa a <b>una lezione di prova gratuita</b>: scoprirai quanto
-                può essere bello far parte della nostra grande famiglia musicale!</p>
-
-            <!-- Insegnanti Section -->
-            <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="teachers-section">
-                <h2 class="w3-wide">Gli Insegnanti</h2>
-                <p class="w3-opacity"><i>We love music</i></p>
-                <div class="">
-                    <div class="w3-third">
-                        <h3>Percussioni</h3>
-                        <img src="images/presidente_square.jpg" class="w3-round w3-margin-bottom" alt="Presidente"
-                            style="width:60%">
-                        <p class="name">Massimo Cavalli</p>
-                        <!--<p class="phone">📞 ---</p>-->
-                    </div>
-                    <div class="w3-third">
-                        <h3>Legni</h3>
-                        <img src="images/maestro_square.jpg" class="w3-round w3-margin-bottom" alt="Maestro"
-                            style="width:60%">
-                        <p class="name">Michela Fassi</p>
-                    </div>
-                    <div class="w3-third">
-                        <h3>Trombe</h3>
-                        <img src="images/massimo_maltagliati_square.jpg" class="w3-round w3-margin-bottom"
-                            alt="Musicisti" style="width:60%">
-                        <p class="name">Massimo Maltagliati</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="" id="school-schedule">
-                <h2 class="w3-wide w3-center">Orari</h2>
-                <p class="w3-center">Tutti i Martedì pomeriggio dalle 16 alle 19.</p>
-
-            </div>
-
-            <div class="" id="school-schedule">
-                <h2 class="w3-wide w3-center">Contatti</h2>
-                <p class="w3-center"><a href="index.html#contact">Contattaci</a></p>
-
-            </div>
-
             <!-- Slideshow Section -->
             <div class="w3-padding-32" id="school-slideshow">
                 <div class="slide-container w3-display-container w3-center">
-                    <img src="images/banda.jpg" class="slide" style="width:100%">
-                </div>
-                <div class="slide-container w3-display-container w3-center">
-                    <img src="images/banda1.jpg" class="slide" style="width:100%">
-                </div>
-                <div class="slide-container w3-display-container w3-center">
-                    <img src="images/banda.jpg" class="slide" style="width:100%">
+                    <img src="images/imparare.jpg" class="slide" alt="Impara a suonare">
+                    <img src="images/docenti.jpg" class="slide" alt="Docenti esperti">
+                    <img src="images/gruppo.jpg" class="slide" alt="Suona in gruppo">
+                    <img src="images/concerti.jpg" class="slide" alt="Eventi e concerti">
+                    <img src="images/divertimento.jpg" class="slide" alt="Divertimento">
                 </div>
             </div>
+            <h2 class="section-title animate-fadeIn delay-4">Chi può iscriversi?</h2>
+            <p class="w3-center">Ragazzi e ragazze <b>di tutte le età!</b> Non serve avere esperienza, basta la voglia
+                di imparare e divertirsi.</p>
+
+            <div class="w3-row-padding w3-center w3-padding-32">
+                <div class="w3-third">
+                    <div style="background-color: #1a1a1a; padding: 20px; border-radius: 10px; height: 100%;">
+                        <i class="fas fa-music" style="font-size: 40px; color: #A0B9E9; margin-bottom: 15px;"></i>
+                        <h3 style="color: #A0B9E9;">Corsi individuali</h3>
+                        <p>Lezioni personalizzate con i nostri docenti esperti</p>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div style="background-color: #1a1a1a; padding: 20px; border-radius: 10px; height: 100%;">
+                        <i class="fas fa-users" style="font-size: 40px; color: #A0B9E9; margin-bottom: 15px;"></i>
+                        <h3 style="color: #A0B9E9;">Musica d'insieme</h3>
+                        <p>Impara a suonare in gruppo sin dai primi passi</p>
+                    </div>
+                </div>
+                <div class="w3-third">
+                    <div style="background-color: #1a1a1a; padding: 20px; border-radius: 10px; height: 100%;">
+                        <i class="fas fa-certificate" style="font-size: 40px; color: #A0B9E9; margin-bottom: 15px;"></i>
+                        <h3 style="color: #A0B9E9;">Eventi e concerti</h3>
+                        <p>Esibizioni pubbliche durante l'anno scolastico</p>
+                    </div>
+                </div>
+            </div>
+
+            <h2 class="section-title animate-fadeIn delay-5">Prova Gratis!</h2>
+            <p class="w3-center">Vieni a trovarci e partecipa a <b>una lezione di prova gratuita</b>: scoprirai quanto
+                può essere bello far parte della nostra grande famiglia musicale!</p>
+            <a href="mailto:banda4giugno1859@gmail.com?subject=Richiesta lezione di prova&body=Buongiorno,%0D%0A%0D%0ASono interessato/a a prenotare una lezione di prova con la Banda 4 Giugno 1859.%0D%0A%0D%0ACordiali saluti,"
+                class="cta-button">Prenota una lezione di prova</a>
+
+            <div class="w3-padding-32" id="school-schedule">
+                <h2 class="section-title">Vieni a Trovarci !</h2>
+                <div style="border-radius: 10px; margin-bottom: 30px;">
+                    <p class="w3-center" style="font-size: 1.2rem;">🕒 Tutti i <b>Martedì</b> pomeriggio dalle 16 alle 19.</p>
+                    📍 <a href="https://www.google.com/maps?q=Via+Roma,+182,+20013+Magenta+MI" target="_blank"
+                                class="gold-hover">Via Roma, 182, 20013 Magenta MI</a>
+                </div>
+            </div>            
         </div>
     </div>
-
     <!-- Footer -->
     <div id="footer-container"></div>
-
     <script>
-        // Automatic Slideshow - change image every 4 seconds
-        var currentIndex = 0;
-        startSlideshow();
-
-        function startSlideshow() {
+        // Funzione che si avvia quando il documento è completamente caricato
+        document.addEventListener('DOMContentLoaded', function () {
             var slides = document.getElementsByClassName("slide");
-            for (var i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
+            var featureItems = document.querySelectorAll('#feature-list li');
+            var slideIndex = 0;
+            var activeIndex = null;  // Variabile per tenere traccia dell'elemento attivo
+            var interval;  // Variabile per il setInterval
+            var isAutoPlaying = true;  // Flag per lo slideshow automatico
+            
+            // Mostra la prima slide all'inizio
+            if (slides.length > 0) {
+                slides[0].classList.add('active');
             }
-            currentIndex++;
-            if (currentIndex > slides.length) { currentIndex = 1; }
-            slides[currentIndex - 1].style.display = "block";
-            setTimeout(startSlideshow, 4000);
-        }
+            
+            // Nascondi tutte le slide
+            function hideAllSlides() {
+                for (var i = 0; i < slides.length; i++) {
+                    slides[i].classList.remove('active');
+                }
+            }
+            
+            // Rimuovi classe active da tutti gli elementi della lista
+            function removeActiveFromAllItems() {
+                featureItems.forEach(function(item) {
+                    item.classList.remove('active');
+                });
+            }
+            
+            // Mostra una slide specifica
+            function showSlide(index) {
+                hideAllSlides();
+                slides[index].classList.add('active');
+            }
+            
+            // Funzione per avviare lo slideshow automatico
+            function startAutoSlideshow() {
+                isAutoPlaying = true;
+                
+                // Se nessun elemento è selezionato, mostra tutte le slide in sequenza
+                if (activeIndex === null) {
+                    interval = setInterval(function() {
+                        hideAllSlides();
+                        slideIndex++;
+                        if (slideIndex >= slides.length) {
+                            slideIndex = 0;
+                        }
+                        slides[slideIndex].classList.add('active');
+                    }, 4000);
+                } else {
+                    // Se un elemento è selezionato, mostra solo quella slide
+                    showSlide(activeIndex);
+                    // Non è necessario un intervallo perché vogliamo mostrare solo l'elemento selezionato
+                    clearInterval(interval);
+                    isAutoPlaying = false;
+                }
+            }
+            
+            // Aggiungi event listener per ogni elemento della lista
+            featureItems.forEach(function(item, index) {
+                item.addEventListener('click', function() {
+                    // Rimuovi classe active da tutti gli elementi
+                    removeActiveFromAllItems();
+                    
+                    // Se clicco sullo stesso elemento già attivo, lo deseleziono
+                    if (activeIndex === index) {
+                        activeIndex = null;
+                        // Riavvia lo slideshow automatico con tutte le slide
+                        clearInterval(interval);
+                        startAutoSlideshow();
+                    } else {
+                        // Altrimenti imposto questo elemento come attivo
+                        this.classList.add('active');
+                        activeIndex = index;
+                        
+                        // Mostra la slide corrispondente
+                        showSlide(index);
+                        
+                        // Ferma il vecchio slideshow
+                        clearInterval(interval);
+                        // Non riavviamo lo slideshow automatico, manteniamo ferma questa slide
+                        isAutoPlaying = false;
+                    }
+                });
+            });
+            
+            // Avvia il slideshow iniziale
+            startAutoSlideshow();
+        });
     </script>
 </body>
 
