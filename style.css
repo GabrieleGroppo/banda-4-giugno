@@ -891,3 +891,113 @@ div.desc {
     height: 60px;
   }
 }
+
+/* Nuovo stile per la sezione locandina */
+.locandina-container {
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.locandina-container:hover {
+  transform: translateY(-5px);
+}
+
+.locandina-content {
+  background-color: rgba(26, 24, 34, 0.8);
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+}
+
+.locandina-content:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
+  background-color: rgba(26, 24, 34, 0.9);
+}
+
+.locandina-image-wrapper {
+  margin-bottom: 20px;
+  overflow: hidden;
+  border-radius: 10px;
+  position: relative;
+}
+
+.locandina-image-wrapper img {
+  transition: transform 0.5s ease;
+}
+
+.locandina-image-wrapper:hover img {
+  transform: scale(1.02);
+}
+
+.locandina-details {
+  text-align: center;
+}
+
+.locandina-details i {
+  color: #A0B9E9;
+  margin-right: 10px;
+}
+
+.locandina-button {
+  background-color: #A0B9E9;
+  color: #141218;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  margin: 8px;
+}
+
+.button-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.calendar-button {
+  background-color: #4285F4;
+}
+
+.calendar-button:hover {
+  background-color: #3367D6;
+}
+
+.locandina-button:hover {
+  background-color: gold;
+  color: #141218;
+  transform: scale(1.05);
+}
+
+/* Media queries per la sezione locandina */
+@media (max-width: 768px) {
+  .locandina-content {
+    padding: 15px;
+  }
+  
+  .locandina-details h3 {
+    font-size: 20px;
+  }
+  
+  .locandina-details p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .locandina-details p {
+    font-size: 14px;
+  }
+  
+  .locandina-button {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
