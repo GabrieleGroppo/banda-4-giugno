@@ -935,7 +935,7 @@ div.desc {
 }
 
 .locandina-details i {
-  color: #A0B9E9;
+  color: #141218;
   margin-right: 10px;
 }
 
@@ -960,6 +960,7 @@ div.desc {
   justify-content: center;
   gap: 10px;
   margin-top: 15px;
+  color: #141218;
 }
 
 .calendar-button {
