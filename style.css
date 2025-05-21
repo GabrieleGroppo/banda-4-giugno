@@ -963,14 +963,6 @@ div.desc {
   color: #141218;
 }
 
-.calendar-button {
-  background-color: #4285F4;
-}
-
-.calendar-button:hover {
-  background-color: #3367D6;
-}
-
 .locandina-button:hover {
   background-color: gold;
   color: #141218;
