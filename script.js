@@ -381,3 +381,58 @@ function getEndDateTime(dateStr, timeStr) {
   
   return `${year}${month}${day}T${hours}${minutes}00`;
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const scrollIndicator = document.querySelector('.scroll-indicator-container');
+
+  function hideScrollIndicator() {
+      if (window.scrollY > 100) {
+          scrollIndicator.style.opacity = '0';
+          scrollIndicator.style.transition = 'opacity 0.5s ease';
+          
+          setTimeout(() => {
+              window.removeEventListener('scroll', hideScrollIndicator);
+          }, 500);
+      }
+  }
+
+  window.addEventListener('scroll', hideScrollIndicator);
+  
+  // Funzionalità click per lo scroll arrow
+  const scrollArrow = document.querySelector('.scroll-indicator');
+  scrollArrow.style.cursor = 'pointer';
+  scrollArrow.style.pointerEvents = 'auto';
+
+  scrollArrow.addEventListener('click', function () {
+      document.getElementById('locandina').scrollIntoView({ behavior: 'smooth' });
+  });
+  
+  // Funzione per aggiungere l'evento al calendario Google
+  document.getElementById('add-to-calendar').addEventListener('click', function(e) {
+      e.preventDefault();
+      
+      // Informazioni evento
+      const eventTitle = "Concerto della Battaglia - Banda 4 Giugno 1859";
+      
+      // Formatta date per Google Calendar
+      const startDate = new Date(2025, 5, 4, 21, 0);
+      const endDate = new Date(2025, 5, 4, 23, 0);
+      
+      const formatDate = (date) => {
+          return date.toISOString().replace(/-|:|\.\d+/g, '');
+      };
+      
+      const startFormatted = formatDate(startDate);
+      const endFormatted = formatDate(endDate);
+      
+      // Crea parametri per Google Calendar
+      const location = "Villa Naj Oleari, Magenta";
+      const details = "Concerto della Battaglia della Banda 4 Giugno 1859. Dirige il Maestro Michela Fassi. Ingresso libero. In caso di maltempo il concerto si svolgerà al Teatro Lirico di Magenta.";
+      
+      // Crea URL per Google Calendar
+      const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startFormatted}/${endFormatted}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}`;
+      
+      // Apri nuova finestra per Google Calendar
+      window.open(googleCalendarUrl, '_blank');
+  });
+});
