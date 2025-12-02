@@ -412,11 +412,11 @@ document.addEventListener('DOMContentLoaded', function () {
       e.preventDefault();
       
       // Informazioni evento
-      const eventTitle = "Concerto della Battaglia - Banda 4 Giugno 1859";
+      const eventTitle = "Concerto di Natale - Banda 4 Giugno 1859";
       
       // Formatta date per Google Calendar
-      const startDate = new Date(2025, 5, 4, 21, 0);
-      const endDate = new Date(2025, 5, 4, 23, 0);
+      const startDate = new Date(2025, 12, 12, 21, 0);
+      const endDate = new Date(2025, 12, 12, 23, 0);
       
       const formatDate = (date) => {
           return date.toISOString().replace(/-|:|\.\d+/g, '');
@@ -426,8 +426,8 @@ document.addEventListener('DOMContentLoaded', function () {
       const endFormatted = formatDate(endDate);
       
       // Crea parametri per Google Calendar
-      const location = "Villa Naj Oleari, Magenta";
-      const details = "Concerto della Battaglia della Banda 4 Giugno 1859. Dirige il Maestro Michela Fassi. Ingresso libero. In caso di maltempo il concerto si svolgerà al Teatro Lirico di Magenta.";
+      const location = "Teatro Lirico, Magenta";
+      const details = "Concerto Natalizio della Banda 4 Giugno 1859. Dirige il Maestro Michela Fassi. Ingresso libero.";
       
       // Crea URL per Google Calendar
       const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventTitle)}&dates=${startFormatted}/${endFormatted}&details=${encodeURIComponent(details)}&location=${encodeURIComponent(location)}`;
