@@ -1,162 +1,100 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
     <title>Banda 4 Giugno 1859 - Storia</title>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="script.js"></script>
 </head>
+<body>
 
-<body style="background-color: #141218">
-    <!-- Navbar -->
-    <div id="navbar-container"></div>
-    
-    <!-- Title and Introduction -->
-    <div class="w3-container w3-content w3-padding-64" style="max-width:950px">
-        <h1 class="w3-wide w3-center animate-fadeIn" id="title-story-page">La Storia</h1>
-        <div class="storia-intro w3-center ">
-            <p>La Banda "4 Giugno 1859" è nata nel 1892 a Magenta, prendendo il nome dalla famosa battaglia avvenuta durante la Seconda Guerra d'Indipendenza. Da oltre 130 anni, questa istituzione musicale rappresenta una parte fondamentale della tradizione culturale della città, superando guerre, cambiamenti sociali e sfide di ogni epoca.</p>
+    <header>
+        <div class="logo"><a href="index.html"><img src="images/logo_bianco.png" alt="Logo"></a></div>
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="story.html" class="active">Storia</a></li>
+                <li><a href="school.html">Scuola</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    </header>
+
+    <section style="padding-top: 150px; text-align: center;">
+        <div class="w3-content">
+            <h1>La Nostra Storia</h1>
+            <p style="max-width: 700px; margin: auto;">Dal 1892, oltre 130 anni di musica, passione e tradizione nel cuore di Magenta.</p>
         </div>
-    </div>
-    
-    <!-- Timeline section -->
-    <div class="timeline ">
-        <!-- 1892 - Le Origini -->
-        <div class="timeline-container left">
-            <div class="timeline-content">
-                <div class="timeline-year">1892</div>
-                <div class="timeline-title">Le Origini</div>
-                <p class="timeline-text">Dopo una rottura all'interno del consiglio della banda municipale, cinque musicanti si separarono e, con l'aiuto del parroco Don Tragella, fondarono una nuova banda. Fu il parroco a proporre il nome "4 Giugno 1859" in memoria della battaglia di Magenta. La prima sede fu nei locali di un'osteria in via Garibaldi 10, dove il maestro Marco Pagani iniziò le prime prove e lezioni.</p>
+    </section>
+
+    <section>
+        <div class="w3-content">
+            <div class="timeline">
+                <div class="timeline-item animate-fadeIn">
+                    <div class="timeline-year">1892</div>
+                    <div class="timeline-content">
+                        <h3>Le Origini</h3>
+                        <p>Cinque musicanti si separano dalla banda municipale e, con l'aiuto di Don Tragella, fondano la nuova banda intitolata alla battaglia di Magenta.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-fadeIn">
+                    <div class="timeline-year">1893</div>
+                    <div class="timeline-content">
+                        <h3>La Prima Divisa</h3>
+                        <p>Il 4 giugno 1893, durante le celebrazioni della battaglia, la banda indossa per la prima volta la sua uniforme ufficiale realizzata dal sarto Carlo Dameno.</p>
+                        <img src="images/divisa900.jpg" alt="Divisa storica" class="timeline-img">
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-fadeIn">
+                    <div class="timeline-year">1922</div>
+                    <div class="timeline-content">
+                        <h3>Il Periodo Bellico</h3>
+                        <p>Nonostante le difficoltà del ventennio e delle guerre mondiali, la banda resiste, accogliendo persino il Re a Magenta nel 1924.</p>
+                        <img src="images/1922.jpg" alt="Banda 1922" class="timeline-img">
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-fadeIn">
+                    <div class="timeline-year">1960</div>
+                    <div class="timeline-content">
+                        <h3>La Rinascita</h3>
+                        <p>Con il boom economico degli anni '60, la banda trova nuova linfa vitale e inizia a modernizzarsi.</p>
+                        <img src="images/1960.jpg" alt="Banda 1960" class="timeline-img">
+                    </div>
+                </div>
+
+                <div class="timeline-item animate-fadeIn">
+                    <div class="timeline-year">Oggi</div>
+                    <div class="timeline-content">
+                        <h3>Una Realtà Moderna</h3>
+                        <p>Oggi la Banda 4 Giugno 1859 è una realtà consolidata che partecipa a eventi internazionali e concorsi, mantenendo vivo lo spirito dei fondatori.</p>
+                        <img src="images/oggi.jpg" alt="Banda Oggi" class="timeline-img">
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <!-- 1893 - La Prima Divisa -->
-        <div class="timeline-container right">
-            <div class="timeline-content">
-                <div class="timeline-year">1893</div>
-                <div class="timeline-title">La Prima Divisa</div>
-                <p class="timeline-text">Il consiglio affidò al sarto Carlo Dameno la realizzazione delle prime divise ufficiali, create in gran segreto. Il 4 giugno 1893, durante le celebrazioni della battaglia, la banda indossò per la prima volta la sua uniforme. Fu un investimento importante, che la banda si impegnò a pagare in cinque anni con rate da 50 lire.</p>
-                <img src="images/divisa900.jpg" alt="La prima divisa della banda" class="timeline-image">
-            </div>
+    </section>
+
+    <footer id="contacts">
+        <div class="logo" style="margin-bottom: 30px;">
+            <img src="images/logo_bianco.png" alt="Logo" style="height: 60px; opacity: 0.8;">
         </div>
-        
-        <!-- 1898 - L'Invito a Torino -->
-        <div class="timeline-container left">
-            <div class="timeline-content">
-                <div class="timeline-year">1898</div>
-                <div class="timeline-title">L'Invito a Torino</div>
-                <p class="timeline-text">La banda venne invitata a Torino per i festeggiamenti del cinquantenario dello Statuto Albertino. Questo evento segnò un importante riconoscimento per il gruppo musicale, che continuava a crescere sia artisticamente che numericamente.</p>
-            </div>
+        <div style="margin-bottom: 30px; color: var(--text-gray);">
+            <p><i class="fas fa-map-marker-alt" style="color: var(--accent-gold); margin-right: 10px;"></i> Via Roma 182, 20013 Magenta (MI)</p>
+            <p><i class="fas fa-envelope" style="color: var(--accent-gold); margin-right: 10px;"></i> banda4giugno1859@gmail.com</p>
         </div>
-        
-        <!-- 1909 - Il 50° Anniversario della Battaglia -->
-        <div class="timeline-container right">
-            <div class="timeline-content">
-                <div class="timeline-year">1909</div>
-                <div class="timeline-title">50° Anniversario della Battaglia</div>
-                <p class="timeline-text">In occasione del cinquantenario della battaglia di Magenta, la banda eseguì per la prima volta un inno composto dal maestro Pagani su parole scritte da Don Tragella. La direzione era già passata al maestro Guadagnini, che avrebbe guidato la banda per quasi settant'anni.</p>
-            </div>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/banda4giugno1859" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/groups/132283506879758/" target="_blank"><i class="fab fa-facebook-f"></i></a>
         </div>
-        
-        <!-- 1914 - La Prima Guerra Mondiale -->
-        <div class="timeline-container left">
-            <div class="timeline-content">
-                <div class="timeline-year">1914-1918</div>
-                <div class="timeline-title">La Prima Guerra Mondiale</div>
-                <p class="timeline-text">Con lo scoppio della Prima Guerra Mondiale, molte attività sociali e culturali si fermarono, e la banda sopravvisse in una sorta di letargo. Alla fine del conflitto, con la ripresa della vita normale, anche la banda riprese le sue attività.</p>
-            </div>
-        </div>
-        
-        <!-- 1922 - Il Ventennio Fascista -->
-        <div class="timeline-container right">
-            <div class="timeline-content">
-                <div class="timeline-year">1922-1939</div>
-                <div class="timeline-title">Il Ventennio Fascista</div>
-                <p class="timeline-text">Durante il regime fascista, la banda rischiò di essere assorbita dalla politica dittatoriale. Venne fondata una nuova banda, la "Cesare Battisti", con l'obiettivo di mettere in difficoltà le bande esistenti. Con un accordo e un contributo alla nuova banda, si riuscì a evitare conflitti maggiori. Nel 1924, entrambe le bande accolsero il Re a Magenta, e successivamente ricevettero anche il Duce.</p>
-                <img src="images/1922.jpg" alt="La banda nel 1922" class="timeline-image">
-            </div>
-        </div>
-        
-        <!-- 1939 - La Seconda Guerra Mondiale -->
-        <div class="timeline-container left">
-            <div class="timeline-content">
-                <div class="timeline-year">1939-1945</div>
-                <div class="timeline-title">La Seconda Guerra Mondiale</div>
-                <p class="timeline-text">Durante la Seconda Guerra Mondiale, l'attività della banda si ridusse drasticamente. A causa delle difficoltà del periodo, la banda si trasformò in un piccolo gruppo che suonava un repertorio popolare, mantenendo viva la passione per la musica nonostante le avversità.</p>
-            </div>
-        </div>
-        
-        <!-- 1950-1960 - La Ricostruzione del Dopoguerra -->
-        <div class="timeline-container right">
-            <div class="timeline-content">
-                <div class="timeline-year">1950-1960</div>
-                <div class="timeline-title">La Ricostruzione del Dopoguerra</div>
-                <p class="timeline-text">Negli anni '50, la banda attraversò un periodo di stagnazione: l'organico era vecchio, il repertorio obsoleto e l'interesse generale ridotto. Con gli anni '60 e il benessere economico, iniziarono però a delinearsi nuove prospettive per il futuro.</p>
-                <img src="images/1960.jpg" alt="La banda nel 1960" class="timeline-image">
-            </div>
-        </div>
-        
-        <!-- 1970 - L'Ingresso delle Prime Donne -->
-        <div class="timeline-container left">
-            <div class="timeline-content">
-                <div class="timeline-year">1970</div>
-                <div class="timeline-title">L'Ingresso delle Prime Donne</div>
-                <p class="timeline-text">Negli anni '70, la banda vide una grande trasformazione con l'ingresso delle prime donne tra i musicanti. Fino ad allora, la banda era stata composta esclusivamente da uomini. Questo cambiamento segnò una svolta significativa, che portò a un incremento degli allievi e a una maggiore partecipazione giovanile.</p>
-            </div>
-        </div>
-        
-        <!-- 1980-1992 - Un Nuovo Spirito di Appartenenza -->
-        <div class="timeline-container right">
-            <div class="timeline-content">
-                <div class="timeline-year">1980-1992</div>
-                <div class="timeline-title">Un Nuovo Spirito di Appartenenza</div>
-                <p class="timeline-text">Negli anni '80, i giovani entrati in banda iniziarono a diventare parte attiva della gestione e dell'organizzazione delle attività. Questa nuova energia culminò nelle celebrazioni per il centenario della banda nel 1992, segnando l'inizio di una nuova fase di crescita e partecipazione.</p>
-                <img src="images/1990.jpg" alt="La banda nel 1990" class="timeline-image">
-            </div>
-        </div>
-        
-        <!-- Eventi recenti -->
-        <div class="timeline-container left">
-            <div class="timeline-content">
-                <div class="timeline-year">2000-Oggi</div>
-                <div class="timeline-title">Eventi recenti</div>
-                <p class="timeline-text">Negli ultimi anni, la banda ha partecipato a numerosi eventi musicali di rilievo, tra cui la Festa della Musica in Francia e il concorso internazionale di Székesfehérvár. Grazie all'impegno costante e alla passione dei musicanti, la banda "4 Giugno 1859" continua a essere un punto di riferimento culturale e musicale per la comunità.</p>
-                <img src="images/oggi.jpg" alt="La banda ad Acquiterme 2024" class="timeline-image">
-            </div>
-        </div>
-    </div>
-    
-    <!-- Back to top button -->
-    <a class="back-to-top" href="#title-story-page"><i class="fa fa-arrow-up"></i></a>
-    
-    <!-- Footer -->
-    <div id="footer-container"></div>
-    
-    <script>
-        // Script for smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Back to top button visibility
-        window.onscroll = function() {
-            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-                document.querySelector('.back-to-top').style.display = "block";
-            } else {
-                document.querySelector('.back-to-top').style.display = "none";
-            }
-        };
-    </script>
+        <p style="font-size: 0.8rem; margin-top: 30px;">&copy; 2025 Banda 4 Giugno 1859. P.I. 01300490156</p>
+        <a href="privacy.html" style="font-size: 0.8rem; color: var(--text-gray); text-decoration: underline;">Privacy Policy</a>
+    </footer>
+
 </body>
-
 </html>

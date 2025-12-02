@@ -1,128 +1,100 @@
 <!DOCTYPE html>
 <html lang="it">
-
 <head>
-    <title>Banda 4 Giugno 1859</title>
+    <title>Banda 4 Giugno 1859 - Home</title>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <meta name="description" content="Sito ufficiale della Banda 4 Giugno 1859 di Magenta.">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <meta name="Content-Language" content="it">
     <script src="script.js"></script>
-    <meta name="keywords" content="banda, magenta, 4 giugno 1859, musica, tradizionale, concerto">
 </head>
-
 <body>
-    <div id="navbar-container"></div>
 
-    <div id="cover" class="hero animate-fadeIn" style="background-image: url(images/home-cover.jpeg)">
-        <h1 id="cover-title" class="animate-fadeIn delay-1">Banda IV Giugno 1859</h1>
-    </div>
-    
-    <div class="scroll-indicator-container">
-        <div class="scroll-indicator">
-            <div class="scroll-text">Scopri di più</div>
-            <div class="scroll-arrow">
-                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7 10L12 15L17 10" stroke="white" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                </svg>
-            </div>
+    <header>
+        <div class="logo">
+            <a href="index.html"><img src="images/logo_bianco.png" alt="Logo Banda"></a>
         </div>
-    </div>
-    
-    <!-- Page content -->
-     <div class="w3-content primary" style="max-width:2000px;">
-      <div class="w3-container w3-content w3-center w3-padding-32" style="max-width:800px" id="locandina">
-            <h2 class="w3-wide title">Prossimo Concerto</h2>
-            <p class="w3-opacity"><i>Non perdere il nostro prossimo appuntamento!</i></p>
-            <div class="w3-round-large">
-                <div>
-                    <img id="concerto-img" src="locandina.jpeg" alt="Locandina Prossimo Concerto" class="w3-round-large" 
-                        style="width:100%; max-width: 500px; margin: 0 auto; display: block; box-shadow: 0 6px 12px rgba(0,0,0,0.7);">
-                </div>
-                <div class="button-container">
-                    <a href="locandina.jpeg" download class="cta-button">
-                        <i class="fas fa-download"></i> Scarica la locandina
-                    </a>
-                    
-                    <a href="#" id="add-to-calendar" class="cta-button">
-                        <i class="far fa-calendar-plus"></i> Aggiungi al calendario
-                    </a>
-                </div>
-            </div>
-        </div>
-        
-        <!-- The Band Section -->
-        <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="band">
-            <h2 class="w3-wide title">La Banda</h2>
-            <p class="w3-opacity"><i>GA SONA LA BANDA NOEUVA</i></p>
-            <p class="w3-justify w3-center">Fondata nel cuore di Magenta, la nostra banda
-                rappresenta un'istituzione storica del territorio, portando avanti la tradizione musicale dal 1859. Il nostro ensemble unisce
-                musicisti di diverse generazioni, accomunati dalla passione per la musica bandistica e dalla volontà di
-                mantenere vivo questo patrimonio culturale.</p>
-            <p class="w3-justify w3-center">Ci esibiamo regolarmente nelle piazze, nei teatri e
-                nelle occasioni istituzionali della città e dei comuni limitrofi, proponendo un repertorio che spazia dai classici della
-                tradizione bandistica italiana alle composizioni contemporanee, dalle colonne sonore alle trascrizioni
-                di brani sinfonici.</p>
-            <p class="w3-justify w3-center">Ti invitiamo a scoprire il nostro mondo attraverso i nostri concerti o a
-                unirti a noi per condividere questa meravigliosa esperienza musicale.</p>
-        </div>
-        
-        <!-- Sezione Presidente e Maestro -->
-        <div class="w3-container w3-content w3-padding-32" style="max-width:800px" id="people">
-            <h2 class="w3-wide w3-center title">La Nostra Guida</h2>
-            <p class="w3-opacity w3-center"><i>Le persone che rendono possibile la nostra musica</i></p>
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="story.html">Storia</a></li>
+                <li><a href="school.html">Scuola</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    </header>
 
-            <div class="w3-row-padding w3-padding-32 w3-center">
-                <div class="people-container">
-                    <div class="people-content w3-round-large" style="padding: 20px;">
-                        <h3 class="title">Il Presidente e Il Maestro</h3>
-                        <div style="background-color: #1a1822;" class="people-image-wrapper">
-                            <img src="images/presidente&maestro.jpeg" id="presidente&maestro-img"
-                                class="w3-round-large" alt="Presidente & Maestro"
-                                style="width:100%; box-shadow: 0 4px 8px rgba(0,0,0,0.5);">
-                        </div>
-                        <p class="w3-opacity">Massimo Cavalli & Michela Fassi</p>
-                        <div class="people-details">
-                            <p class="people-motto">"Ogni nota è importante, proprio come ogni persona nella banda"</p>
-                        </div>
-                    </div>
+    <section class="hero" style="background-image: url('images/home-cover.jpeg');">
+        <h1>Banda 4 Giugno 1859</h1>
+        <p>Una tradizione musicale nel cuore di Magenta</p>
+        <a href="#prossimo-evento" class="btn btn-fill">Scopri di più</a>
+    </section>
+
+    <section id="prossimo-evento">
+        <h2>Prossimo Appuntamento</h2>
+        <div class="event-highlight w3-content animate-fadeIn">
+            <div class="event-img-wrapper">
+                <img src="locandina.jpeg" alt="Locandina Concerto di Natale">
+            </div>
+            <div class="event-info">
+                <span class="event-date">12 Dicembre 2025 - Ore 21:00</span>
+                <h3>Concerto di Natale</h3>
+                <p>Un suono, un dono, una parola per Natale. Dirige il Maestro Michela Fassi presso il Teatro Lirico di Magenta.</p>
+                <p><strong>Ingresso Gratuito</strong></p>
+                
+                <div class="event-actions">
+                    <a href="locandina.jpeg" download="Locandina_Concerto.jpg" class="btn btn-fill">
+                        <i class="fas fa-download"></i> Scarica Locandina
+                    </a>
+                    <a href="#" id="add-to-calendar" class="btn">
+                        <i class="far fa-calendar-plus"></i> Aggiungi al Calendario
+                    </a>
                 </div>
             </div>
         </div>
-        
-        <!-- Sezione Contatti -->
-        <div class="w3-container w3-modal-content w3-padding-32"
-            style="max-width: 800px; background-color: #141218; text-align: center; margin: auto;" id="contact">
-            <h2 class="w3-wide">Contatti</h2>
-            <p class="w3-opacity"><i>Vieni a trovarci!</i></p>
-            <div class="w3-row">
-                <div class="w3-col m12 w3-large">
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 15px;">
-                            📍 <a href="https://www.google.com/maps?q=Via+Roma,+182,+20013+Magenta+MI" target="_blank"
-                                class="gold-hover">
-                                Via Roma, 182, 20013 Magenta MI
-                            </a>
-                        </li>
-                        <li style="margin-bottom: 15px;">
-                            📧 <a href="mailto:banda4giugno1859@gmail.com"
-                                class="gold-hover">banda4giugno1859@gmail.com</a>
-                        </li>
-                        <li style="font-size: 18px;">
-                            🕒 Martedì 16:00 - 17:00 o 21:00 - 23:00
-                        </li>
-                    </ul>
+    </section>
+
+    <section id="about">
+        <div class="w3-content">
+            <h2>Chi Siamo</h2>
+            <div style="text-align: center; max-width: 800px; margin: auto;">
+                <p>Fondata nel 1892, la Banda "4 Giugno 1859" è un'istituzione storica di Magenta. Uniamo musicisti di tutte le età con un unico obiettivo: mantenere viva la passione per la musica, spaziando dalla tradizione alle composizioni moderne.</p>
+            </div>
+            
+            <div class="school-grid" style="margin-top: 60px;">
+                <div class="school-card">
+                    <img src="images/presidente_square.jpg" alt="Presidente Massimo Cavalli" style="border-radius: 50%; width: 150px; height: 150px; object-fit: cover; margin: 0 auto 20px;">
+                    <h3>Massimo Cavalli</h3>
+                    <p style="color: var(--accent-gold); font-weight: 600;">IL PRESIDENTE</p>
+                    <p class="w3-small">"Ogni nota è importante, proprio come ogni persona nella banda"</p>
+                </div>
+                <div class="school-card">
+                    <img src="images/maestro.jpeg" alt="Maestro Michela Fassi" style="border-radius: 50%; width: 150px; height: 150px; object-fit: cover; margin: 0 auto 20px;">
+                    <h3>Michela Fassi</h3>
+                    <p style="color: var(--accent-gold); font-weight: 600;">IL MAESTRO</p>
+                    <p class="w3-small">Guida musicale ed artistica del nostro ensemble.</p>
                 </div>
             </div>
         </div>
-    </div>
-    
-    <!-- Footer -->
-    <div id="footer-container"></div>
+    </section>
+
+    <footer id="contacts">
+        <div class="logo" style="margin-bottom: 30px;">
+            <img src="images/logo_bianco.png" alt="Logo" style="height: 60px; opacity: 0.8;">
+        </div>
+        <div style="margin-bottom: 30px; color: var(--text-gray);">
+            <p><i class="fas fa-map-marker-alt" style="color: var(--accent-gold); margin-right: 10px;"></i> Via Roma 182, 20013 Magenta (MI)</p>
+            <p><i class="fas fa-envelope" style="color: var(--accent-gold); margin-right: 10px;"></i> banda4giugno1859@gmail.com</p>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/banda4giugno1859" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/groups/132283506879758/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 30px;">&copy; 2025 Banda 4 Giugno 1859. P.I. 01300490156</p>
+        <a href="privacy.html" style="font-size: 0.8rem; color: var(--text-gray); text-decoration: underline;">Privacy Policy</a>
+    </footer>
+
 </body>
-
 </html>

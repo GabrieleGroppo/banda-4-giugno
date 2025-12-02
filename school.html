@@ -1,186 +1,82 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="it">
 <head>
-    <title>Banda 4 Giugno 1859 - Scuola</title>
+    <title>Banda 4 Giugno 1859 - Scuola Musica</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="icon" type="image/x-icon" href="/images/favicon.png">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script src="script.js"></script>
 </head>
-
 <body>
-    <!-- Navbar -->
-    <div id="navbar-container"></div>
 
-
-    <!-- School Info Section -->
-    <div id="school-info" class="w3-padding-64">
-        <h1 class="w3-wide w3-center animate-fadeIn">La Scuola di Musica</h1>
-        <div class="w3-container w3-content w3-center" style="max-width:800px; color: white;">
-            <h2 class="section-title ">Entra nella Scuola della Banda e scopri il mondo della
-                musica! 🎶</h2>
-            <p class="w3-center ">La nostra scuola offre percorsi formativi per musicisti di ogni
-                età e livello. Impara a suonare, divertiti e diventa parte della nostra famiglia musicale!</p>
-
-            <h3 class="w3-center " style="color: #A0B9E9; margin-top: 30px;">Perché scegliere la nostra scuola?</h3>
-            <ul class="w3-ul w3-large " id="feature-list">
-                <li data-image="images/imparare.jpeg">✅ <b>Impari a suonare</b> uno strumento, anche da zero!</li>
-                <li data-image="images/docenti.jpeg">🎵 <b>Docenti esperti</b> ti guideranno passo dopo passo.</li>
-                <li data-image="images/gruppo.jpeg">🎺 <b>Suoni in gruppo</b> e fai subito musica con gli altri!</li>
-                <li data-image="images/concerti.jpeg">🎶 <b>Parteciperai a eventi e concerti</b>, vivendo esperienze uniche.</li>
-                <li data-image="images/divertimento.jpeg">😃 <b>Ti divertirai un sacco!</b> La musica è passione, amicizia e tante emozioni.</li>
+    <header>
+        <div class="logo"><a href="index.html"><img src="images/logo_bianco.png" alt="Logo"></a></div>
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="story.html">Storia</a></li>
+                <li><a href="school.html" class="active">Scuola</a></li>
             </ul>
-            <!-- Slideshow Section -->
-            <div class="w3-padding-32 " id="school-slideshow">
-                <div class="slide-container w3-display-container w3-center">
-                    <img src="images/imparare.jpeg" class="slide" alt="Impara a suonare">
-                    <img src="images/banda.jpg" class="slide" alt="Docenti esperti">
-                    <img src="images/gruppo.jpeg" class="slide" alt="Suona in gruppo">
-                    <img src="images/concerti.jpeg" class="slide" alt="Eventi e concerti">
-                    <img src="images/divertimento.jpeg" class="slide" alt="Divertimento">
+        </nav>
+        <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+    </header>
+
+    <section class="hero" style="background-image: url('images/imparare.jpeg'); height: 60vh;">
+        <h1>La Scuola di Musica</h1>
+        <p>Impara, divertiti e suona con noi. Corsi aperti a tutte le età.</p>
+    </section>
+
+    <section>
+        <div class="w3-content">
+            <h2>Perché scegliere noi?</h2>
+            <div class="school-grid">
+                <div class="school-card">
+                    <i class="fas fa-music school-icon"></i>
+                    <h3>Impari a Suonare</h3>
+                    <p>Corsi individuali personalizzati per imparare uno strumento da zero, seguiti da docenti esperti.</p>
+                </div>
+                <div class="school-card">
+                    <i class="fas fa-users school-icon"></i>
+                    <h3>Musica d'Insieme</h3>
+                    <p>Non solo teoria: suoni subito in gruppo e fai musica con gli altri fin dai primi passi.</p>
+                </div>
+                <div class="school-card">
+                    <i class="fas fa-smile-beam school-icon"></i>
+                    <h3>Divertimento</h3>
+                    <p>La musica è passione, amicizia e tante emozioni. Entra nella nostra grande famiglia!</p>
                 </div>
             </div>
-            <h2 class="section-title ">Chi può iscriversi?</h2>
-            <p class="w3-center">Ragazzi e ragazze <b>di tutte le età!</b> Non serve avere esperienza, basta la voglia
-                di imparare e divertirsi.</p>
-
-            <div class="w3-row-padding w3-center w3-padding-32">
-                <div class="w3-third">
-                    <div style="background-color: #1a1a1a; padding: 20px; border-radius: 10px; height: 100%;">
-                        <i class="fas fa-music" style="font-size: 40px; color: #A0B9E9; margin-bottom: 15px;"></i>
-                        <h3 style="color: #A0B9E9;">Corsi individuali</h3>
-                        <p>Lezioni personalizzate con i nostri docenti esperti</p>
-                    </div>
-                </div>
-                <div class="w3-third">
-                    <div style="background-color: #1a1a1a; padding: 20px; border-radius: 10px; height: 100%;">
-                        <i class="fas fa-users" style="font-size: 40px; color: #A0B9E9; margin-bottom: 15px;"></i>
-                        <h3 style="color: #A0B9E9;">Musica d'insieme</h3>
-                        <p>Impara a suonare in gruppo sin dai primi passi</p>
-                    </div>
-                </div>
-                <div class="w3-third">
-                    <div style="background-color: #1a1a1a; padding: 20px; border-radius: 10px; height: 100%;">
-                        <i class="fas fa-certificate" style="font-size: 40px; color: #A0B9E9; margin-bottom: 15px;"></i>
-                        <h3 style="color: #A0B9E9;">Eventi e concerti</h3>
-                        <p>Esibizioni pubbliche durante l'anno scolastico</p>
-                    </div>
-                </div>
-            </div>
-
-            <h2 class="section-title ">Prova Gratis!</h2>
-            <p class="w3-center">Vieni a trovarci e partecipa a <b>una lezione di prova gratuita</b>: scoprirai quanto
-                può essere bello far parte della nostra grande famiglia musicale!</p>
-            <a href="mailto:banda4giugno1859@gmail.com?subject=Richiesta lezione di prova&body=Buongiorno,%0D%0A%0D%0ASono interessato/a a prenotare una lezione di prova con la Banda 4 Giugno 1859.%0D%0A%0D%0ACordiali saluti,"
-                class="cta-button">Prenota una lezione di prova</a>
-
-            <div class="w3-padding-32" id="school-schedule">
-                <h2 class="section-title">Vieni a Trovarci !</h2>
-                <div style="border-radius: 10px; margin-bottom: 30px;">
-                    <p class="w3-center" style="font-size: 1.2rem;">🕒 Tutti i <b>Martedì</b> pomeriggio dalle 16 alle 19.</p>
-                    📍 <a href="https://www.google.com/maps?q=Via+Roma,+182,+20013+Magenta+MI" target="_blank"
-                                class="gold-hover">Via Roma, 182, 20013 Magenta MI</a>
-                </div>
-            </div>            
         </div>
-    </div>
-    <!-- Footer -->
-    <div id="footer-container"></div>
-    <script>
-        // Funzione che si avvia quando il documento è completamente caricato
-        document.addEventListener('DOMContentLoaded', function () {
-            var slides = document.getElementsByClassName("slide");
-            var featureItems = document.querySelectorAll('#feature-list li');
-            var slideIndex = 0;
-            var activeIndex = null;  // Variabile per tenere traccia dell'elemento attivo
-            var interval;  // Variabile per il setInterval
-            var isAutoPlaying = true;  // Flag per lo slideshow automatico
-            
-            // Mostra la prima slide all'inizio
-            if (slides.length > 0) {
-                slides[0].classList.add('active');
-            }
-            
-            // Nascondi tutte le slide
-            function hideAllSlides() {
-                for (var i = 0; i < slides.length; i++) {
-                    slides[i].classList.remove('active');
-                }
-            }
-            
-            // Rimuovi classe active da tutti gli elementi della lista
-            function removeActiveFromAllItems() {
-                featureItems.forEach(function(item) {
-                    item.classList.remove('active');
-                });
-            }
-            
-            // Mostra una slide specifica
-            function showSlide(index) {
-                hideAllSlides();
-                slides[index].classList.add('active');
-            }
-            
-            // Funzione per avviare lo slideshow automatico
-            function startAutoSlideshow() {
-                isAutoPlaying = true;
-                
-                // Se nessun elemento è selezionato, mostra tutte le slide in sequenza
-                if (activeIndex === null) {
-                    interval = setInterval(function() {
-                        hideAllSlides();
-                        slideIndex++;
-                        if (slideIndex >= slides.length) {
-                            slideIndex = 0;
-                        }
-                        slides[slideIndex].classList.add('active');
-                    }, 4000);
-                } else {
-                    // Se un elemento è selezionato, mostra solo quella slide
-                    showSlide(activeIndex);
-                    // Non è necessario un intervallo perché vogliamo mostrare solo l'elemento selezionato
-                    clearInterval(interval);
-                    isAutoPlaying = false;
-                }
-            }
-            
-            // Aggiungi event listener per ogni elemento della lista
-            featureItems.forEach(function(item, index) {
-                item.addEventListener('click', function() {
-                    // Rimuovi classe active da tutti gli elementi
-                    removeActiveFromAllItems();
-                    
-                    // Se clicco sullo stesso elemento già attivo, lo deseleziono
-                    if (activeIndex === index) {
-                        activeIndex = null;
-                        // Riavvia lo slideshow automatico con tutte le slide
-                        clearInterval(interval);
-                        startAutoSlideshow();
-                    } else {
-                        // Altrimenti imposto questo elemento come attivo
-                        this.classList.add('active');
-                        activeIndex = index;
-                        
-                        // Mostra la slide corrispondente
-                        showSlide(index);
-                        
-                        // Ferma il vecchio slideshow
-                        clearInterval(interval);
-                        // Non riavviamo lo slideshow automatico, manteniamo ferma questa slide
-                        isAutoPlaying = false;
-                    }
-                });
-            });
-            
-            // Avvia il slideshow iniziale
-            startAutoSlideshow();
-        });
-    </script>
-</body>
+    </section>
 
+    <section style="background-color: var(--secondary-bg); text-align: center;">
+        <div class="w3-content">
+            <h2>Prenota una Prova Gratuita</h2>
+            <p>Vieni a trovarci il <strong>Martedì dalle 16 alle 19</strong> in Via Roma 182, Magenta.</p>
+            <br>
+            <a href="mailto:banda4giugno1859@gmail.com?subject=Richiesta lezione di prova" class="btn btn-fill">
+                <i class="fas fa-envelope"></i> Scrivici per prenotare
+            </a>
+        </div>
+    </section>
+
+    <footer id="contacts">
+        <div class="logo" style="margin-bottom: 30px;">
+            <img src="images/logo_bianco.png" alt="Logo" style="height: 60px; opacity: 0.8;">
+        </div>
+        <div style="margin-bottom: 30px; color: var(--text-gray);">
+            <p><i class="fas fa-map-marker-alt" style="color: var(--accent-gold); margin-right: 10px;"></i> Via Roma 182, 20013 Magenta (MI)</p>
+            <p><i class="fas fa-envelope" style="color: var(--accent-gold); margin-right: 10px;"></i> banda4giugno1859@gmail.com</p>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/banda4giugno1859" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.facebook.com/groups/132283506879758/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        </div>
+        <p style="font-size: 0.8rem; margin-top: 30px;">&copy; 2025 Banda 4 Giugno 1859. P.I. 01300490156</p>
+        <a href="privacy.html" style="font-size: 0.8rem; color: var(--text-gray); text-decoration: underline;">Privacy Policy</a>
+    </footer>
+
+</body>
 </html>
