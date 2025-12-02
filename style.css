@@ -30,11 +30,21 @@ img { max-width: 100%; display: block; }
 /* --- TIPOGRAFIA --- */
 h1, h2, h3, h4 { font-family: var(--font-title); color: var(--accent-gold); margin-bottom: 1rem; }
 h1 { font-size: 3.5rem; letter-spacing: 2px; line-height: 1.2; }
-h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; position: relative; display: inline-block; left: 50%; transform: translateX(-50%); }
+
+/* FIX H2: Rimosso il posizionamento assoluto/traslato che decentrava il titolo */
+h2 { 
+    font-size: 2.5rem; 
+    text-align: center; 
+    margin-bottom: 3rem; 
+    position: relative; 
+    width: 100%;
+    display: block;
+}
 h2::after {
     content: ''; display: block; width: 60px; height: 3px; 
-    background: var(--accent-gold); margin: 10px auto 0;
+    background: var(--accent-gold); margin: 10px auto 0; /* Margin auto centra la linea */
 }
+
 p { margin-bottom: 1.5rem; color: var(--text-gray); font-weight: 300; }
 
 /* --- BOTTONI --- */
@@ -52,7 +62,6 @@ p { margin-bottom: 1.5rem; color: var(--text-gray); font-weight: 300; }
 .btn-fill:hover { background-color: var(--accent-gold-hover); border-color: var(--accent-gold-hover); transform: translateY(-2px); }
 
 /* --- LAYOUT GENERALE --- */
-/* FIX: Ridotto padding orizzontale per evitare che il contenuto venga schiacciato */
 section { padding: 80px 20px; } 
 
 .w3-content { 
@@ -118,7 +127,6 @@ header {
 /* --- CARD SCUOLA --- */
 .school-grid { 
     display: grid; 
-    /* FIX: Assicura che le card non siano più piccole di 300px prima di andare a capo */
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
     gap: 30px; 
     margin-top: 40px; 
@@ -126,7 +134,7 @@ header {
 .school-card {
     background: var(--secondary-bg); padding: 40px 30px; border-radius: 15px;
     text-align: center; transition: var(--transition); border: 1px solid transparent;
-    height: 100%; /* Uniforma altezza */
+    height: 100%;
     display: flex; flex-direction: column; justify-content: center;
 }
 .school-card:hover { border-color: var(--accent-gold); transform: translateY(-5px); }
