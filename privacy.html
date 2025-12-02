@@ -1,29 +1,169 @@
-<html>
+<!DOCTYPE html>
+<html lang="it">
 <head>
-  <title>Informativa sulla Privacy</title>
   <meta charset="UTF-8">
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informativa sulla Privacy | Banda 4 Giugno 1859</title>
+  <link rel="icon" type="image/x-icon" href="images/favicon.png">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* --- RESET E VARIABILI (Coerenti con il Design System del sito) --- */
+    :root {
+      --bg-color: #121212;         /* Charcoal Scuro */
+      --card-bg: #1E1E24;          /* Card Background */
+      --text-main: #F4F4F4;        /* Testo chiaro */
+      --text-muted: #B0B0B0;       /* Testo secondario */
+      --accent: #D4AF37;           /* Oro */
+      --accent-hover: #F8D568;     /* Oro chiaro */
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      line-height: 1.6;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+
+    /* --- PULSANTE INDIETRO --- */
+    .back-nav { width: 100%; max-width: 800px; margin-bottom: 20px; padding-top: 10px; }
+    .btn-back {
+      display: inline-flex; align-items: center; text-decoration: none;
+      color: var(--text-muted); font-size: 0.9rem; font-weight: 500; transition: color 0.3s ease;
+    }
+    .btn-back:hover { color: var(--accent); }
+    .btn-back::before {
+      content: "←"; margin-right: 8px; font-size: 1.2rem; transition: transform 0.3s ease;
+    }
+    .btn-back:hover::before { transform: translateX(-4px); }
+
+    /* --- CONTENITORE PRINCIPALE (CARD) --- */
+    .privacy-container {
+      background-color: var(--card-bg);
+      width: 100%; max-width: 800px; padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    /* --- TIPOGRAFIA --- */
+    h1 {
+      font-family: 'Playfair Display', serif; /* Coerenza con il resto del sito */
+      font-size: 2rem; font-weight: 700; color: #fff;
+      margin-bottom: 10px; padding-bottom: 20px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem; color: var(--accent);
+      margin-top: 30px; margin-bottom: 10px; font-weight: 600;
+    }
+    p { margin-bottom: 15px; font-size: 1rem; color: var(--text-main); }
+    b, strong { color: #fff; font-weight: 600; }
+
+    /* --- LINK --- */
+    a.link-external {
+      color: var(--accent); text-decoration: none;
+      border-bottom: 1px solid transparent; transition: all 0.2s ease;
+    }
+    a.link-external:hover {
+      color: var(--accent-hover); border-bottom: 1px solid var(--accent-hover);
+    }
+
+    /* --- FOOTER --- */
+    .footer-note {
+      margin-top: 40px; padding-top: 20px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.85rem; color: var(--text-muted); text-align: center;
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 600px) {
+      .privacy-container { padding: 25px; }
+      h1 { font-size: 1.5rem; }
+    }
+  </style>
 </head>
-<body style="background-color:  #141218;">
-    <!-- Go back Shortcut -->
-    <div class="w3-top">
-        <div class="w3-bar w3-card custom-bg">
-            <a href="javascript:history.back()" class="w3-bar-item w3-button w3-padding-large">Indietro</a>
+<body>
+
+    <nav class="back-nav">
+        <a href="/" class="btn-back">Torna alla Home</a>
+    </nav>
+
+    <div class="privacy-container">
+        <h1>Informativa sulla Privacy</h1>
+        
+        <p class="intro">
+            Ultimo aggiornamento: <strong id="current-year">2025</strong>
+        </p>
+
+        <section>
+            <h2>1. Titolare del trattamento</h2>
+            <p>
+                Il sito <b>www.banda4giugno1859.it</b> è un portale puramente informativo, gestito dalla 
+                <strong>Banda 4 Giugno 1859</strong>.<br>
+                <span style="display:block; margin-top:5px; font-size: 0.9em; color: var(--text-muted);">
+                P.IVA 01300490156 • Via Roma, 182, 20013, Magenta (MI)
+                </span>
+            </p>
+        </section>
+
+        <section>
+            <h2>2. Nessuna raccolta di dati personali</h2>
+            <p>
+                Questo sito <b>non raccoglie alcun dato personale</b> degli utenti. Non sono presenti moduli di contatto, aree di registrazione, newsletter o sistemi di tracciamento analitico (es. Google Analytics).
+            </p>
+        </section>
+
+        <section>
+            <h2>3. Cookie Policy</h2>
+            <p>
+                Il sito è statico e <b>non utilizza cookie di profilazione</b> né cookie di terze parti per scopi commerciali. 
+                Eventuali cookie tecnici, se generati dal sistema, servono esclusivamente per il corretto funzionamento tecnico della navigazione e non richiedono consenso preventivo.
+            </p>
+        </section>
+
+        <section>
+            <h2>4. Hosting e Dati Tecnici</h2>
+            <p>
+                Il sito è ospitato su <b>Netlify</b>. Come tutti i servizi di hosting, Netlify potrebbe registrare automaticamente dati tecnici nei log di sistema (come l'indirizzo IP) per fini di sicurezza, prevenzione attacchi e manutenzione.
+            </p>
+            <p>
+                Questi dati sono gestiti direttamente dal provider e non sono accessibili né elaborati dal gestore di questo sito per identificare gli utenti. Per maggiori dettagli tecnici:
+                <a class="link-external" href="https://www.netlify.com/privacy/" target="_blank">Privacy Policy di Netlify</a>.
+            </p>
+        </section>
+
+        <section>
+            <h2>5. Contatti</h2>
+            <p>
+                Per qualsiasi domanda relativa a questa informativa o per esercitare i tuoi diritti, puoi contattarci all'indirizzo ufficiale:
+                <br>
+                <a class="link-external" href="mailto:banda4giugno1859@gmail.com">banda4giugno1859@gmail.com</a>
+            </p>
+        </section>
+
+        <div class="footer-note">
+            &copy; <span id="footer-year">2025</span> Banda 4 Giugno 1859 - Magenta
         </div>
     </div>
-    <div class="w3-content w3-padding-64" style="max-width: 800px; margin: auto;">
-        <h1>Informativa sulla Privacy</h1>
-    <h2>1. Titolare del trattamento</h2>
-    <p>Il sito <b>www.banda4giugno1859.it</b> è un sito puramente informativo, gestito dalla Banda 4 Giugno 1859, P.IVA 01300490156, con sede in Via Roma, 182, 20013, Magenta MI.</p>
-    <h2>2. Nessuna raccolta di dati personali</h2>
-    <p>Questo sito <b>non raccoglie alcun dato personale</b> degli utenti. Non sono presenti form di contatto, aree di registrazione o sistemi di tracciamento.</p>
-    <h2>3. Cookie</h2>
-    <p>Il sito è statico e <b>non utilizza cookie di profilazione o di terze parti</b>. Eventuali cookie tecnici, se presenti, servono esclusivamente per il corretto funzionamento del sito.</p>
-    <h2>4. Servizi di terze parti</h2>
-    <p>Il sito è ospitato su <b>Netlify</b>, un servizio di hosting che potrebbe registrare dati tecnici (come indirizzi IP nei log di accesso) per motivi di sicurezza e manutenzione. Tuttavia, tali dati non sono accessibili né utilizzati dal gestore del sito. Per maggiori informazioni, puoi consultare la <a style="color: gold;" href="https://www.netlify.com/privacy/">Privacy Policy di Netlify</a>.</p>
-    <h2>5. Contatti</h2>
-    <p>Per qualsiasi domanda relativa a questa informativa, puoi contattarci a <a style="color: gold;" href="mailto:banda4giugno1859@gmail.com">banda4giugno1859@gmail.com</a>.</p>
-    </div>  
+
+    <script>
+        // Script semplice per aggiornare l'anno automaticamente senza PHP
+        const year = new Date().getFullYear();
+        document.getElementById('current-year').textContent = year;
+        document.getElementById('footer-year').textContent = year;
+    </script>
+
 </body>
 </html>
