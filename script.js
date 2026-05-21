@@ -21,11 +21,10 @@ document.addEventListener('DOMContentLoaded', function () {
             e.preventDefault();
             
             // DATI EVENTO (Modifica qui se cambia la data dell'evento statico)
-            const eventTitle = "Concerto di Natale - Banda 4 Giugno 1859";
-            const location = "Teatro Lirico, Magenta";
-            // Nota: Mese in JS va da 0 (Gennaio) a 11 (Dicembre). Qui è impostato 12 Dicembre 2025.
-            const startDate = new Date(2025, 11, 12, 21, 0); 
-            const endDate = new Date(2025, 11, 12, 23, 0);
+            const eventTitle = "Concerto della Battaglia 2026 - Banda 4 Giugno 1859";
+            const location = "Cortile del palazzo comunale, Magenta (MI)";
+            const startDate = new Date(2026, 6, 6, 21, 0); 
+            const endDate = new Date(2026, 6, 6, 23, 0);
             
             // Funzione utility per formattare la data per Google
             const formatDate = (date) => date.toISOString().replace(/-|:|\.\d+/g, '');
