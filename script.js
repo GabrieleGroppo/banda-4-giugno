@@ -23,8 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
             // DATI EVENTO (Modifica qui se cambia la data dell'evento statico)
             const eventTitle = "Concerto della Battaglia 2026 - Banda 4 Giugno 1859";
             const location = "Cortile del palazzo comunale, Magenta (MI)";
-            const startDate = new Date(2026, 6, 6, 21, 0); 
-            const endDate = new Date(2026, 6, 6, 23, 0);
+            const startDate = new Date(2026, 6, 5, 21, 0); 
+            const endDate = new Date(2026, 6, 5, 23, 0);
             
             // Funzione utility per formattare la data per Google
             const formatDate = (date) => date.toISOString().replace(/-|:|\.\d+/g, '');
