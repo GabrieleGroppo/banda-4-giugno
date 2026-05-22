@@ -9,6 +9,20 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script>
+      // Inizializzazione immediata tema per prevenire flash
+      (function() {
+          let savedTheme = null;
+          try {
+              savedTheme = localStorage.getItem('theme');
+          } catch (e) {
+              console.warn('Impossibile accedere a localStorage:', e);
+          }
+          const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+          const theme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
+          document.documentElement.setAttribute('data-theme', theme);
+      })();
+  </script>
 
   <style>
     /* --- RESET E VARIABILI (Coerenti con il Design System del sito) --- */
@@ -19,6 +33,21 @@
       --text-muted: #B0B0B0;       /* Testo secondario */
       --accent: #D4AF37;           /* Oro */
       --accent-hover: #F8D568;     /* Oro chiaro */
+      
+      --title-color: #ffffff;
+      --divider-color: rgba(255, 255, 255, 0.1);
+      --shadow: rgba(0, 0, 0, 0.5);
+    }
+
+    [data-theme="light"] {
+      --bg-color: #F5F5F7;
+      --card-bg: #FFFFFF;
+      --text-main: #1D1D1F;
+      --text-muted: #515154;
+      
+      --title-color: #1D1D1F;
+      --divider-color: rgba(0, 0, 0, 0.08);
+      --shadow: rgba(0, 0, 0, 0.06);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -52,24 +81,26 @@
       background-color: var(--card-bg);
       width: 100%; max-width: 800px; padding: 40px;
       border-radius: 12px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      box-shadow: 0 10px 30px var(--shadow);
+      border: 1px solid var(--divider-color);
+      transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     }
 
     /* --- TIPOGRAFIA --- */
     h1 {
       font-family: 'Playfair Display', serif; /* Coerenza con il resto del sito */
-      font-size: 2rem; font-weight: 700; color: #fff;
+      font-size: 2rem; font-weight: 700; color: var(--title-color);
       margin-bottom: 10px; padding-bottom: 20px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid var(--divider-color);
+      transition: color 0.3s ease, border-color 0.3s ease;
     }
     h2 {
       font-family: 'Playfair Display', serif;
       font-size: 1.25rem; color: var(--accent);
       margin-top: 30px; margin-bottom: 10px; font-weight: 600;
     }
-    p { margin-bottom: 15px; font-size: 1rem; color: var(--text-main); }
-    b, strong { color: #fff; font-weight: 600; }
+    p { margin-bottom: 15px; font-size: 1rem; color: var(--text-main); transition: color 0.3s ease; }
+    b, strong { color: var(--title-color); font-weight: 600; transition: color 0.3s ease; }
 
     /* --- LINK --- */
     a.link-external {
@@ -83,8 +114,9 @@
     /* --- FOOTER --- */
     .footer-note {
       margin-top: 40px; padding-top: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid var(--divider-color);
       font-size: 0.85rem; color: var(--text-muted); text-align: center;
+      transition: border-color 0.3s ease, color 0.3s ease;
     }
 
     /* --- RESPONSIVE --- */

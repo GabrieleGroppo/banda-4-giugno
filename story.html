@@ -4,10 +4,18 @@
     <title>Banda 4 Giugno 1859 - Storia</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="La storia della Banda 4 Giugno 1859 di Magenta, dal 1892 ad oggi.">
     <link rel="icon" type="image/x-icon" href="images/favicon.png">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <script src="script.js"></script>
+    <script>
+        (function() {
+            let t = null;
+            try { t = localStorage.getItem('theme'); } catch (_) {}
+            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+            document.documentElement.setAttribute('data-theme', t || (prefersDark ? 'dark' : 'light'));
+        })();
+    </script>
 </head>
 <body>
 
@@ -20,7 +28,12 @@
                 <li><a href="school.html">Scuola</a></li>
             </ul>
         </nav>
-        <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        <div class="header-actions">
+            <button id="theme-toggle" class="theme-toggle-btn" aria-label="Cambia tema">
+                <i class="fas fa-sun"></i>
+            </button>
+            <div class="hamburger" onclick="toggleMenu()"><i class="fas fa-bars"></i></div>
+        </div>
     </header>
 
     <section style="padding-top: 150px; text-align: center;">
@@ -81,20 +94,36 @@
     </section>
 
     <footer id="contacts">
-        <div class="logo" style="margin-bottom: 30px;">
-            <img src="images/logo_bianco.png" alt="Logo" style="height: 60px; opacity: 0.8;">
+        <img src="images/logo_bianco.png" alt="Logo Banda 4 Giugno 1859" class="footer-logo">
+
+        <div class="footer-info">
+            <p>
+                <a href="https://www.google.com/maps/search/?api=1&query=Via+Roma+182+Magenta+MI" target="_blank" rel="noopener" class="footer-link">
+                    <i class="fas fa-map-marker-alt"></i> Via Roma 182, 20013 Magenta (MI)
+                </a>
+            </p>
+            <p>
+                <a href="mailto:banda4giugno1859@gmail.com" class="footer-link">
+                    <i class="fas fa-envelope"></i> banda4giugno1859@gmail.com
+                </a>
+            </p>
         </div>
-        <div style="margin-bottom: 30px; color: var(--text-gray);">
-            <p><i class="fas fa-map-marker-alt" style="color: var(--accent-gold); margin-right: 10px;"></i> Via Roma 182, 20013 Magenta (MI)</p>
-            <p><i class="fas fa-envelope" style="color: var(--accent-gold); margin-right: 10px;"></i> banda4giugno1859@gmail.com</p>
-        </div>
+
         <div class="social-icons">
-            <a href="https://www.instagram.com/banda4giugno1859" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.facebook.com/groups/132283506879758/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/banda4giugno1859" target="_blank" rel="noopener" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.facebook.com/groups/132283506879758/" target="_blank" rel="noopener" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
         </div>
-        <p style="font-size: 0.8rem; margin-top: 30px;">&copy; 2025 Banda 4 Giugno 1859. P.I. 01300490156</p>
-        <a href="privacy.html" style="font-size: 0.8rem; color: var(--text-gray); text-decoration: underline;">Privacy Policy</a>
+
+        <div class="footer-meta">
+            <p>&copy; 2025 Banda 4 Giugno 1859. P.I. 01300490156</p>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>
